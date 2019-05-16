@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "Fairy Ring",
+  "version": "0.1.0",
+  "description": "Fairyland Game Extension",
+  "browser_action": {
+	"default_title": "Fairy Ring",
+	"default_icon": "icons/mushroom.png",
+    "default_popup": "src/options.html"
+  },
+  "options_ui": {
+	"page": "src/options.html",
+	"open_in_tab": false
+ },
+  "permissions": [
+  "storage",
+  "https://www.fairylandgame.com/*"],
+  "content_scripts": [{
+	"matches": ["https://www.fairylandgame.com/fbfairy/fairygarden.php*", "https://www.fairylandgame.com/fbfairy/wildlifewall.php*", "https://www.fairylandgame.com/fbfairy/"],
+	"js": ["src/jquery.js", "src/maxtimes.js", "src/defaults.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/main.js"]
+  }]
+ 
+}

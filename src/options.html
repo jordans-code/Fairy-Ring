@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Test Extension Options</title>
+</head>
+<style>
+.tab {
+	width: 300px;
+	height: 43px;
+	border: 2px solid #ccc;
+	background-color: #f1f1f1;
+}
+.tab button {
+  width: 100px;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+</style>
+<body>
+<script src="jquery.js"></script>
+<script src="jscolor.js"></script>
+
+<div class="tab">
+  <button class="tablinks" id="settingstab">Settings</button>
+  <button class="tablinks" id="thresholdstab">Thresholds</button>
+  <button class="tablinks" id="abouttab">About</button>
+</div>
+
+<div id="Settings" class="tabcontent">
+	<br>
+	<label>
+	  <input type="checkbox" id="hidenofood">
+	  Hide gardens with no food (on the home page).
+	</label>
+	
+	
+	<br><br>
+	<label>
+	  <input type="checkbox" id="foodoverlay">
+	  Display % chance and visit window over food plates.
+	</label>
+
+	<br><br>
+	<label>
+	  <input type="checkbox" id="colorgardentext">
+	  Change color of food % chance to match threshold colors. 
+	</label>
+
+	<br><br>
+	<label>
+	  <input type="checkbox" id="toprightchance">
+	  Display total wildlife % chance for the garden in the top right corner of a garden window. 
+	</label>
+	<br><br>
+
+	<label>
+	  <input type="checkbox" id="colorborder">
+	  Change color of garden border to match threshold colors of overall % chance. 
+	</label>
+	<br><br>
+	
+	<label>
+	  <input type="checkbox" id="waterbutton">
+	  Left click on garden plants to water them (the plant itself, not the popup)
+	</label>
+	<br><br>
+	
+	<label>
+	  <input type="checkbox" id="autosnail">
+	  Automatically complete snail races. Choice:
+	</label>
+	<label>
+	  <select id="snailchoice">
+		<option value="1">Snail 1</option>
+		<option value="2">Snail 2</option>
+		<option value="3">Snail 3</option>
+		<option value="4">Snail 4</option>
+		<option value="5">Snail 5</option>
+		</select>
+	</label>
+	<br><br>
+	<label>
+	  <input type="checkbox" id="automsg">
+	  Automatically type the below message on gardens (you still have to click post). 
+	</label>
+	<br>
+
+	<br>
+	
+	<label>
+	<div>
+	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
+	</div>
+	  </label>
+	<br>
+</div>
+
+<div id="Thresholds" class="tabcontent">
+	<br>Wildlife Threshold  1
+	<br>% chance <= <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
+	<input id="threshold1c" class="jscolor" style="width: 55px"> 
+
+	<br><br>Wildlife Threshold  2
+	<br>% chance < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold2c" class="jscolor" style="width: 55px">
+
+	<br><br>Wildlife Threshold  3
+	<br>% chance < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold3c" class="jscolor" style="width: 55px">
+
+	<br><br>Wildlife Threshold  4
+	<br>% chance < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold4c" class="jscolor" style="width: 55px">
+
+	<br><br>Wildlife Threshold  5
+	<br>% chance < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold5c" class="jscolor" style="width: 55px">
+
+	<br><br>Wildlife Threshold  6
+	<br>% chance <= 100 <input id="threshold6c" class="jscolor" style="width: 92px">
+	<br>(anything above threshold 5)
+	<br>
+
+</div>
+<div id="About" class="tabcontent">
+<br>
+	<label>
+	  <input type="checkbox" id="debug">
+	  Show the math calculations/debug information in console (hit f12). 
+	</label>
+	<br>
+	<br>
+<b>App source:</b> <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
+<br>
+<br>
+If you need assistance or wish to provide feedback, feel free to
+<a href="https://www.fairylandgame.com/fbfairy/fairywall.php?flid=70776656675200600226633" target="_blank"> drop by my wall. </a>
+</div>
+	<br>
+	<div id="status"></div>
+	<div class="tab">
+	<button id="save" style="color: green;">Save</button>
+	<button id="clearcheck" style="color: red; float: right;">Reset</button>
+	</div>
+	<script src="defaults.js"></script>
+	<script src="options.js"></script>
+	
+<script src="tabs.js"></script>
+
+</body>
+</html>
