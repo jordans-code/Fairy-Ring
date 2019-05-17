@@ -348,12 +348,25 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	}
 }
 
-function calc(settings, type, current) { // Returns dict with probabilities
+function newspot() {
+	if ($('.standard_message.status').children().eq(0).children().eq(1).html() == null || $('.standard_message.status').children().eq(0).children().eq(1).html() == "") {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function calc(settings, type, current, prior, priordict) { // Returns dict with probabilities
 	var maxtime = 3600; // max time any wildlife could possibly stay for
 	var time = 0;
 	var overtime = 0;
 	var lfeed = current["lastfeed"];
-	var water = getwater();
+	if (prior && newspot()) { // use old water time if the garden was just watered and wildlife spotted
+		if (settings.debug) {["console.log("Wildlife spotted, not refreshing water.");}
+		var water = priordict["lastwater"];
+	} else {
+		var water = getwater();
+	}
 	if (current["lastfeed"] < 0) { // fresh
 		var mtime = type["maxftime"];
 		var vtime = current["leftout"];
@@ -361,7 +374,7 @@ function calc(settings, type, current) { // Returns dict with probabilities
 		if (activetime < 0) {
 			
 			if (settings.debug) {console.log("There is no chance of wildlife here currently.");}
-			return [0, mtime, activetime];
+			return [0, mtime, activetime, water];
 		}
 		if (activetime > maxtime) {
 			overtime = activetime - maxtime;
@@ -386,6 +399,7 @@ function calc(settings, type, current) { // Returns dict with probabilities
 		//var fin = [(current["leftout"] - 5) / mtime, mtime];
 		var fin = [time / (mtime - overtime), mtime];
 		fin.push(activetime);
+		fin.push(water);
 		if (settings.debug) {console.log("This food was left out " + vtime/60 + "mins ago.");
 		console.log("This food type's max time between first visits is " + mtime/60);
 		console.log("There is " + Math.floor(fin[0]*100) + "% chance that wildlife is here. Time since slot opened (capped at 60mins for longest wildlife) / (max time between visits - overtime (when slot time goes over 60 it goes here, starts at 0)" + ` ${time/60} / (${mtime/60}-${overtime/60})`);}
@@ -403,7 +417,7 @@ function calc(settings, type, current) { // Returns dict with probabilities
 		if (settings.debug) {console.log("This slot has been opened for at least " + activetime/60 + " minutes");}
 		if (activetime < 0) {
 			if (settings.debug) {console.log("There is no chance of wildlife here currently.");}
-			return [0, mtime, activetime];
+			return [0, mtime, activetime, water];
 		}
 		if (activetime > maxtime) {
 			overtime = activetime - maxtime;
@@ -429,13 +443,14 @@ function calc(settings, type, current) { // Returns dict with probabilities
 		//var fin = [(lfeed - vtime) / mtime, mtime];
 		var fin = [time / (mtime - overtime), mtime];
 		fin.push(activetime);
+		fin.push(water);
 		if (settings.debug) {console.log("This food type's max time between visits is " + mtime/60 + " mins (this considers fresh food as it has a different window)");
 		console.log("There is " + Math.floor(fin[0]*100) + "% chance that wildlife is on this plate. Formula: Activetime / (max time between visits - overtime " + ` ${time/60} / (${mtime/60}-${overtime/60})`);}
 		return fin;
 	}
 }
 
-function logic(settings, dict) { // config values for timings and calls calc() to set percentages
+function logic(settings, dict, prior, priordict) { // config values for timings and calls calc() to set percentages
 	var ActiveFood = dict['ActiveFood'];
 	var superfood = {
 		"minftime": 0,  // Unknown if minimum times exist for fresh food, if they do this can be changed.
@@ -457,15 +472,15 @@ function logic(settings, dict) { // config values for timings and calls calc() t
 		switch(current["type"]) {
 			case 0: // SF
 			case 5: // cake
-				matharr = calc(settings, superfood, current);
+				matharr = calc(settings, superfood, current, prior, priordict);
 				break;
 			case 1: // Double Organic
 			case 2: // Organic
-				matharr = calc(settings, organic, current);
+				matharr = calc(settings, organic, current, prior, priordict);
 				break;
 			case 3: // Double Regular
 			case 4: // Regular
-				matharr = calc(settings, regular, current);
+				matharr = calc(settings, regular, current, prior, priordict);
 				break;
 			case 6: // Null
 				console.log("Food error in logic()");
@@ -475,6 +490,7 @@ function logic(settings, dict) { // config values for timings and calls calc() t
 		Final[i]["math1"] = matharr[0]; // percent chance this plate is due
 		Final[i]["math2"] = matharr[1]; // maxtimum time betweens visit for food
 		Final[i]["math3"] = matharr[2]; // activetime
+		Final["lastwater"] = matharr[3]; // lastwater
 	}
 	return Final;
 }
@@ -502,18 +518,24 @@ function autosnail(settings) { // Automatically does snail game for you
 		}
 	}
 }
-function waterbutton(settings) { // allows clicking plants to water them
-	if (settings.waterbutton) {
-		var gardenobjs = $('.link');
-		for (i = 0; i < gardenobjs.length; i++) {
-			if (gardenobjs[i].innerHTML == "Water It") {
-				var obj = gardenobjs[i];
+function waterbutton(settings, finaldict) { // allows clicking plants to water them
+
+	var gardenobjs = $('.link');
+	for (i = 0; i < gardenobjs.length; i++) {
+		if (gardenobjs[i].innerHTML == "Water It") {
+			var obj = gardenobjs[i];
+			$('.link').eq(i).on("click", function() {  // Normal water button
+					setTimeout(function() {
+						garden(settings, true, finaldict); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
+					}, 450);
+			});
+			if (settings.waterbutton) {
 				var plantid = obj.outerHTML.slice(34, -23);
 				$(`#plantdiv${plantid}`).attr('onclick', `water(${plantid},null)`);
 				// I need to fix some things with this, but can make it so garden auto refreshes with percent chance
 				$(`#plantdiv${plantid}`).on("click", function() {  
 					setTimeout(function() {
-						garden(settings, true);
+						garden(settings, true, finaldict); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
 					}, 450);
 				});
 			}
@@ -521,7 +543,7 @@ function waterbutton(settings) { // allows clicking plants to water them
 	}
 }
 
-function garden(settings, prior) { // calls all functions required when on a garden page
+function garden(settings, prior, priordict) { // calls all functions required when on a garden page
 	
 	var Plantarray = fetcher();
 	var food = parser(Plantarray);
@@ -530,11 +552,11 @@ function garden(settings, prior) { // calls all functions required when on a gar
 	var feedsleft = getfeeds(typefood);
 	var leftout = getleftout(feedsleft);
 	var lastfeed = getlastfeed(leftout);
-	var logicarr = logic(settings, lastfeed);
+	var logicarr = logic(settings, lastfeed, prior, priordict);
 	Write(logicarr, settings, prior);
 	rmnotification(settings);
 	writemessage(settings);
-	waterbutton(settings);
+	waterbutton(settings, logicarr);
 	autosnail(settings);
 	if (settings.debug) {console.log(logicarr);}
 }
