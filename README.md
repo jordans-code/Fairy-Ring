@@ -50,7 +50,6 @@ The calculations involving wildlife have come a long way, but there are some bit
 * It is impossible to determine the exact stay time if the wildlife was spotted. If it was not spotted then the exact slot time is known and used, but usually this is not the case. Currently this app uses the maximum stay time for the last visiting wildlife (superfood is always max), but this could be updated to be an average between the max and min for regular and organic food.
 * The calculation currently does not take into consideration the specific wildlife that a garden can attract along with the rarity.
 * The rarity and how much of a factor it is is an unknown variable, along with the numbers behind how deterrants function.
-* Watering a garden assumes that all plates have been checked, the issue is if one person waters and spots wildlife on one plate then the other plate has not yet been checked. 
 
 Fixing some of these will require more data and input from the community.
 
