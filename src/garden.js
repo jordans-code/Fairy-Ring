@@ -362,7 +362,7 @@ function calc(settings, type, current, prior, priordict) { // Returns dict with 
 	var overtime = 0;
 	var lfeed = current["lastfeed"];
 	if (prior && newspot()) { // use old water time if the garden was just watered and wildlife spotted
-		if (settings.debug) {["console.log("Wildlife spotted, not refreshing water.");}
+		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
 	} else {
 		var water = getwater();
