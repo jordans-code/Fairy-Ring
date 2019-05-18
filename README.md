@@ -4,14 +4,15 @@
 ## Table of contents
 <!--ts-->
    * [Versions](#Versions)
-   * [Features](#Features)
+   * Features
       * [Wildlife Calculations](#wildlifecalc)
       * [Quality of life](#qol)
       * [Planned Features](#planned)
    * [FAQ](#faq)
    * [Limitations / Current Issues](#issues)
-   * [License](#license)
+   * [Contributing](#contribute)
    * [Acknowledgments](#acknowledgments)
+   * [License](#license)
 <!--te-->
 
 <a name="Versions"></a>
@@ -80,9 +81,9 @@ The calculations involving wildlife have come a long way, but there are some bit
 
 Fixing some of these will require more data and input from the community.
 
-<a name="license"></a>
-## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+<a name="contribute"></a>
+## Contributing
+If any are interested I would love to see pull requests, submit all pull-requests to the master branch.
 
 <a name="acknowledgements"></a>
 ## Acknowledgments
@@ -90,3 +91,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Thanks to Mike (developer of Fairyland) for a great game.
 * Thanks to jscolor (Jan Odvarko)
 * Thanks to the community
+
+<a name="license"></a>
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
