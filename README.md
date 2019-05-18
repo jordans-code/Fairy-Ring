@@ -1,5 +1,13 @@
 # Fairy-Ring
-### *A browser extension for fairylandgame.com*
+<br>
+<div align="center">
+*A browser extension for fairylandgame.com*
+
+<p>
+<a target="_blank" href="https://opensource.org/licenses/MIT" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-travis/issues"></a>
+</p>
+</div>
 
 ## Table of contents
 <!--ts-->
