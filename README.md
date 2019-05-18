@@ -1,28 +1,55 @@
 # Fairy-Ring
-*A browser extension for Fairylandgame.com*
+### *A browser extension for fairylandgame.com*
 
-## Features: 
+## Table of contents
+<!--ts-->
+   * [Versions](#Versions)
+   * [Features](#Features)
+      * [Wildlife Calculations](#wildlifecalc)
+      * [Quality of life](#qol)
+      * [Planned Features](#planned)
+   * [FAQ](#faq)
+   * [Limitations / Current Issues](#issues)
+   * [License](#license)
+   * [Acknowledgments](#acknowledgments)
+<!--te-->
+
+<a name="Versions"></a>
+## Versions
+### BETA 0.2.0:
++ Initial beta release, expect frequent changes/some gliches. 
+
+<a name="Features"></a>
+## Features
+
+<a name="wildlifecalc"></a>
 ### Wildlife Calculations
 * This app will look at a loaded garden page and calculate the percent chance of wildlife in the garden, on a given plate, and the time period that a plate is able to recieve new wildlife.
 * Ability to embed the calculated information right into the page for quick decisions.
 * Ability to set custom percentages to alert, along with the ability to set custom colors to go with them.
-* Ability to set a custom message to automatically type on every visited garden (you will still have to hit "post").
 
+<a name="qol"></a>
 ### Quality of life
-* Ability to hide gardens which do not currently contain food
-* Ability to automatically complete minigames
-* Ability to click a plant to instantly water it (rather than navigating the menu)
+* Ability to hide gardens which do not currently contain food.
+* Ability to automatically complete minigames.
+* Ability to click a plant directly to water it.
+* Ability to set a custom message to automatically type on every visited garden (you will still have to hit "post").
 * Wildlife pages now have two additional buttons:
   * Open all (opens all garden links on the page instantly)
   * Next (no more having to scroll down each time).
 
+<a name="planned"></a>
 ### Planned Features
 * Improve calculation algorithm as more data is aquired
 * Display users who have blocked you/hide their gardens so you do not waste your time. 
 * Potentially display all of the possible wildlife a garden can have below the garden window (like how wildlifecalc does). I could increase the accuracy of the calculation by this as well. 
 * Dark theme - I experimented with changing the colors of fairyland, the issue is there are some bits that look rather ugly that cannot be changed easily as they are embedded images. 
 
+<a name="faq"></a>
 ## FAQ
+*How do I turn on features or change the configuration?*
+Once installed, click on the app in the top right of your screen (look for the mushroom).
+
 *What is the algorithm used for wildlife?*
 
 Currently the calculation is as follows:
@@ -43,7 +70,7 @@ If additional plates in the garden exist and have a chance of containing wildlif
 
 * Final percent = 100 * (1 - ((1 - duepercent) * (1 - duepercent2)))
 
-
+<a name="issues"></a>
 ## Limitations / Current Issues
 The calculations involving wildlife have come a long way, but there are some bits of information missing or not yet implemented which keep the percentage from being as accurate as it can be. 
 
@@ -53,11 +80,11 @@ The calculations involving wildlife have come a long way, but there are some bit
 
 Fixing some of these will require more data and input from the community.
 
-
+<a name="license"></a>
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-
+<a name="acknowledgements"></a>
 ## Acknowledgments
 
 * Thanks to Mike (developer of Fairyland) for a great game.
