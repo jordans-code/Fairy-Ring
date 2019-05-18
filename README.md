@@ -1,7 +1,7 @@
 # Fairy-Ring
 <br>
 <div align="center">
-*A browser extension for fairylandgame.com*
+A browser extension for fairylandgame.com
 
 <p>
 <a target="_blank" href="https://opensource.org/licenses/MIT" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
