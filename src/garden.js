@@ -323,6 +323,8 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]));
 	} else if (duepercentarr.length == 3 ) {
 		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]) * (1 - duepercentarr[2]));
+	} else if (duepercentarr.length == 4 ) { // birdbath
+		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]) * (1 - duepercentarr[2]) * (1 - duepercentarr[3]));
 	} else {
 		var duepercent = duepercentarr[0];
 	}
@@ -505,7 +507,6 @@ function rmnotification(settings) { // removes notifications in top right when o
 } 
 
 function writemessage(settings, prior, newspot) { 
-	console.log(newspot);
 	if (prior && newspot && settings.newspotmsg) {
 		var msg = settings.newmsgtext.split("(critter)");
 		if (msg.length > 1) {
