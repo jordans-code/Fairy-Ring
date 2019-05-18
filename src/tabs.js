@@ -29,4 +29,7 @@ document.getElementById("abouttab").addEventListener("click", function() {
 document.getElementById("thresholdstab").addEventListener("click", function() {
 	openTab(event, "Thresholds");
 	});
+document.getElementById("autotab").addEventListener("click", function() {
+	openTab(event, "Auto");
+	});
 document.getElementById("settingstab").click();

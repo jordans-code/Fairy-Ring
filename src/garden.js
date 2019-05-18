@@ -348,11 +348,13 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	}
 }
 
-function newspot() {
-	if ($('.standard_message.status').children().eq(0).children().eq(1).html() == null || $('.standard_message.status').children().eq(0).children().eq(1).html() == "") {
+function checknewspot() {
+	var spot = $('.standard_message.status').children().eq(0).children().eq(1).html();
+	console.log(spot);
+	if (spot == null || spot == "") {
 		return false;
 	} else {
-		return true;
+		return spot;
 	}
 }
 
@@ -361,7 +363,8 @@ function calc(settings, type, current, prior, priordict) { // Returns dict with 
 	var time = 0;
 	var overtime = 0;
 	var lfeed = current["lastfeed"];
-	if (prior && newspot()) { // use old water time if the garden was just watered and wildlife spotted
+	var newspot = current["newspot"];
+	if (prior && newspot) { // use old water time if the garden was just watered and wildlife spotted
 		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
 	} else {
@@ -501,10 +504,22 @@ function rmnotification(settings) { // removes notifications in top right when o
 	}
 } 
 
-function writemessage(settings) { 
-	if (settings.automsg) {
+function writemessage(settings, prior, newspot) { 
+	console.log(newspot);
+	if (prior && newspot && settings.newspotmsg) {
+		var msg = settings.newmsgtext.split("(critter)");
+		if (msg.length > 1) {
+			var Final = msg;
+			for (i = msg.length-1; i > 0; i--) {
+				Final.splice(i, 0, newspot);
+			}
+			$('#wall_message')[0].value = Final.join("");
+		} else {
+			$('#wall_message')[0].value = msg[0]
+		}
+	} else if (settings.automsg && !prior) {
 		$('#wall_message')[0].value = settings.msg;
-	}
+	} 
 }
 
 function autosnail(settings) { // Automatically does snail game for you
@@ -552,10 +567,11 @@ function garden(settings, prior, priordict) { // calls all functions required wh
 	var feedsleft = getfeeds(typefood);
 	var leftout = getleftout(feedsleft);
 	var lastfeed = getlastfeed(leftout);
+	if (prior) {lastfeed["newspot"] = checknewspot();} // check it here in case there is no food left.
 	var logicarr = logic(settings, lastfeed, prior, priordict);
 	Write(logicarr, settings, prior);
 	rmnotification(settings);
-	writemessage(settings);
+	writemessage(settings, prior, lastfeed["newspot"]);
 	waterbutton(settings, logicarr);
 	autosnail(settings);
 	if (settings.debug) {console.log(logicarr);}

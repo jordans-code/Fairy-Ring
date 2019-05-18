@@ -10,7 +10,6 @@
 	background-color: #f1f1f1;
 }
 .tab button {
-  width: 100px;
   background-color: inherit;
   float: left;
   border: none;
@@ -36,53 +35,53 @@
 <div class="tab">
   <button class="tablinks" id="settingstab">Settings</button>
   <button class="tablinks" id="thresholdstab">Thresholds</button>
+  <button class="tablinks" id="autotab">Typer</button>
   <button class="tablinks" id="abouttab">About</button>
+  
 </div>
 
 <div id="Settings" class="tabcontent">
 	<br>
-	<label>
+	<div id="divhidenofood" style="">
 	  <input type="checkbox" id="hidenofood">
 	  Hide gardens with no food (on the home page).
-	</label>
+	</div>
 	
-	
-	<br><br>
-	<label>
+	<br>
+	<div id="divfoodoverlay" style="">
 	  <input type="checkbox" id="foodoverlay">
 	  Display % chance and visit window over food plates.
-	</label>
-
-	<br><br>
-	<label>
+	</div>
+	
+	<br>
+	<div id="divcolorgardentext" style="">
 	  <input type="checkbox" id="colorgardentext">
 	  Change color of food % chance to match threshold colors. 
-	</label>
-
-	<br><br>
-	<label>
+	</div>
+	
+	<br>
+	<div id="divtoprightchance" style="">
 	  <input type="checkbox" id="toprightchance">
 	  Display total wildlife % chance for the garden in the top right corner of a garden window. 
-	</label>
-	<br><br>
+	</div>
 
-	<label>
+	<br>
+	<div id="divcolorborder" style="">
 	  <input type="checkbox" id="colorborder">
 	  Change color of garden border to match threshold colors of overall % chance. 
-	</label>
-	<br><br>
+	  </div>
 	
-	<label>
+	<br>
+	<div id="divwaterbutton" style="">
 	  <input type="checkbox" id="waterbutton">
 	  Left click on garden plants to water them (the plant itself, not the popup)
-	</label>
-	<br><br>
+	</div>
 	
-	<label>
+	<br>
+	<div id="divautosnail" style="">
 	  <input type="checkbox" id="autosnail">
-	  Automatically complete snail races. Choice:
-	</label>
-	<label>
+	  Automatically complete snail races. 
+	  
 	  <select id="snailchoice">
 		<option value="1">Snail 1</option>
 		<option value="2">Snail 2</option>
@@ -90,47 +89,57 @@
 		<option value="4">Snail 4</option>
 		<option value="5">Snail 5</option>
 		</select>
-	</label>
-	<br><br>
-	<label>
+	</div>
+</div>
+
+<div id="Auto" class="tabcontent">
+	<br>
+	<div id="divautomsg" style="">
 	  <input type="checkbox" id="automsg">
 	  Automatically type the below message on gardens (you still have to click post). 
-	</label>
-	<br>
-
 	<br>
 	
-	<label>
 	<div>
 	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
 	</div>
-	  </label>
+	</div>
+	
+	<br>
+	<div id="divnewspotmsg" style="">
+	  <input type="checkbox" id="newspotmsg">
+	  Change the message above to this if you spot a wildlife. Note: (critter) is replaced by the name of what you spotted!
+
+	<br>
+	
+	<div>
+	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
+	</div>
+	  </div>
 	<br>
 </div>
-
 <div id="Thresholds" class="tabcontent">
 	<br>Wildlife Threshold  1
 	<br>% chance <= <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
-	<input id="threshold1c" class="jscolor" style="width: 55px"> 
+	<input id="threshold1c" class="jscolor" style="width: 120px"> 
 
 	<br><br>Wildlife Threshold  2
 	<br>% chance < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold2c" class="jscolor" style="width: 55px">
+	<input id="threshold2c" class="jscolor" style="width: 120px">
 
 	<br><br>Wildlife Threshold  3
 	<br>% chance < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold3c" class="jscolor" style="width: 55px">
+	<input id="threshold3c" class="jscolor" style="width: 120px">
 
 	<br><br>Wildlife Threshold  4
 	<br>% chance < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold4c" class="jscolor" style="width: 55px">
+	<input id="threshold4c" class="jscolor" style="width: 120px">
 
 	<br><br>Wildlife Threshold  5
 	<br>% chance < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold5c" class="jscolor" style="width: 55px">
+	<input id="threshold5c" class="jscolor" style="width: 120px">
 
 	<br><br>Wildlife Threshold  6
-	<br>% chance <= 100 <input id="threshold6c" class="jscolor" style="width: 92px">
+	<br>% chance <= 100 <input id="threshold6c" class="jscolor" style="width: 157px">
 	<br>(anything above threshold 5)
 	<br>
 
@@ -144,6 +153,7 @@
 	<br>
 	<br>
 <b>App source:</b> <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
+<br>You are running version 0.2.0
 <br>
 <br>
 If you need assistance or wish to provide feedback, feel free to
@@ -152,8 +162,8 @@ If you need assistance or wish to provide feedback, feel free to
 	<br>
 	<div id="status"></div>
 	<div class="tab">
-	<button id="save" style="color: green;">Save</button>
-	<button id="clearcheck" style="color: red; float: right;">Reset</button>
+	<button id="save" style="color: green;padding-right: 50px; padding-left: 50px">Save</button>
+	<button id="clearcheck" style="color: red; float: right; padding-right: 50px; padding-left: 50px">Reset</button>
 	</div>
 	<script src="defaults.js"></script>
 	<script src="options.js"></script>

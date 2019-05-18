@@ -27,6 +27,8 @@ function save_options() {
   var snailchoice = document.getElementById('snailchoice').value;
   var automsg = document.getElementById('automsg').checked;
   var msg = document.getElementById('msg').value;
+  var newspotmsg = document.getElementById('newspotmsg').checked;
+  var newmsgtext = document.getElementById('newmsgtext').value;
   var debug = document.getElementById('debug').checked;
   var threshold1 = document.getElementById('threshold1').value;
   var threshold2 = document.getElementById('threshold2').value;
@@ -50,6 +52,8 @@ function save_options() {
 	snailchoice: snailchoice,
 	automsg: automsg,
 	msg: msg,
+	newspotmsg: newspotmsg,
+	newmsgtext: newmsgtext,
 	debug: debug,
 	threshold1: threshold1,
 	threshold2: threshold2,
@@ -86,6 +90,8 @@ function restore_options() {
 	document.getElementById('snailchoice').value = items.snailchoice;
 	document.getElementById('automsg').checked = items.automsg;
 	document.getElementById('msg').value = items.msg;
+	document.getElementById('newspotmsg').checked = items.newspotmsg;
+	document.getElementById('newmsgtext').value = items.newmsgtext;
 	document.getElementById('debug').checked = items.debug;
 	document.getElementById("threshold1").value = items.threshold1;
 	document.getElementById("threshold2").value = items.threshold2;
@@ -104,6 +110,17 @@ function restore_options() {
 	$('#threshold4c').css('background-color', getrgb(items.threshold4c));
 	$('#threshold5c').css('background-color', getrgb(items.threshold5c));
 	$('#threshold6c').css('background-color', getrgb(items.threshold6c));
+	var color = "#FFBFB3";
+	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
+	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
+	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
+	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
+	if (!items.colorborder) { $('#divcolorborder').css('background-color', color)}
+	if (!items.waterbutton) { $('#divwaterbutton').css('background-color', color)}
+	if (!items.autosnail) { $('#divautosnail').css('background-color', color)}
+	if (!items.automsg) { $('#divautomsg').css('background-color', color)}
+	if (!items.newspotmsg) { $('#divnewspotmsg').css('background-color', color)}
+	if (!items.debug) { $('#divdebug').css('background-color', color)}
   });
 }
 
