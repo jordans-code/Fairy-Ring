@@ -9,7 +9,7 @@ var defaults = {
 	snailchoice: "3",
 	automsg: false,
 	msg: '',
-	debug: true,
+	debug: false,
 	threshold1: 0,
 	threshold2: 15,
 	threshold3: 30,
