@@ -83,7 +83,7 @@ Fixing some of these will require more data and input from the community.
 
 <a name="contribute"></a>
 ## Contributing
-If any are interested I would love to see pull requests, submit all pull-requests to the master branch.
+If you are interested in contributing I would love to see a pull request. Submit all pull-requests to the master branch.
 
 <a name="acknowledgements"></a>
 ## Acknowledgments
