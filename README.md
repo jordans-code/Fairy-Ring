@@ -25,6 +25,9 @@ A browser extension for fairylandgame.com
 
 <a name="Versions"></a>
 ## Versions
+### BETA 0.2.1:
++ Bug fixes. 
+
 ### BETA 0.2.0:
 + Initial beta release, expect frequent changes/some gliches. 
 
