@@ -360,12 +360,11 @@ function checknewspot() {
 	}
 }
 
-function calc(settings, type, current, prior, priordict) { // Returns dict with probabilities
+function calc(settings, type, current, prior, priordict, newspot) { // Returns dict with probabilities
 	var maxtime = 3600; // max time any wildlife could possibly stay for
 	var time = 0;
 	var overtime = 0;
 	var lfeed = current["lastfeed"];
-	var newspot = current["newspot"];
 	if (prior && newspot) { // use old water time if the garden was just watered and wildlife spotted
 		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
@@ -477,15 +476,15 @@ function logic(settings, dict, prior, priordict) { // config values for timings 
 		switch(current["type"]) {
 			case 0: // SF
 			case 5: // cake
-				matharr = calc(settings, superfood, current, prior, priordict);
+				matharr = calc(settings, superfood, current, prior, priordict, dict["newspot"]);
 				break;
 			case 1: // Double Organic
 			case 2: // Organic
-				matharr = calc(settings, organic, current, prior, priordict);
+				matharr = calc(settings, organic, current, prior, priordict, dict["newspot"]);
 				break;
 			case 3: // Double Regular
 			case 4: // Regular
-				matharr = calc(settings, regular, current, prior, priordict);
+				matharr = calc(settings, regular, current, prior, priordict, dict["newspot"]);
 				break;
 			case 6: // Null
 				console.log("Food error in logic()");
