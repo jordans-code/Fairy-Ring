@@ -65,9 +65,11 @@ Initial beta release, expect frequent changes/some gliches.
 <a name="faq"></a>
 ## FAQ
 *Why isn't the extension loading?*
+
 The extension will only work on <a href="https://www.fairylandgame.com/fbfairy/" target="_blank">the official fairyland site,</a> it will not work on Facebook.
 
 *How do I turn on features or change the configuration?*
+
 Once installed, click on the app in the top right of your screen (look for the mushroom).
 
 *What is the algorithm used for wildlife?*
