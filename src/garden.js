@@ -558,6 +558,24 @@ function waterbutton(settings, finaldict) { // allows clicking plants to water t
 	}
 }
 
+function addrefresh(settings) { // Adds listeners for the built in refresh buttons on the garden
+
+	$('#gardenrefresh_icon').on("click", function() {  // refresh button
+		setTimeout(function() {
+			if ($('.foodwindow').length == 0) { // need to check this as fairyland has a timeout where it wont actually refresh the garden.
+				garden(settings, true, false);
+			}
+		}, 450);
+	});
+	$('.gardenskin').eq(0).on("click", function() {  // Garden name button
+		setTimeout(function() {
+			if ($('.foodwindow').length == 0) { // need to check this as fairyland has a timeout where it wont actually refresh the garden.
+				garden(settings, true, false);
+			}
+		}, 450);
+	});
+}
+
 function garden(settings, prior, priordict) { // calls all functions required when on a garden page
 	
 	var Plantarray = fetcher();
@@ -573,6 +591,7 @@ function garden(settings, prior, priordict) { // calls all functions required wh
 	rmnotification(settings);
 	writemessage(settings, prior, lastfeed["newspot"]);
 	waterbutton(settings, logicarr);
+	addrefresh(settings);
 	autosnail(settings);
 	if (settings.debug) {console.log(logicarr);}
 }
