@@ -25,11 +25,16 @@ A browser extension for fairylandgame.com
 
 <a name="Versions"></a>
 ## Versions
+
+### BETA 0.2.2:
+Bug fixes 
++ App now loads UI upon clicking the in-built "refresh garden" button, and the refresh button on the title.
+
 ### BETA 0.2.1:
-+ Bug fixes. 
+Bug fixes
 
 ### BETA 0.2.0:
-+ Initial beta release, expect frequent changes/some gliches. 
+Initial beta release, expect frequent changes/some gliches. 
 
 <a name="Features"></a>
 ## Features
