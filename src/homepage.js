@@ -9,7 +9,7 @@ function hidenofood() { // hides gardens on home page with no food
 		var pos2 = $('.backgroundgreen').eq(i).children().eq(1).children().eq(2).children().eq(1).children().eq(2).css("background-position");
 		if (pos2 == "-160px 0px") {
 			continue;
-		} else if ($('.backgroundgreen')[i].innerText.split(" ")[1].indexOf("Gardens") != -1){
+		} else if ($('.backgroundgreen')[i].innerText.split(" ")[1] == undefined || $('.backgroundgreen')[i].innerText.split(" ")[1].indexOf("Gardens") != -1){ // if no gardens listed or if "search for garden"
 			continue;
 		} else {
 			$('.backgroundgreen').eq(i).remove();
