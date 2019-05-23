@@ -30,7 +30,8 @@ function save_options() {
   var newspotmsg = document.getElementById('newspotmsg').checked;
   var newmsgtext = document.getElementById('newmsgtext').value;
   var debug = document.getElementById('debug').checked;
-  var threshold1 = document.getElementById('threshold1').value;
+  // thresholds
+  var threshold1 = document.getElementById('threshold1').value; 
   var threshold2 = document.getElementById('threshold2').value;
   var threshold3 = document.getElementById('threshold3').value;
   var threshold4 = document.getElementById('threshold4').value;
@@ -41,6 +42,12 @@ function save_options() {
   var threshold4c = document.getElementById('threshold4c').value;
   var threshold5c = document.getElementById('threshold5c').value;
   var threshold6c = document.getElementById('threshold6c').value;
+  // alchemy
+  var alchemybutton = document.getElementById('alchemybutton').checked;
+  var step1choice = document.getElementById('step1choice').value; 
+  var step2choice = document.getElementById('step2choice').value; 
+  var step3choice = document.getElementById('step3choice').value; 
+  var step4choice = document.getElementById('step4choice').value; 
   chrome.storage.sync.set({
 	hidenofood: hidenofood,
     colorgardentext: colorgardentext,
@@ -65,7 +72,14 @@ function save_options() {
 	threshold3c: threshold3c,
 	threshold4c: threshold4c,
 	threshold5c: threshold5c,
-	threshold6c: threshold6c
+	threshold6c: threshold6c,
+	
+	alchemybutton: alchemybutton,
+	step1choice: step1choice,
+	step2choice: step2choice,
+	step3choice: step3choice,
+	step4choice: step4choice
+	
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -104,6 +118,12 @@ function restore_options() {
 	document.getElementById("threshold4c").value = items.threshold4c;
 	document.getElementById("threshold5c").value = items.threshold5c;
 	document.getElementById("threshold6c").value = items.threshold6c;
+	
+	document.getElementById('alchemybutton').checked = items.alchemybutton;
+	document.getElementById("step1choice").value = items.step1choice;
+	document.getElementById("step2choice").value = items.step2choice;
+	document.getElementById("step3choice").value = items.step3choice;
+	document.getElementById("step4choice").value = items.step4choice;
 	$('#threshold1c').css('background-color', getrgb(items.threshold1c));
 	$('#threshold2c').css('background-color', getrgb(items.threshold2c));
 	$('#threshold3c').css('background-color', getrgb(items.threshold3c));
@@ -121,6 +141,7 @@ function restore_options() {
 	if (!items.automsg) { $('#divautomsg').css('background-color', color)}
 	if (!items.newspotmsg) { $('#divnewspotmsg').css('background-color', color)}
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
+	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
   });
 }
 

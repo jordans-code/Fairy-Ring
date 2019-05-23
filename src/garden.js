@@ -350,13 +350,17 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	}
 }
 
-function checknewspot() {
+function checknewspot(oldspot) {
+	console.log(oldspot);
 	var spot = $('.standard_message.status').children().eq(0).children().eq(1).html();
-	console.log(spot);
 	if (spot == null || spot == "") {
 		return false;
+	} else if (oldspot == undefined) {
+		return [spot];
 	} else {
-		return spot;
+		oldspot.push(spot);
+		console.log(oldspot);
+		return oldspot;
 	}
 }
 
@@ -505,13 +509,45 @@ function rmnotification(settings) { // removes notifications in top right when o
 	}
 } 
 
-function writemessage(settings, prior, newspot) { 
-	if (prior && newspot && settings.newspotmsg) {
+function writemessage(settings, prior, spotlist) {
+	if (prior && spotlist && settings.newspotmsg) {
 		var msg = settings.newmsgtext.split("(critter)");
+		var spot = "";
+		var counts = {};
+		var finallist = [];
+		for (i = 0; i < spotlist.length; i++) {
+			x = spotlist[i];
+			counts[x] = (counts[x] || 0)+1;
+			if (!(finallist.includes(x))) {
+				finallist.push(x);
+			} else {
+			}
+		}
+		
+		finallist.forEach(function(part, index) {
+			if (counts[part] != 1) {
+				this[index] = part + ` x${counts[part]}`;
+			} else {
+			}
+		}, finallist);
+		
+		if (settings.debug) {console.log(finallist);}
+		if (finallist.length == 1) {
+			spot = finallist[0];
+		} else if (finallist.length == 2) {
+			spot = finallist[0] + " and " + finallist[1];
+		} else if (finallist.length == 3) {
+			spot = finallist[0] + ", " + finallist[1] + ", and " + finallist[2];
+		} else if (finallist.length == 4) {
+			spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2] + ", and " + finallist[3];
+		} else {
+			console.log("Something weird happened: " + finallist.length);
+		}
+		console.log("Spot");
 		if (msg.length > 1) {
 			var Final = msg;
 			for (i = msg.length-1; i > 0; i--) {
-				Final.splice(i, 0, newspot);
+				Final.splice(i, 0, spot);
 			}
 			$('#wall_message')[0].value = Final.join("");
 		} else {
@@ -576,7 +612,7 @@ function addrefresh(settings) { // Adds listeners for the built in refresh butto
 	});
 }
 
-function garden(settings, prior, priordict) { // calls all functions required when on a garden page
+function garden(settings, prior, priordict, lastspot) { // calls all functions required when on a garden page
 	
 	var Plantarray = fetcher();
 	var food = parser(Plantarray);
@@ -585,7 +621,7 @@ function garden(settings, prior, priordict) { // calls all functions required wh
 	var feedsleft = getfeeds(typefood);
 	var leftout = getleftout(feedsleft);
 	var lastfeed = getlastfeed(leftout);
-	if (prior) {lastfeed["newspot"] = checknewspot();} // check it here in case there is no food left.
+	if (prior) {lastfeed["newspot"] = checknewspot(priordict["newspot"]);} // check it here in case there is no food left.
 	var logicarr = logic(settings, lastfeed, prior, priordict);
 	Write(logicarr, settings, prior);
 	rmnotification(settings);

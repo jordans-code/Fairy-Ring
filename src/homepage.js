@@ -5,15 +5,18 @@ function removeobj(obj) {
 function hidenofood() { // hides gardens on home page with no food
 	var objects = $('.backgroundgreen')
 	for (var i = objects.length - 1; i > -1; i--) {
+		var wilting = "-48px 0px";
 		var food = "-160px 0px";
 		var frozen = "-96px 0px"
 		var stat = $('.backgroundgreen').eq(i).children().eq(1).children().eq(2).children().eq(1).children().eq(0).css("background-position");
+		if (stat == wilting) {
+			continue;
+		}
 		if (stat == frozen) { // frozen
 			removeobj(i);
 			continue;
 		}
 		var totalobjs = $('.backgroundgreen').eq(i).children().eq(1).children().eq(2).children().eq(1).children().length;
-		console.log(totalobjs);
 		if (totalobjs == 0) {
 			continue;
 		}
@@ -25,8 +28,6 @@ function hidenofood() { // hides gardens on home page with no food
 			if (pos == food) { // food in 2nd array
 				continue;
 			} else {
-				console.log(pos);
-				console.log(food);
 				removeobj(i);
 				continue;
 			}

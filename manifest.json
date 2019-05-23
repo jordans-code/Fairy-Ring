@@ -2,7 +2,7 @@
   "manifest_version": 2,
  
   "name": "Fairy Ring",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "A browser extension for fairylandgame.com",
   "browser_action": {
 	"default_title": "Fairy Ring",
@@ -19,8 +19,8 @@
   "storage",
   "https://www.fairylandgame.com/*"],
   "content_scripts": [{
-	"matches": ["https://www.fairylandgame.com/fbfairy/fairygarden.php*", "https://www.fairylandgame.com/fbfairy/wildlifewall.php*", "https://www.fairylandgame.com/fbfairy/"],
-	"js": ["src/jquery.js", "src/maxtimes.js", "src/defaults.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/main.js"]
+	"matches": ["https://www.fairylandgame.com/*"],
+	"js": ["src/jquery.js", "src/maxtimes.js", "src/defaults.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/alchemy.js", "src/main.js"]
   }]
  
 }

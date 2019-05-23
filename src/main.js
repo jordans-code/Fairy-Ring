@@ -8,6 +8,10 @@ function main() {
 			wallhandler();
 		} else if (path == "/fbfairy/") {
 			mainpage(items);
+		} else if (path == "/fbfairy/alchemy.php") {
+			alchemy(items);
+		} else if (path == "/fbfairy/alchemyresult.php") {
+			alchemyresult(items);
 		}
 	});
 

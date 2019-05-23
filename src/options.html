@@ -4,7 +4,7 @@
 </head>
 <style>
 .tab {
-	width: 300px;
+	width: 380px;
 	height: 43px;
 	border: 2px solid #ccc;
 	background-color: #f1f1f1;
@@ -36,6 +36,7 @@
   <button class="tablinks" id="settingstab">Settings</button>
   <button class="tablinks" id="thresholdstab">Thresholds</button>
   <button class="tablinks" id="autotab">Typer</button>
+  <button class="tablinks" id="alchemytab">Alchemy</button>
   <button class="tablinks" id="abouttab">About</button>
   
 </div>
@@ -44,7 +45,7 @@
 	<br>
 	<div id="divhidenofood" style="">
 	  <input type="checkbox" id="hidenofood">
-	  Hide gardens with no food (on the home page).
+	  Hide gardens with no food on home page (will not hide wilting gardens).
 	</div>
 	
 	<br>
@@ -144,6 +145,53 @@
 	<br>
 
 </div>
+
+<div id="Alchemy" class="tabcontent">
+	<div id="divalchemybutton" style="">
+	  <input type="checkbox" id="alchemybutton">
+	  Automatically fill in alchemy settings to the below options.
+	</div>
+	
+	<br>
+	Step 1 (Base)
+	<select id="step1choice">
+	<option value="base1">Milk of a Unicorn</option>
+	<option value="base2">Tincture of a Thousand Flowers</option>
+	<option value="base3">Water From The Murky Swamp</option>
+	<option value="base4">Faery Firewater</option>
+	</select>
+	
+	<br>
+	Step 2 (Dust)
+	<select id="step2choice">
+	<option value="dust7">Sparkle</option>
+	<option value="dust4">Sunshine</option>
+	<option value="dust5">Love</option>
+	<option value="dust6">Naughty</option>
+	</select>
+	
+	<br>
+	Step 3 (Special Ingredients)
+	<select id="step3choice">
+	<option value="none">None</option>
+	<option value="item12">A Lost Sock</option>
+	<option value="item13">Dragon Scale</option>
+	<option value="item14">Rare Spotted Fungus</option>
+	<option value="item15">A Crystal</option>
+	</select>
+	
+	<br>
+	Step 4 (Wands)
+	<select id="step4choice">
+	<option value="wand0">Standard</option>
+	<option value="wand1">Naughty</option>
+	<option value="wand2">Secret Wish</option>
+	<option value="wand3">Super Butterfly</option>
+	<option value="wand8">Sunshine</option>
+	</select>
+	
+</div>
+
 <div id="About" class="tabcontent">
 <br>
 	<label>
@@ -153,7 +201,7 @@
 	<br>
 	<br>
 <b>App source:</b> <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
-<br>You are running version 0.2.3
+<br>You are running version 0.3.0
 <br>
 <br>
 If you need assistance or wish to provide feedback, feel free to

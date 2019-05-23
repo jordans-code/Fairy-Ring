@@ -22,5 +22,10 @@ var defaults = {
 	threshold3c: "bfbf1e",
 	threshold4c: "ffae00",
 	threshold5c: "ff0000",
-	threshold6c: "000000"
+	threshold6c: "000000",
+	alchemybutton: false,
+	step1choice: "base1",
+	step2choice: "dust7",
+	step3choice: "item12",
+	step4choice: "wand0"
 }
