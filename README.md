@@ -27,22 +27,22 @@ A browser extension for fairylandgame.com
 ## Versions
 
 ### BETA 0.3.0:
-Features
+Features:
 + Added alchemy page settings and buttons, this will automatically fill in the alchemy page and place buttons on the top of the page for ease of access.
 
-Changes
+Changes:
 + If multiple wildlife are spotted, the autotyper will now append "x2" (or however many) rather than repeating itself. 
 + Wilting gardens will no longer be hidden, regardless of having food or not.
 
 ### BETA 0.2.3:
-Features
+Changes:
 + "Hide gardens with no food" will now also hide frozen gardens.
 
-Bug fixes 
+Bug fixes:
 + Fixed a bug involving the homepage throwing null values which caused errors. 
 
 ### BETA 0.2.2:
-Bug fixes 
+Bug fixes:
 + App now loads UI upon clicking the in-built "refresh garden" button, and the refresh button on the title.
 
 ### BETA 0.2.1:
