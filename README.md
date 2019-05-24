@@ -11,7 +11,7 @@ A browser extension for fairylandgame.com
 
 ## Table of contents
 <!--ts-->
-   * [Installations] (#Installations)
+   * [Installations](#Installations)
    * [Versions](#Versions)
    * Features
       * [Wildlife Calculations](#wildlifecalc)
