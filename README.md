@@ -11,6 +11,7 @@ A browser extension for fairylandgame.com
 
 ## Table of contents
 <!--ts-->
+   * [Installations] (#Installations)
    * [Versions](#Versions)
    * Features
       * [Wildlife Calculations](#wildlifecalc)
@@ -23,12 +24,20 @@ A browser extension for fairylandgame.com
    * [License](#license)
 <!--te-->
 
+<a name="Installations"></a>
+## Installations
+To use the app on your Android, you will need to install Firefox!
+
+### Google Chrome: <a href="https://chrome.google.com/webstore/detail/fairy-ring/ncmgbhjephcfekbcdfeclbjldipffmge" target="_blank">Chrome Webstore</a>
+
+### Firefox & Firefox Android: <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a>
+
 <a name="Versions"></a>
 ## Versions
 
 ### BETA 0.3.1:
 Features:
-+ Added Firefox support.
++ Added Firefox and Firefox Android support.
 
 Bug Fixes:
 + Fixed issue where logging into the game would cause the main page extension to not load until navigating to a new page. 
