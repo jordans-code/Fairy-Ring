@@ -80,23 +80,28 @@ Initial beta release, expect frequent changes/some gliches.
 
 <a name="faq"></a>
 ## FAQ
-*Why isn't the extension loading?*
+>Why isn't the extension loading?
+
 The extension will only work on <a href="https://www.fairylandgame.com/fbfairy/" target="_blank">the official fairyland site,</a> it will not work on Facebook.
 
 
-*How do I turn on features or change the configuration?*
+>How do I turn on features or change the configuration?
+
 Once installed, click on the app in the top right of your screen (look for the mushroom).
 
 
-*Why can I automatically complete snail races but not mushroom games?*
+>Why can I automatically complete snail races but not mushroom games?
+
 Mushroom games are automatically completed regardless of which mushroom you click on or if you actually click it. The moment you enter the garden and water you have already either been given a diamond or you have lost. 
 
 
-*Why is the percent chance so low on a garden I saw with food that has been left out for a long period of time/is due?*
+>Why is the percent chance so low on a garden I saw with food that has been left out for a long period of time/is due?
+
 The percent chance given is meant for watering at that exact moment. It takes into account if someone has watered within the last 60 minutes. An easier way to think of it might be if someone watered 3 minutes ago, it is giving you the chance that wildlife has shown up in the last 3 minutes taking into account the remaining time before it absolutely must appear. 
 
 
-*What is the exact equation used to calculate the chance of wildlife?*
+>What is the exact equation used to calculate the chance of wildlife?
+
 Currently the calculation is as follows:
 
 Active time (capped at 60) / ( [max time between visits for the given food type] - Inactive time )
