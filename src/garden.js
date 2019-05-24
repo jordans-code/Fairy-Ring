@@ -340,7 +340,7 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var textnode = document.createElement("div");
 		textnode.setAttribute("id", "duepercent");
 		textnode.style = "position:absolute;top:28px;left:635px;font-weight:boldcursor:pointer";
-		textnode.innerHTML = `<font size="2px"; color="red";>`+(Math.floor(duepercent*1000))/10 + "% </font><b> chance</b>";
+		textnode.innerHTML = '<font size="2px"; color="red";>'+(Math.floor(duepercent*1000))/10 + "% </font><b> chance</b>";
 		document.getElementById('pagetitle').appendChild(textnode);
 	}
 	if (settings.colorborder) {
