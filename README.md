@@ -5,7 +5,11 @@ A browser extension for fairylandgame.com
 
 <p>
 <a target="_blank" href="https://opensource.org/licenses/MIT" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
-<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-travis/issues"></a>
+<img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/learn-travis/issues">
+</a>
+<img src="https://img.shields.io/badge/Chrome-Supported-brightgreen.svg">
+<img src="https://img.shields.io/badge/Firefox-Supported-brightgreen.svg">
+<img src="https://img.shields.io/badge/Android-Supported-brightgreen.svg">
 </p>
 </div>
 
