@@ -26,6 +26,13 @@ A browser extension for fairylandgame.com
 <a name="Versions"></a>
 ## Versions
 
+### BETA 0.3.1:
+Features:
++ Added Firefox support.
+
+Bug Fixes:
++ Fixed issue where logging into the game would cause the main page extension to not load until navigating to a new page. 
+
 ### BETA 0.3.0:
 Features:
 + Added alchemy page settings and buttons, this will automatically fill in the alchemy page and place buttons on the top of the page for ease of access.
