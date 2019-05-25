@@ -44,7 +44,16 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 			}
 			Final[i]["name"] = csplit[0];
 			var name = Final[i]["name"]
-			if (name == "Veggies" || name == "Bamboo" || name == "Frogspawn" || name == "Grass" || name == "Treasure" || name == "Water" || name == "Straw" || name == "Wood" || name == "Bricks") {
+			if (name == "Veggies" || 
+				name == "Bamboo" || 
+				name == "Frogspawn" || 
+				name == "Grass" || 
+				name == "Treasure" || 
+				name == "Water" || 
+				name == "Straw" || 
+				name == "Wood" || 
+				name == "Bricks" || 
+				escape(name) == "Hot%A0%A0Porridge") { // for some reason only hot porridge seems be in a different character encoding.
 				Final[i]["string"] = csplit.slice(1);
 			} else if (name == "just") {
 				Final[i]["string"] = csplit.slice(3);
