@@ -115,20 +115,36 @@ Once installed, click on the app in the top right of your screen (look for the m
 
 Mushroom games are automatically completed regardless of which mushroom you click on or if you actually click it. The moment you enter the garden and water you have already either been given a diamond or you have lost. 
 
+>What do the numbers over the plates mean?
 
->Why is the percent chance so low on a garden I saw with food that has been left out for a long period of time/is due?
+The percentage above the plate indicates the chance that wildlife will be at that plate at that exact moment. 
+
+The fraction below the percentage is the "visit window". The number on the right is the maximum time between visits for that food type (this differs if the food is fresh). The number on the left is the time since the window opened. The number on the left is 100% accurate in the case of fresh food, superfood (as all wildlife stay for their max time), and when the previous wildlife was not spotted (as it will give the exact duration of it's stay). Anything else will assume the maximum stay time of the last wildlife to visit that plate. 
+
+The overall chance listed in the top right is the combined chance for all plates in a garden. 
+
+>Why is the visit window a negative number?
+
+This is because the visit window has not opened yet for the next wildlife, it is impossible for new wildlife to currently be there. Fairyland allots "windows", which is an arrival time and a leave time based upon the maximum and minimum duration for that given wildlife. Even if wildlife is spotted on a plate, new wildlife cannot come until it would have "left" if not spotted. 
+
+>Why is the percent chance so low on a garden with food that has been left out for a long time? 
 
 The percent chance given is meant for watering at that exact moment. It takes into account if someone has watered within the last 60 minutes. An easier way to think of it might be if someone watered 3 minutes ago, it is giving you the chance that wildlife has shown up in the last 3 minutes taking into account the remaining time before it absolutely must appear. 
 
+You should use the percent chance as a tool to help you decide when to water, and use the visit window located above the food plates to decide when to stay in a garden. 
+
+>What about alerts?
+
+The app cannot detect alerts, if there is an alert then the percentages will not consider it and so you should go with your own judgement. 
 
 >What is the exact equation used to calculate the chance of wildlife?
 
 Currently the calculation is as follows:
 
-Active time (capped at 60) / ( [max time between visits for the given food type] - Inactive time )
+Active time (capped at 60) <b>/</b> ( [max time between visits for the given food type] - Inactive time )
 
 * Active time is the time that wildlife could have visited the plate since the food was left out, or since the last water.
-* Active time is capped at 60 minutes as nothing can stay longer than 60 minutes, anything beyond this moves to inactivetime.
+* Active time is capped at 60 minutes as nothing can stay longer than 60 minutes, anything beyond this moves to inactive time.
 * Watering resets Active time to when the last water occured and moves everything before the watering to inactive time. 
 In practice it looks like this:
 *Organic food has a maximum visit time of 6 hours, we will assume that this food has already been visited. 
@@ -148,8 +164,9 @@ If additional plates in the garden exist and have a chance of containing wildlif
 The calculations involving wildlife have come a long way, but there are some bits of information missing or not yet implemented which keep the percentage from being as accurate as it can be. 
 
 * It is impossible to determine the exact stay time if the wildlife was spotted. If it was not spotted then the exact slot time is known and used, but usually this is not the case. Currently this app uses the maximum stay time for the last visiting wildlife (superfood is always max), but this could be updated to be an average between the max and min for regular and organic food.
-* The calculation currently does not take into consideration the specific wildlife that a garden can attract along with the rarity. This wouldn't change the odds that drastically aside from certain circumstances (gardens which can only attract wildlife with long stay times should have a higher percentage as they must arrive 1 hour prior to the food window closing). 
+* While the app can see what has already visited and use this to calculate the visit windows, the calculation currently does not take into consideration the specific wildlife that a garden can attract. This only impacts certain circumstances (gardens which can ONLY attract wildlife with long stay times should have a higher percentage as they must arrive 1 hour prior to the food window closing). 
 * If the above issue is ever fixed, the rarity of wildlife and how much of a factor it is is an unknown variable, along with the numbers behind how deterrants function.
+* The app cannot see alerts. There are too many variables associated with this, mainly with it being impossible to know when the alert started. If you see an alert, ignore the percentages and use your own judgement. 
 
 Fixing some of these will require more data and input from the community.
 
@@ -161,8 +178,9 @@ If you are interested in contributing I would love to see a pull request. Submit
 ## Acknowledgments
 
 * Thanks to Mike (developer of Fairyland) for a great game.
-* Thanks to jscolor (Jan Odvarko)
-* Thanks to the community
+* Thanks to jscolor (Jan Odvarko).
+* Thanks to Freedom Fairies for providing feedback and testing.
+* Thanks to the community.
 
 <a name="license"></a>
 ## License
