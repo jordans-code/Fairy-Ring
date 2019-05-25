@@ -17,13 +17,13 @@ A browser extension for fairylandgame.com
 ## Table of contents
 <!--ts-->
    * [Installations](#Installations)
-   * [Versions](#Versions)
    * Features
       * [Wildlife Calculations](#wildlifecalc)
       * [Quality of life](#qol)
       * [Planned Features](#planned)
    * [FAQ](#faq)
    * [Limitations / Current Issues](#issues)
+   * [Versions](#Versions)
    * [Contributing](#contribute)
    * [Acknowledgments](#acknowledgments)
    * [License](#license)
@@ -36,41 +36,6 @@ To use the app on your Android, you will need to install Firefox!
 ### Google Chrome: <a href="https://chrome.google.com/webstore/detail/fairy-ring/ncmgbhjephcfekbcdfeclbjldipffmge" target="_blank">Chrome Webstore</a>
 
 ### Firefox & Firefox Android: <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a>
-
-<a name="Versions"></a>
-## Versions
-
-### BETA 0.3.1:
-Features:
-+ Added Firefox and Firefox Android support.
-
-Bug Fixes:
-+ Fixed issue where logging into the game would cause the main page extension to not load until navigating to a new page. 
-
-### BETA 0.3.0:
-Features:
-+ Added alchemy page settings and buttons, this will automatically fill in the alchemy page and place buttons on the top of the page for ease of access.
-
-Changes:
-+ If multiple wildlife are spotted, the autotyper will now append "x2" (or however many) rather than repeating itself. 
-+ Wilting gardens will no longer be hidden, regardless of having food or not.
-
-### BETA 0.2.3:
-Changes:
-+ "Hide gardens with no food" will now also hide frozen gardens.
-
-Bug fixes:
-+ Fixed a bug involving the homepage throwing null values which caused errors. 
-
-### BETA 0.2.2:
-Bug fixes:
-+ App now loads UI upon clicking the in-built "refresh garden" button, and the refresh button on the title.
-
-### BETA 0.2.1:
-Bug fixes
-
-### BETA 0.2.0:
-Initial beta release, expect frequent changes/some gliches. 
 
 <a name="Features"></a>
 ## Features
@@ -169,6 +134,11 @@ The calculations involving wildlife have come a long way, but there are some bit
 * The app cannot see alerts. There are too many variables associated with this, mainly with it being impossible to know when the alert started. If you see an alert, ignore the percentages and use your own judgement. 
 
 Fixing some of these will require more data and input from the community.
+
+
+<a name="Versions"></a>
+## Versions
+<a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md" target="_blank">Changelog</a>
 
 <a name="contribute"></a>
 ## Contributing
