@@ -164,3 +164,4 @@ If you are interested in contributing I would love to see a pull request. Submit
 <a name="license"></a>
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Disclaimer: Fairyland is a registered trademark, this extension/project is not affiliated with it.
