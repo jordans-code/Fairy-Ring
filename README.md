@@ -80,9 +80,9 @@ Once installed, click on the app in the top right of your screen (look for the m
 
 Mushroom games are automatically completed regardless of which mushroom you click on or if you actually click it. The moment you enter the garden and water you have already either been given a diamond or you have lost. 
 
->Why does the "open all gardens" button not opening all of the ones listed?
+>Why does my "open all gardens" button not work?
 
-You may need to enable popups for Fairyland, check your browser settings (there should be a notification on the screen where you clicked the button).
+You may need to enable popups for Fairyland, check your browser settings (there should be a notification on the screen where you originally clicked the button).
 
 The button also checks for duplicates and will only open one link if the same person has posted multiple times. 
 
