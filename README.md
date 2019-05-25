@@ -75,6 +75,9 @@ The extension will only work on <a href="https://www.fairylandgame.com/fbfairy/"
 
 Once installed, click on the app in the top right of your screen (look for the mushroom).
 
+>How do I sync my settings to another computer or mobile device?
+
+This will be done automatically as long as you are signed into Chrome or Firefox.
 
 >Why can I automatically complete snail races but not mushroom games?
 
