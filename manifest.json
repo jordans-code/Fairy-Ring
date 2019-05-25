@@ -2,7 +2,7 @@
   "manifest_version": 2,
  
   "name": "Fairy Ring",
-  "version": "0.3.3",
+  "version": "0.3.2",
   "description": "A browser extension for fairylandgame.com",
   "browser_specific_settings": {
 	  "gecko": {

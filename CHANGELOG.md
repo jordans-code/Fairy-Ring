@@ -1,23 +1,17 @@
 ## Versions
 
-### BETA 0.3.3:
+### BETA 0.3.2:
 Features:
 + Added a new setting to automatically complete games of Magical Mushrooms.
 + Added a notification popup that happens whenever the app is updated, informing people that it has been updated. 
 
 Changes:
++ Changed some of the "About" page.
 + Added a "Games" tab and moved snail racing settings and magical mushrooms settings there.
 
 Bug Fixes:
-+ Fixed a bug causing certain wildlife with the "&" symbol to display as "&amp;" on the auto writer function. 
-
-
-### BETA 0.3.2:
-Changes:
-+ Changed some of the "About" page.
-
-Bug Fixes:
 + Fixed a bug causing "Hot Porridge" foods to throw an error, this is because it uses different character encoding for some reason. 
++ Fixed a bug causing certain wildlife with the "&" symbol to display as "&amp;" on the auto writer function. 
 
 ### BETA 0.3.1:
 Features:
