@@ -27,5 +27,7 @@ var defaults = {
 	step1choice: "base1",
 	step2choice: "dust7",
 	step3choice: "item12",
-	step4choice: "wand0"
+	step4choice: "wand0",
+	automushroom: false,
+	mushroomgameamount: 0
 }

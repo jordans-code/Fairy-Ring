@@ -2,7 +2,7 @@
   "manifest_version": 2,
  
   "name": "Fairy Ring",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A browser extension for fairylandgame.com",
   "browser_specific_settings": {
 	  "gecko": {
@@ -26,7 +26,8 @@
   "https://www.fairylandgame.com/*"],
   "content_scripts": [{
 	"matches": ["https://www.fairylandgame.com/*"],
-	"js": ["src/jquery.js", "src/maxtimes.js", "src/defaults.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/alchemy.js", "src/main.js"]
+	"css": ["src/notification/notifications.css"],
+	"js": ["src/jquery.js", "src/notification/notifications.js", "src/maxtimes.js", "src/defaults.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/alchemy.js", "src/mushroomgame.js", "src/main.js"]
   }]
  
 }

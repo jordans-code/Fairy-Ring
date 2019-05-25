@@ -32,6 +32,9 @@ document.getElementById("thresholdstab").addEventListener("click", function() {
 document.getElementById("autotab").addEventListener("click", function() {
 	openTab(event, "Auto");
 	});
+document.getElementById("gamestab").addEventListener("click", function() {
+	openTab(event, "Games");
+	});
 document.getElementById("alchemytab").addEventListener("click", function() {
 	openTab(event, "Alchemy");
 	});

@@ -528,7 +528,7 @@ function writemessage(settings, prior, spotlist) {
 			x = spotlist[i];
 			counts[x] = (counts[x] || 0)+1;
 			if (!(finallist.includes(x))) {
-				finallist.push(x);
+				finallist.push(x.split('amp;').join('')); // somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
 			} else {
 			}
 		}

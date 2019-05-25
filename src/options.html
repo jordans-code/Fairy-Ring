@@ -7,7 +7,7 @@
 </head>
 <style>
 body {
-	width: 390px;
+	width: 460px;
 	
 }
 .tab {
@@ -43,6 +43,7 @@ body {
   <button class="tablinks" id="settingstab">Settings</button>
   <button class="tablinks" id="thresholdstab">Thresholds</button>
   <button class="tablinks" id="autotab">Typer</button>
+  <button class="tablinks" id="gamestab">Games</button>
   <button class="tablinks" id="alchemytab">Alchemy</button>
   <button class="tablinks" id="abouttab">About</button>
   
@@ -86,18 +87,7 @@ body {
 	</div>
 	
 	<br>
-	<div id="divautosnail" style="">
-	  <input type="checkbox" id="autosnail">
-	  Automatically complete snail races. 
-	  
-	  <select id="snailchoice">
-		<option value="1">Snail 1</option>
-		<option value="2">Snail 2</option>
-		<option value="3">Snail 3</option>
-		<option value="4">Snail 4</option>
-		<option value="5">Snail 5</option>
-		</select>
-	</div>
+
 </div>
 
 <div id="Auto" class="tabcontent">
@@ -151,6 +141,35 @@ body {
 	<br>(anything above threshold 5)
 	<br>
 
+</div>
+
+<div id="Games" class="tabcontent">
+<br>
+	<div id="divautosnail" style="">
+	  <input type="checkbox" id="autosnail">
+	  Automatically complete snail races. 
+	  
+	  <select id="snailchoice">
+		<option value="1">Snail 1</option>
+		<option value="2">Snail 2</option>
+		<option value="3">Snail 3</option>
+		<option value="4">Snail 4</option>
+		<option value="5">Snail 5</option>
+		</select>
+	</div>
+	<br><br> 
+	<div id="divautomushroom" style="">
+	  <input type="checkbox" id="automushroom">
+	  Automatically complete games of <a href="https://www.fairylandgame.com/fbfairy/mushroomsplash.php" target="_blank">Magical Mushrooms</a>.
+	  <br><br>
+	  Complete this many games: <input id="mushroomgameamount" type="number" min="0" max="5000" style="width: 60px">
+	  <br> To start, just visit the page (linked above). 
+	  
+	  <br>
+	  Note: each game takes approximately 2~ seconds. This is due to how Fairyland is programmed and cannot be sped up. If you want to stop the extension before it finishes the amount that you set above, simply click to a new tab or close the window. It may waste 1 game if you click off early!
+	  
+
+	</div>
 </div>
 
 <div id="Alchemy" class="tabcontent">

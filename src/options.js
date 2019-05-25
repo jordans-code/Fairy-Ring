@@ -46,6 +46,9 @@ function save_options() {
   var step2choice = document.getElementById('step2choice').value; 
   var step3choice = document.getElementById('step3choice').value; 
   var step4choice = document.getElementById('step4choice').value; 
+  // Games
+  var automushroom = document.getElementById('automushroom').checked;
+  var mushroomgameamount = document.getElementById('mushroomgameamount').value; 
   chrome.storage.sync.set({
 	hidenofood: hidenofood,
     colorgardentext: colorgardentext,
@@ -76,7 +79,10 @@ function save_options() {
 	step1choice: step1choice,
 	step2choice: step2choice,
 	step3choice: step3choice,
-	step4choice: step4choice
+	step4choice: step4choice,
+	
+	automushroom: automushroom,
+	mushroomgameamount: mushroomgameamount
 	
   }, function() {
     // Update status to let user know options were saved.
@@ -122,6 +128,11 @@ function restore_options() {
 	document.getElementById("step2choice").value = items.step2choice;
 	document.getElementById("step3choice").value = items.step3choice;
 	document.getElementById("step4choice").value = items.step4choice;
+	
+	document.getElementById("automushroom").checked = items.automushroom;
+	document.getElementById("mushroomgameamount").value = items.mushroomgameamount;
+	
+	
 	$('#threshold1c').css('background-color', getrgb(items.threshold1c));
 	$('#threshold2c').css('background-color', getrgb(items.threshold2c));
 	$('#threshold3c').css('background-color', getrgb(items.threshold3c));
@@ -140,6 +151,7 @@ function restore_options() {
 	if (!items.newspotmsg) { $('#divnewspotmsg').css('background-color', color)}
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
+	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
   });
 }
 
