@@ -1,6 +1,13 @@
 ## Versions
 
 ### BETA 0.3.1:
+Changes:
++ Changed some of the "About" page.
+
+Bug Fixes:
++ Fixed a bug causing "Hot Porridge" foods to throw an error, this is because it uses different character encoding for some reason. 
+
+### BETA 0.3.1:
 Features:
 + Added Firefox and Firefox Android support.
 
