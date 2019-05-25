@@ -80,6 +80,12 @@ Once installed, click on the app in the top right of your screen (look for the m
 
 Mushroom games are automatically completed regardless of which mushroom you click on or if you actually click it. The moment you enter the garden and water you have already either been given a diamond or you have lost. 
 
+>Why does the "open all gardens" button not opening all of the ones listed?
+
+You may need to enable popups for Fairyland, check your browser settings (there should be a notification on the screen where you clicked the button).
+
+The button also checks for duplicates and will only open one link if the same person has posted multiple times. 
+
 >What do the numbers over the plates mean?
 
 The percentage above the plate indicates the chance that wildlife will be at that plate at that exact moment. 
