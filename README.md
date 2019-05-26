@@ -49,7 +49,7 @@ To use the app on your Android, you will need to install Firefox!
 <a name="qol"></a>
 ### Quality of life
 * Ability to hide gardens which do not currently contain food.
-* Ability to automatically complete minigames.
+* Ability to automatically complete minigames and Magical Mushrooms.
 * Ability to click a plant directly to water it.
 * Ability to set a custom message to automatically type on every visited garden (you will still have to hit "post").
 * Wildlife pages now have two additional buttons:
@@ -58,7 +58,6 @@ To use the app on your Android, you will need to install Firefox!
 
 <a name="planned"></a>
 ### Planned Features
-* Bring extension to Firefox, Edge, and potentially mobile browsers. 
 * Improve calculation algorithm as more data is aquired
 * Display users who have blocked you/hide their gardens so you do not waste your time. 
 * Potentially display all of the possible wildlife a garden can have below the garden window (like how wildlifecalc does). I could increase the accuracy of the calculation by this as well. 
