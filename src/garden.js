@@ -278,12 +278,37 @@ function getcolor(percent, settings) { // takes a percentage and matches it to t
 	}
 	return '#' + color;
 }
+
+function TopRightChance(chance, prior) {
+	
+	if (prior) {
+		document.getElementById('duepercent').remove();
+	}
+	var textnode = document.createElement("div");
+	textnode.setAttribute("id", "duepercent");
+	textnode.style = "position:absolute;top:28px;left:635px;font-weight:boldcursor:pointer";
+	textnode.innerHTML = '<font size="2px"; color="red";>'+(Math.floor(chance*1000))/10 + "% </font><b> chance</b>";
+	document.getElementById('pagetitle').appendChild(textnode);
+}
+
+function StatusChance(chance) {
+	$('#gardenmsg .status')[0].append(" and currently has a "+ (Math.floor(chance*1000))/10 +"% chance of containing wildlife.");
+}
+
+function ColorBorder(color) {
+	$('.gardenskin').css('background-color', color);
+	document.getElementById('thegardenframe').style.border = `1px solid ${color}`;
+}
+
 function Write(dict, settings, prior) { // Formats gathered data and writes to web page
 	var ActiveFood = dict['ActiveFood'];
 	if (!dict.HasFood) {
+		if (settings.toprightchance) {
+			TopRightChance(0, prior);
+			StatusChance(0);
+		}
 		if (settings.colorborder) {
-		$('.gardenskin').css('background-color', `#${settings.threshold1c}`);
-		document.getElementById('thegardenframe').style.border = `1px solid #${settings.threshold1c}`;
+			ColorBorder(`#${settings.threshold1c}`);
 		}
 		console.log("no food");
 	} else {
@@ -325,9 +350,6 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			$(`.foodpercent${z}`).css('textShadow',`-1px -1px 0 ${ctest},1px -1px 0 ${ctest},-1px 1px 0 ${ctest},1px 1px 0 ${ctest}`);
 		}
 	}
-	/*
-	need to add in another line for bird bath (4)
-	*/
 	if (duepercentarr.length == 2 ) {
 		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]));
 	} else if (duepercentarr.length == 3 ) {
@@ -337,24 +359,16 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	} else {
 		var duepercent = duepercentarr[0];
 	}
-	var color;
 	//'<div id="questbar" style="position:absolute;top:29px;left:548px;font-weight:bold;cursor:pointer" onclick="showInfo(20,null);">3050</div>');
-	$('#gardenmsg .status')[0].append(" and currently has a "+ (Math.floor(duepercent*1000))/10 +"% chance of containing wildlife.");
 	if (settings.debug) {console.log("There is a " + (Math.floor(duepercent*1000))/10 + "% overall chance that this garden contains wildlife.");}
-	color = getcolor(duepercent, settings);
+	StatusChance(duepercent);
 	if (settings.toprightchance) {
-		if (prior) {
-			document.getElementById('duepercent').remove();
-		}
-		var textnode = document.createElement("div");
-		textnode.setAttribute("id", "duepercent");
-		textnode.style = "position:absolute;top:28px;left:635px;font-weight:boldcursor:pointer";
-		textnode.innerHTML = '<font size="2px"; color="red";>'+(Math.floor(duepercent*1000))/10 + "% </font><b> chance</b>";
-		document.getElementById('pagetitle').appendChild(textnode);
+		TopRightChance(duepercent, prior);
 	}
+	var color;
+	color = getcolor(duepercent, settings);
 	if (settings.colorborder) {
-		$('.gardenskin').css('background-color', color);
-		document.getElementById('thegardenframe').style.border = `1px solid ${color}`;
+		ColorBorder(color);
 	}
 	}
 }
