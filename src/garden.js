@@ -250,7 +250,7 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 			seconds += gettime(current["string"][mindex + 3], current["string"][mindex + 4]);
 			if (current["string"][mindex+5].includes("Stayed")) { // If wildlife wasn't spotted this gets the exact time of the slot opening
 				slotopen += gettime(current["string"][mindex+7], current["string"][mindex+8]);
-				if (current["string"][mindex+9] == "but") {
+				if (current["string"][mindex+11] == "but") {
 					slotopen += gettime(current["string"][mindex+9], current["string"][mindex+10]);
 				}
 			}
@@ -525,10 +525,10 @@ function writemessage(settings, prior, spotlist) {
 		var counts = {};
 		var finallist = [];
 		for (i = 0; i < spotlist.length; i++) {
-			x = spotlist[i];
+			x = spotlist[i].split('amp;').join('');// somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
 			counts[x] = (counts[x] || 0)+1;
 			if (!(finallist.includes(x))) {
-				finallist.push(x.split('amp;').join('')); // somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
+				finallist.push(x);
 			} else {
 			}
 		}
@@ -552,7 +552,6 @@ function writemessage(settings, prior, spotlist) {
 		} else {
 			console.log("Something weird happened: " + finallist.length);
 		}
-		console.log("Spot");
 		if (msg.length > 1) {
 			var Final = msg;
 			for (i = msg.length-1; i > 0; i--) {
