@@ -38,4 +38,17 @@ document.getElementById("gamestab").addEventListener("click", function() {
 document.getElementById("alchemytab").addEventListener("click", function() {
 	openTab(event, "Alchemy");
 	});
-document.getElementById("settingstab").click();
+	
+chrome.storage.sync.get({seen: false}, function(items) {
+	if (items.seen == true) {
+		document.getElementById("settingstab").click();
+	} else {
+	chrome.runtime.sendMessage({
+		action: 'updateIcon', 
+		value: false
+	});
+	$('#versiontext').css('background-color', "#06CF20");
+	chrome.storage.sync.set({seen: true});
+	document.getElementById("abouttab").click();
+}
+});

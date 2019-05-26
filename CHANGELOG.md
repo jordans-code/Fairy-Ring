@@ -1,5 +1,14 @@
 ## Versions
 
+### BETA 0.3.3:
+Features:
++ Added a logo for the addon.
++ Added a notification over the app icon itself for when an update is detected, it persists until it is clicked. 
+
+Bug Fixes:
++ Fixed a typo for "Phoenish" wildlife which was causing them to throw an error when the app tried to detect their maximum visit time.
++ Fixed a bug causing certain wildlife with "&" in their name to accidentially detect as multiple wildlife, and then bug out on the auto typer (xundefined).
+
 ### BETA 0.3.2:
 Features:
 + Added a new setting to automatically complete games of Magical Mushrooms.
