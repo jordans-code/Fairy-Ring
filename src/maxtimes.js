@@ -392,7 +392,7 @@ var maxtimes = {
 "Rainbow Seadragon": 60,
 "Golden Seadragon": 60,
 "Griffish": 60,
-"PHoenish": 30,
+"Phoenish": 30,
 "Sea-Pegasus": 20,
 "Sea-Unicorn": 8,
 "Red Guppy": 60,
