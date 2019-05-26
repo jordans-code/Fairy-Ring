@@ -528,7 +528,9 @@ function logic(settings, dict, prior, priordict) { // config values for timings 
 
 function rmnotification(settings) { // removes notifications in top right when on garden page
 	if (settings.toprightchance) {
-		$('a[title="New Message"]').remove();
+		if ($('a[title="New Message"]').children().eq(0)[0]) {
+		$('a[title="New Message"]').children().eq(0)[0].innerHTML = $('a[title="New Message"]').children().eq(0)[0].innerHTML.split(" (<span")[0] // UGLY
+		}
 	}
 } 
 
