@@ -1,5 +1,13 @@
 ## Versions
 
+### BETA 0.3.4:
+Changes:
++ Displaying the percent chance in the top right no longer removes notifications from wall/backwall messages. Now it only hides the name to make room, but the message icon will still display. 
++ Added some "did you know" tips to the "Games" tab.
+
+Bug Fixes:
++ Fixed a bug where Magical Mushroom games would continue to automatically complete despite the box being unchecked. 
+
 ### BETA 0.3.3:
 Features:
 + Added a logo for the addon.
