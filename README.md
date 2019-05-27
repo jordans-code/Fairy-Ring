@@ -3,7 +3,7 @@
 # Fairy-Ring
 <br>
 A browser extension for fairylandgame.com
-
+<img src="icons/fring.png">
 <p>
 <a target="_blank" href="https://opensource.org/licenses/MIT" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
 <img src="https://img.shields.io/badge/contributions-welcome-green.svg?style=flat)](https://github.com/dwyl/learn-travis/issues">
