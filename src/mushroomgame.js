@@ -12,7 +12,9 @@ function mushroomhandler(settings) {
 
 function mushroomgame(settings) {
 	// hardcoded 1000 ms timeout before you can call collect(), this must wait a minimum of 1 second for each game or else the game is wasted.
-	$('#objData').prepend('<center><br><br><div id="playbutton2" class="inputsubmit" style="cursor:pointer;width:200px;font-weight:bold;padding:3px" onclick="pick(1);pick(2);pick(3);setTimeout(function() {collect();}, 1010);">Autopick (Fairy Ring)</div></center>');
-	$('#playbutton2').click();
+	if (settings.automushroom) {
+		$('#objData').prepend('<center><br><br><div id="playbutton2" class="inputsubmit" style="cursor:pointer;width:200px;font-weight:bold;padding:3px" onclick="pick(1);pick(2);pick(3);setTimeout(function() {collect();}, 1010);">Autopick (Fairy Ring)</div></center>');
+		$('#playbutton2').click();
+	}
 }
 
