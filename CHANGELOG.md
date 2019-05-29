@@ -1,5 +1,12 @@
 ## Versions
 
+### BETA 0.3.5:
+Changes:
++ Rewrote the refresh handler for pages loading. In a nutshell this will make the script load faster and fix some issues where latency would cause it to never load. Before it was done by a static timeout which was a bad idea. 
+
+Bug Fixes:
++ Fixed a bug where certain plates of food had a random space prefixed in certain gardens causing errors.
+
 ### BETA 0.3.4:
 Changes:
 + Displaying the percent chance in the top right no longer removes notifications from wall/backwall messages. Now it only hides the name to make room, but the message icon will still display. 
