@@ -84,9 +84,13 @@ Mushroom games are automatically completed regardless of which mushroom you clic
 
 >Why does my "open all gardens" button not work?
 
-You may need to enable popups for Fairyland, check your browser settings (there should be a notification on the screen where you originally clicked the button).
+You may need to enable popups for Fairyland, check your browser settings (there should be a notification on the screen where you originally clicked the button). Android is a little bit more difficult but below are the steps to enable popups on Firefox Android:
 
-The button also checks for duplicates and will only open one link if the same person has posted multiple times. 
+* In the search bar, type about:config
+* In the new search bar on the config page, search for dom.disable_open_during_load and locate the corresponding option.
+* Toggle it to "false" to allow popups. 
+
+The open all gardens button also checks for duplicates and will only open one link if the same person has posted multiple times. 
 
 >What do the numbers over the plates mean?
 
