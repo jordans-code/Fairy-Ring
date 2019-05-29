@@ -2,7 +2,7 @@
 
 ### BETA 0.3.5:
 Changes:
-+ Rewrote the refresh handler for pages loading. In a nutshell this will make the script load faster and fix some issues where latency would cause it to never load. Before it was done by a static timeout which was a bad idea. 
++ Rewrote the refresh handler for re-loading the extension when needed (normally post watering). In a nutshell this will make the script load faster and fix some issues where latency would cause it to never load. Before it was done by a static timeout which was a bad idea. 
 
 Bug Fixes:
 + Fixed a bug where certain plates of food had a random space prefixed in certain gardens causing errors.
