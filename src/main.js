@@ -4,7 +4,7 @@ function main() {
 		if (items.debug) {console.log(items);}
 		var path = window.location.pathname;
 		if (path == "/fbfairy/fairygarden.php") {
-			garden(items, false, false);
+			garden(items, false, false, true);
 		} else if (path == "/fbfairy/wildlifewall.php") {
 			wallhandler();
 		} else if (path == "/fbfairy/" || path == "/fbfairy/index.php") {
