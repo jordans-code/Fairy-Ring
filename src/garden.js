@@ -38,14 +38,15 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 			var csplit = current.split(" ");
 			Final[i] = {};
 			if (settings.debug) { console.log(csplit); }
+			if (escape(csplit[0][1]) == "%A0" || escape(csplit[0][0]) == "%20") { // fairyland will randomly put either 1 or 2 spaces in the beginning...
 			csplit[0] = csplit[0].slice(2);
-			if (csplit[0] == " ") { // not sure why I need this but sometimes there is an extra space. Could investigate later. 
-				csplit[0] = csplit[0].splice(1);
+			} else if (escape(csplit[0][0]) == "%A0" || escape(csplit[0][0]) == "%20"){
+				csplit[0] = csplit[0].slice(1);
 			}
 			Final[i]["name"] = csplit[0];
 			var name = Final[i]["name"]
-			if (name == "Veggies" || 
-				name == "Bamboo" || 
+			if (name == "Veggies" ||
+				name == "Bamboo" ||
 				name == "Frogspawn" || 
 				name == "Grass" || 
 				name == "Treasure" || 
@@ -374,7 +375,6 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 }
 
 function checknewspot(oldspot) {
-	console.log(oldspot);
 	var spot = $('.standard_message.status').children().eq(0).children().eq(1).html();
 	if (spot == null || spot == "") {
 		return false;
@@ -382,7 +382,6 @@ function checknewspot(oldspot) {
 		return [spot];
 	} else {
 		oldspot.push(spot);
-		console.log(oldspot);
 		return oldspot;
 	}
 }
@@ -587,9 +586,7 @@ function autosnail(settings) { // Automatically does snail game for you
 		if (($('.wall_subtitle').length > 0 ) && ($('.wall_subtitle')[0].innerText == "Snail Racing!")) {
 			var choice = parseInt(settings.snailchoice);
 			var Final = (choice-1)*2
-			setTimeout(function() {
-						$('.snailbox').children().eq(Final).click();
-					}, 5);
+			$('.snailbox').children().eq(Final).click();
 		}
 	}
 }
@@ -600,18 +597,14 @@ function waterbutton(settings, finaldict) { // allows clicking plants to water t
 		if (gardenobjs[i].innerHTML == "Water It") {
 			var obj = gardenobjs[i];
 			$('.link').eq(i).on("click", function() {  // Normal water button
-					setTimeout(function() {
-						garden(settings, true, finaldict); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
-					}, 450);
+				garden(settings, true, finaldict, false); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
 			});
 			if (settings.waterbutton) {
 				var plantid = obj.outerHTML.slice(34, -23);
 				$(`#plantdiv${plantid}`).attr('onclick', `water(${plantid},null)`);
 				// I need to fix some things with this, but can make it so garden auto refreshes with percent chance
 				$(`#plantdiv${plantid}`).on("click", function() {  
-					setTimeout(function() {
-						garden(settings, true, finaldict); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
-					}, 450);
+					garden(settings, true, finaldict, false); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
 				});
 			}
 		}
@@ -619,39 +612,60 @@ function waterbutton(settings, finaldict) { // allows clicking plants to water t
 }
 
 function addrefresh(settings) { // Adds listeners for the built in refresh buttons on the garden
-
-	$('#gardenrefresh_icon').on("click", function() {  // refresh button
-		setTimeout(function() {
-			if ($('.foodwindow').length == 0) { // need to check this as fairyland has a timeout where it wont actually refresh the garden.
-				garden(settings, true, false);
-			}
-		}, 450);
-	});
-	$('.gardenskin').eq(0).on("click", function() {  // Garden name button
-		setTimeout(function() {
-			if ($('.foodwindow').length == 0) { // need to check this as fairyland has a timeout where it wont actually refresh the garden.
-				garden(settings, true, false);
-			}
-		}, 450);
+ // refresh button
+	$('#gardenrefresh_icon').on("click", function() {
+			garden(settings, true, false, false);
+	}); // Garden name button
+	$('.gardenskin').eq(0).on("click", function() {
+			garden(settings, true, false, false);
 	});
 }
 
-function garden(settings, prior, priordict, lastspot) { // calls all functions required when on a garden page
-	
-	var Plantarray = fetcher();
-	var food = parser(Plantarray);
-	var namedfood = getname(settings, food);
-	var typefood = gettype(namedfood);
-	var feedsleft = getfeeds(typefood);
-	var leftout = getleftout(feedsleft);
-	var lastfeed = getlastfeed(leftout);
-	if (prior) {lastfeed["newspot"] = checknewspot(priordict["newspot"]);} // check it here in case there is no food left.
-	var logicarr = logic(settings, lastfeed, prior, priordict);
-	Write(logicarr, settings, prior);
-	rmnotification(settings);
-	writemessage(settings, prior, lastfeed["newspot"]);
-	waterbutton(settings, logicarr);
-	addrefresh(settings);
-	autosnail(settings);
-	if (settings.debug) {console.log(logicarr);}
+function getvalue() {
+	return $('scriptvalue').length;
+}
+
+function garden(settings, prior, priordict, addbuttons) { // calls all functions required when on a garden page
+	if (!prior) {
+		var script = document.createElement('script');
+		var scriptvalue = document.createElement('scriptvalue');
+		(document.head).appendChild(scriptvalue);
+		script.textContent = '$(document).bind("ajaxSend", function(){$("scriptvalue").remove();}).bind("ajaxComplete", function(){var scriptvalue = document.createElement("scriptvalue");scriptvalue.textContent = `true`;(document.head).appendChild(scriptvalue);});';
+		(document.head||document.documentElement).appendChild(script);
+		script.remove();
+	}
+	var total = 0;
+	var interval = setInterval(function() { // 
+		if (total > 20) {
+			clearInterval(interval);
+			console.log("Timed out");
+		} else {
+			total++;
+		}
+		var finishedloading = getvalue();
+		if (finishedloading != 0) {
+			clearInterval(interval);
+			$("scriptvalue").remove();
+			var Plantarray = fetcher();
+			var food = parser(Plantarray);
+			var namedfood = getname(settings, food);
+			var typefood = gettype(namedfood);
+			var feedsleft = getfeeds(typefood);
+			var leftout = getleftout(feedsleft);
+			var lastfeed = getlastfeed(leftout);
+			if (prior) {lastfeed["newspot"] = checknewspot(priordict["newspot"]);} // check it here in case there is no food left.
+			var logicarr = logic(settings, lastfeed, prior, priordict);
+			Write(logicarr, settings, prior);
+			rmnotification(settings);
+			writemessage(settings, prior, lastfeed["newspot"]);
+			waterbutton(settings, logicarr);
+			if (addbuttons) {
+			addrefresh(settings);
+			}
+			autosnail(settings);
+			if (settings.debug) {console.log(logicarr);}
+		} else {
+			if (settings.debug) {console.log("AJAX not loaded yet, timing out for 50ms before rechecking");}
+		}
+	}, 50);
 }
