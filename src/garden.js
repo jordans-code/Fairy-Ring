@@ -636,7 +636,7 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 	}
 	var total = 0;
 	var interval = setInterval(function() { // 
-		if (total > 20) {
+		if (total > 200) {
 			clearInterval(interval);
 			console.log("Timed out");
 		} else {
