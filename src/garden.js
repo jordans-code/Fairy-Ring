@@ -38,13 +38,16 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 			var csplit = current.split(" ");
 			Final[i] = {};
 			if (settings.debug) { console.log(csplit); }
-			if (escape(csplit[0][1]) == "%A0" || escape(csplit[0][0]) == "%20") { // fairyland will randomly put either 1 or 2 spaces in the beginning...
+			if (csplit[0][0] == "<") { // remove the "move left"
+				csplit[0] = csplit[0].slice(1);
+			}
+			if (escape(csplit[0][1]) == "%A0" || escape(csplit[0][1]) == "%20") { // fairyland will randomly put either 1 or 2 spaces in the beginning...
 			csplit[0] = csplit[0].slice(2);
 			} else if (escape(csplit[0][0]) == "%A0" || escape(csplit[0][0]) == "%20"){
 				csplit[0] = csplit[0].slice(1);
 			}
 			Final[i]["name"] = csplit[0];
-			var name = Final[i]["name"]
+			var name = Final[i]["name"];
 			if (name == "Veggies" ||
 				name == "Bamboo" ||
 				name == "Frogspawn" || 
@@ -56,10 +59,10 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				name == "Bricks" || 
 				escape(name) == "Hot%A0%A0Porridge") { // for some reason only hot porridge seems be in a different character encoding.
 				Final[i]["string"] = csplit.slice(1);
-			} else if (name == "just") {
+			} else if (name == "just") { // the only 3 word food
 				Final[i]["string"] = csplit.slice(3);
-			} else {
-				Final[i]["string"] = csplit.slice(2); // cut off name from string
+			} else { // all other food types are 2 words
+				Final[i]["string"] = csplit.slice(2); 
 			}
 		}
 	}
