@@ -550,9 +550,30 @@ function writemessage(settings, prior, spotlist) {
 		}
 		
 		finallist.forEach(function(part, index) {
-			if (counts[part] != 1) {
-				this[index] = part + ` x${counts[part]}`;
-			} else {
+			if (counts[part] != 1) { // plural
+				if (part.includes("Mouse")) {
+					this[index] = `${counts[part]} ` + part.split("Mouse")[0] + "Mice";
+				} else if (part.includes("Fairy") && part != "Fairytale Frog"){
+					this[index] = `${counts[part]} ` + part.split("Fairy")[0] + "Fairies";
+				} else if (part.includes("Butterfly")){
+					this[index] = `${counts[part]} ` + part.split("Butterfly")[0] + "Butterflies";
+				} else if (part.includes("Wolf")){
+					this[index] = `${counts[part]} ` + part.split("Wolf")[0] + "Wolves";
+				} else if (part == "The Giant") {
+					this[index] = `${counts[part]} of ` + part;
+				} else if (part.toLowerCase().includes("fish") && part != "Kingfisher") {
+					this[index] = `${counts[part]} ` + part;
+				} else {
+				this[index] = `${counts[part]} ` + part + "s";
+				}
+			} else { // singular
+				if (part == "The Giant") {
+					this[index] = part;
+				} else if (part.includes("Fairy") && part != "Fairytale Frog" && part != "Birthday Wise Fairy") {
+					this[index] = part;
+				} else {
+					this[index] = "a " + part;
+				}
 			}
 		}, finallist);
 		
