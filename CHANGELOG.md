@@ -2,6 +2,7 @@
 
 ### BETA 0.3.6:
 Changes: 
++ Changed the second Typer box (for when a critter is spotted) to append quantities. This means that you no longer need to have "a", it will now look like: "a Field Mouse", or "a White Mouse and 2 Field Mice".
 + Rewrote the function which checks for the food type (regular, organic, superfood). It should now be more efficient. 
 
 Bug Fixes:
