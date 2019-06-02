@@ -10,7 +10,7 @@ var defaults = {
 	automsg: false,
 	msg: 'Sprinkles!',
 	newspotmsg: false,
-	newmsgtext: 'Spotted a (critter), thanks!',
+	newmsgtext: 'Spotted (critter), thanks!',
 	debug: false,
 	threshold1: 0,
 	threshold2: 15,
