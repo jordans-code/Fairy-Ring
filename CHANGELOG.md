@@ -1,8 +1,8 @@
 ## Versions
 
-### BETA 0.3.6:
+### BETA 0.4.0:
 Changes: 
-+ Changed the second Typer box (for when a critter is spotted) to append quantities. This means that you no longer need to have "a", it will now look like: "a Field Mouse", or "a White Mouse and 2 Field Mice".
++ Changed the second Typer box (for when a critter is spotted) to append quantities. This means that you no longer need to have "a" before "(critter)" as the function will handle this for you. "Spotted (critter), thanks!" will now look like: "Spotted a Field Mouse, thanks!", or "Spotted a White Mouse and 2 Field Mice, thanks!". This will also add an "s" to make it plural when needed, or change to the plural word (such as "mice"). 
 + Rewrote the function which checks for the food type (regular, organic, superfood). It should now be more efficient. 
 
 Bug Fixes:
