@@ -1,5 +1,9 @@
 ## Versions
 
+### BETA 0.3.6:
+Bug Fixes:
++ Fixed a bug caused by the implementation of the previous patch, it caused certain food times to display incorrectly in your own garden due to a typo.
+
 ### BETA 0.3.5:
 Changes:
 + Rewrote the refresh handler for re-loading the extension when needed (normally post watering). In a nutshell this will make the script load faster and fix some issues where latency would cause it to never load. Before it was done by a static timeout which was a bad idea. 
