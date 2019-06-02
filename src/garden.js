@@ -57,7 +57,8 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				name == "Straw" || 
 				name == "Wood" || 
 				name == "Bricks" || 
-				escape(name) == "Hot%A0%A0Porridge") { // for some reason only hot porridge seems be in a different character encoding.
+				escape(name) == "Hot%A0%A0Porridge" ||
+				escape(name) == "Cold%A0%A0Porridge") { // These use different spaces so are not split
 				Final[i]["string"] = csplit.slice(1);
 			} else if (name == "just") { // the only 3 word food
 				Final[i]["string"] = csplit.slice(3);
@@ -86,33 +87,29 @@ function gettype(dict) { // determines type of food then removes from string
 	for (var z = 0; z < ActiveFood.length; z++) {
 		var i = ActiveFood[z];
 		var current = Final[i];
+		var statusindex = 0;
+		if (current.string[1].includes("Status")) {
+			statusindex = 1;
+		}
 			if (current.string[0].includes("Super")) {
 				Final[i]["type"] = 0;
-				Final[i]["string"][0] = Final[i]["string"][0].slice(13);
-			} else if (current.string[0].includes("(Double") && current.string[1].includes("Organic)")) {
-				Final[i]["type"] = 1;
-				Final[i]["string"] = Final[i]["string"].slice(1);
-				Final[i]["string"][0] = Final[i]["string"][0].slice(10);
-			} else if (current.string[0].includes("(Organic)")) {
+			} else if (current.string[statusindex].includes("Organic")) {
 				Final[i]["type"] = 2;
-				Final[i]["string"][0] = Final[i]["string"][0].slice(11);
-			} else if (current.string[0].includes("Organic)")) { // not sure if need
-				Final[i]["type"] = 2;
-				Final[i]["string"][0] = Final[i]["string"][0].slice(10);
-			} else if (current.string[0].includes("(Double") && current.string[1].includes("Regular)")) {
-				Final[i]["type"] = 3;
-				Final[i]["string"] = Final[i]["string"].slice(1);
-				Final[i]["string"][0] = Final[i]["string"][0].slice(10);
-			} else if (current.string[0].includes("(Regular)")) {  // not sure if needed
+			} else if (current.string[statusindex].includes("Regular")) {
 				Final[i]["type"] = 4;
-				Final[i]["string"][0] = Final[i]["string"][0].slice(11);
-			} else if (current.string[0].includes("Regular")) {
-				Final[i]["type"] = 4;
-				Final[i]["string"][0] = Final[i]["string"][0].slice(10);
 			} else {
 				console.log(current.string);
 				console.log("Unknown Food!");
 			}
+			if (statusindex == 1) { // remove two word food types
+				Final[i]["string"] = Final[i]["string"].slice(1);
+			}
+			console.log(Final[i]["string"]);
+			var spacetype = "  "; // %A0
+			if (escape(Final[i]["string"][0]).includes("%20")) {
+				spacetype = "  "; // %20
+			}
+			Final[i]["string"][0] = Final[i]["string"][0].split(spacetype)[1];
 	}
 	return Final;
 }
@@ -124,6 +121,7 @@ function getfeeds(dict, HasFood) { // get the feeds left on food, creates array 
 	var NewAFood = ActiveFood;
 	for (var z = 0; z < ActiveFood.length; z++) {
 		var i = ActiveFood[z];
+		console.log(Final[i]["string"]);
 		var feeds = Final[i]["string"][0].split(":")[1];
 		Final[i]["feedsremaining"] = feeds;
 		if (feeds == "0") {

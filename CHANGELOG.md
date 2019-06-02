@@ -1,7 +1,11 @@
 ## Versions
 
 ### BETA 0.3.6:
+Changes: 
++ Rewrote the function which checks for the food type (regular, organic, superfood). It should now be more efficient. 
+
 Bug Fixes:
++ Fixed check for cold porridge food type, before it was throwing errors due to using a special type of spaces between the words. 
 + Fixed a bug caused by the implementation of the previous patch, it caused certain food times to display incorrectly in your own garden due to a typo.
 
 ### BETA 0.3.5:
