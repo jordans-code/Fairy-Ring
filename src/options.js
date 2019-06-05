@@ -23,10 +23,18 @@ function save_options() {
   var waterbutton = document.getElementById('waterbutton').checked;
   var autosnail = document.getElementById('autosnail').checked;
   var snailchoice = document.getElementById('snailchoice').value;
+  // typer
   var automsg = document.getElementById('automsg').checked;
   var msg = document.getElementById('msg').value;
   var newspotmsg = document.getElementById('newspotmsg').checked;
   var newmsgtext = document.getElementById('newmsgtext').value;
+  var pdtext = document.getElementById('pdtext').value;
+  var samplepd = document.getElementById('samplepd').checked;
+  var samplecritter1 = document.getElementById('samplecritter1').value;
+  var samplecritter2 = document.getElementById('samplecritter2').value;
+  var samplecritter3 = document.getElementById('samplecritter3').value;
+  var samplecritter4 = document.getElementById('samplecritter4').value;
+  //
   var debug = document.getElementById('debug').checked;
   // thresholds
   var threshold1 = document.getElementById('threshold1').value; 
@@ -58,10 +66,18 @@ function save_options() {
 	waterbutton: waterbutton,
 	autosnail: autosnail,
 	snailchoice: snailchoice,
+	
 	automsg: automsg,
 	msg: msg,
 	newspotmsg: newspotmsg,
 	newmsgtext: newmsgtext,
+	pdtext: pdtext,
+	samplepd: samplepd,
+	samplecritter1: samplecritter1,
+	samplecritter2: samplecritter2,
+	samplecritter3: samplecritter3,
+	samplecritter4: samplecritter4,
+	
 	debug: debug,
 	threshold1: threshold1,
 	threshold2: threshold2,
@@ -106,10 +122,18 @@ function restore_options() {
 	document.getElementById('waterbutton').checked = items.waterbutton;
 	document.getElementById('autosnail').checked = items.autosnail;
 	document.getElementById('snailchoice').value = items.snailchoice;
+	
 	document.getElementById('automsg').checked = items.automsg;
 	document.getElementById('msg').value = items.msg;
 	document.getElementById('newspotmsg').checked = items.newspotmsg;
 	document.getElementById('newmsgtext').value = items.newmsgtext;
+	document.getElementById('pdtext').value = items.pdtext;
+	document.getElementById('samplepd').checked = items.samplepd;
+	document.getElementById('samplecritter1').value = items.samplecritter1;
+	document.getElementById('samplecritter2').value = items.samplecritter2;
+	document.getElementById('samplecritter3').value = items.samplecritter3;
+	document.getElementById('samplecritter4').value = items.samplecritter4;
+	
 	document.getElementById('debug').checked = items.debug;
 	document.getElementById("threshold1").value = items.threshold1;
 	document.getElementById("threshold2").value = items.threshold2;
@@ -152,6 +176,8 @@ function restore_options() {
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
+	
+	document.getElementById("sampletext").append(formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4]));
   });
 }
 
