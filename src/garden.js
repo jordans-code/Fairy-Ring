@@ -387,6 +387,15 @@ function checknewspot(oldspot) {
 	}
 }
 
+function checkforpd(prior) {
+	var pdtemp = $(".standard_message")[0].innerText;
+	if (pdtemp != undefined && pdtemp.includes("Pink Diamond")) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function calc(settings, type, current, prior, priordict, newspot) { // Returns dict with probabilities
 	var maxtime = 3600; // max time any wildlife could possibly stay for
 	var time = 0;
@@ -535,72 +544,10 @@ function rmnotification(settings) { // removes notifications in top right when o
 } 
 
 function writemessage(settings, prior, spotlist) {
-	if (prior && spotlist && settings.newspotmsg) {
-		var msg = settings.newmsgtext.split("(critter)");
-		var spot = "";
-		var counts = {};
-		var finallist = [];
-		for (i = 0; i < spotlist.length; i++) {
-			x = spotlist[i].split('amp;').join('');// somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
-			counts[x] = (counts[x] || 0)+1;
-			if (!(finallist.includes(x))) {
-				finallist.push(x);
-			} else {
-			}
-		}
-		
-		finallist.forEach(function(part, index) {
-			if (counts[part] != 1) { // plural
-				if (part.includes("Mouse")) {
-					this[index] = `${counts[part]} ` + part.split("Mouse")[0] + "Mice";
-				} else if (part.includes("Fairy") && part != "Fairytale Frog"){
-					this[index] = `${counts[part]} ` + part.split("Fairy")[0] + "Fairies";
-				} else if (part.includes("Butterfly")){
-					this[index] = `${counts[part]} ` + part.split("Butterfly")[0] + "Butterflies";
-				} else if (part.includes("Wolf")){
-					this[index] = `${counts[part]} ` + part.split("Wolf")[0] + "Wolves";
-				} else if (part == "The Giant") {
-					this[index] = `${counts[part]} of ` + part;
-				} else if (part.toLowerCase().includes("fish") && part != "Kingfisher") {
-					this[index] = `${counts[part]} ` + part;
-				} else {
-				this[index] = `${counts[part]} ` + part + "s";
-				}
-			} else { // singular
-				if (part == "The Giant") {
-					this[index] = part;
-				} else if (part.includes("Fairy") && part != "Fairytale Frog" && part != "Birthday Wise Fairy") {
-					this[index] = part;
-				} else {
-					this[index] = "a " + part;
-				}
-			}
-		}, finallist);
-		
-		if (settings.debug) {console.log(finallist);}
-		if (finallist.length == 1) {
-			spot = finallist[0];
-		} else if (finallist.length == 2) {
-			spot = finallist[0] + " and " + finallist[1];
-		} else if (finallist.length == 3) {
-			spot = finallist[0] + ", " + finallist[1] + ", and " + finallist[2];
-		} else if (finallist.length == 4) {
-			spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2] + ", and " + finallist[3];
-		} else {
-			console.log("Something weird happened: " + finallist.length);
-		}
-		if (msg.length > 1) {
-			var Final = msg;
-			for (i = msg.length-1; i > 0; i--) {
-				Final.splice(i, 0, spot);
-			}
-			$('#wall_message')[0].value = Final.join("");
-		} else {
-			$('#wall_message')[0].value = msg[0]
-		}
-	} else if (settings.automsg && !prior) {
-		$('#wall_message')[0].value = settings.msg;
-	} 
+	formatted = formatmessage(settings, prior, spotlist); // formatmessage.js
+	if (formatted != undefined) {
+		$('#wall_message')[0].value = formatted;
+	}
 }
 
 function autosnail(settings) { // Automatically does snail game for you
@@ -677,6 +624,7 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 			var lastfeed = getlastfeed(leftout);
 			if (prior) {lastfeed["newspot"] = checknewspot(priordict["newspot"]);} // check it here in case there is no food left.
 			var logicarr = logic(settings, lastfeed, prior, priordict);
+			if (prior && !prior["pd"]) {logicarr["pd"] = checkforpd(logicarr["pd"])}
 			Write(logicarr, settings, prior);
 			rmnotification(settings);
 			writemessage(settings, prior, lastfeed["newspot"]);
