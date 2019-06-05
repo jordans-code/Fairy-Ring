@@ -39,6 +39,7 @@ body {
 <script src="jquery.js"></script>
 <script src="jscolor.js"></script>
 
+
 <div class="banner">
 <img src="/icons/fring.png">
 </div>
@@ -108,15 +109,27 @@ body {
 	<br>
 	<div id="divnewspotmsg" style="">
 	  <input type="checkbox" id="newspotmsg">
-	  Change the message above to this if your watering spots a critter. Note: (critter) is replaced by the name(s) of what you spotted!
+	  Change the message above to this if your watering spots a critter. Note: <b>(critter)</b> is replaced by the name(s) of what you spotted! <b>(pd)</b> is replaced by the pink diamond box below, but only if your spot earns you a pink diamond. <b>(crittercondensed)</b> is an alternative to (critter) which will make the message smaller (removes grammar).
 
 	<br>
 	
 	<div>
 	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
 	</div>
-	  </div>
 	<br>
+	Pink Diamond <b>(pd)</b> text:  (you probably want to prefix with a space)<textarea style="display: block; height: 30px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="pdtext" value=""></textarea>
+	<br>
+	-------------Sample Area-------------<br>
+	An example of what your message will look like can be tested below.<br>
+	If you notice anything wrong, please let me know (contact info on about tab).<br>
+	Note: Names must be written exactly how they appear in Fairyland or grammar may be off!<br>
+	PD? <input type="checkbox" id="samplepd"> 
+	<br>Critter1: <input id="samplecritter1" style="width: 80px"> Critter2: <input id="samplecritter2" style="width: 80px"> 
+	<br>Critter3: <input id="samplecritter3" style="width: 80px"> Critter4: <input id="samplecritter4" style="width: 80px"> 
+	<textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="sampletext" value=""></textarea>
+	</div>
+	<br>
+	
 </div>
 <div id="Thresholds" class="tabcontent">
 	<br>Wildlife Threshold  1
@@ -248,6 +261,7 @@ Note: This app only works on <a href="https://www.fairylandgame.com/fbfairy/" ta
 	<button id="clearcheck" style="color: red; float: right; padding-right: 80px; padding-left: 80px">Reset</button>
 	</div>
 	<script src="defaults.js"></script>
+	<script src="formatmessage.js"></script>
 	<script src="options.js"></script>
 	
 <script src="tabs.js"></script>
