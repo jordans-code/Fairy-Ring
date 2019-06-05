@@ -8,10 +8,14 @@ function openurls() { // handles "open all" button on wildlife page
 function getlinks() { // returns array of links to gardens from wildlife page
 	var posts = $(".wall_postcontent");
 	var links = [];
-	console.log(posts);
 	for (i = 0; i < posts.length; i++) {
+		if (posts.eq(i).is(":visible")) {
+		//$('#wallDiv').children().eq(4).is(':visible')
 		var linkz = posts[i].getElementsByTagName("a")[0].toString();
 		links.push(linkz);
+		} else {
+			console.log(posts[i].getElementsByTagName("a")[0].toString() + " is blocking us, skipping.");
+		}
 	}
 	Final = [...new Set(links)]; // checks for duplicates
 	return Final;
