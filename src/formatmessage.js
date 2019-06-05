@@ -151,10 +151,10 @@ function pluralhandler(critter) {
 	return critter + "s"
 }
 
-function formatmessage(settings, prior, spotlist) {
+function formatmessage(settings, prior, spotlist, current) {
 	if (prior && spotlist && settings.newspotmsg) {
 		var pdspotted = false;
-		if (prior["pd"]) {
+		if (prior["pd"] || current["pd"]) {
 			pdspotted = true;
 		}
 		var msg = settings.newmsgtext.split("(critter)");
@@ -258,7 +258,7 @@ function formatmessage(settings, prior, spotlist) {
 		}
 		if (settings.debug) {console.log(msg);}
 	return msg;
-	} else if (settings.automsg) {
+	} else if (settings.automsg && !prior) {
 		return settings.msg;
 	} 
 }
