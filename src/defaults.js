@@ -35,7 +35,7 @@ var defaults = {
 	step3choice: "item12",
 	step4choice: "wand0",
 	blocktotal: "No Data",
-	blockid: "No Data - Visit and wildlife page",
+	blockid: "No Data - You must visit any wildlife page (not a garden, the actual wildlife pages) and re-open this window",
 	automushroom: false,
 	mushroomgameamount: 0,
 	seen: false
