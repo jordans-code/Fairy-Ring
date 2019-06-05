@@ -1,5 +1,22 @@
 ## Versions
 
+### BETA 0.5.0:
+Features:
++ Added the "Misc" tab, which now has a feature for viewing who you have blocked and who has blocked you.
++ Typer tab overhaul!
+	+ Added an optional Pink Diamond text box on the typer tab which can be called with (pd) in the event a spot earns a pink diamond.
+	+ Added an optional (crittercondensed) flag which will act similar to (critter), but minimize/remove grammar and try to abbreviate the wildlife.
+	+ Added a "sample box" at the bottom of the Typer tab which you can use to test what message will be typed for certain conditions of wildlife you spot. 
+
+Changes:
++ Moved Alchemy settings to the "Games" tab.
++ Moved the logo to the "About" tab.
++ Moved the debug settings to the "Misc" tab.
++ Added some Horizontal Rules to the tabs.
+
+Bug Fixes:
++ Fixed an issue where the "open all" garden buttons would open gardens which you should not see (blocked gardens).
+
 ### BETA 0.4.0:
 Changes: 
 + Changed the second Typer box (for when a critter is spotted) to append quantities. This means that you no longer need to have "a" before "(critter)" as the function will handle this for you. "Spotted (critter), thanks!" will now look like: "Spotted a Field Mouse, thanks!", or "Spotted a White Mouse and 2 Field Mice, thanks!". This will also add an "s" to make it plural when needed, or change to the plural word (such as "mice"). 
