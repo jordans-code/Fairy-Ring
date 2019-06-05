@@ -103,7 +103,7 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
-	document.getElementById("sampletext").value = (formatmessage({"pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4]));
+	document.getElementById("sampletext").value = (formatmessage({"pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4], {"pd": false}));
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -179,7 +179,7 @@ function restore_options() {
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
 	
-	document.getElementById("sampletext").value = (formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4]));
+	document.getElementById("sampletext").value = (formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}));
   });
 }
 

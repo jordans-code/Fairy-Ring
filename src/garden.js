@@ -543,8 +543,8 @@ function rmnotification(settings) { // removes notifications in top right when o
 	}
 } 
 
-function writemessage(settings, prior, spotlist) {
-	formatted = formatmessage(settings, prior, spotlist); // formatmessage.js
+function writemessage(settings, prior, spotlist, current) {
+	formatted = formatmessage(settings, prior, spotlist, current); // formatmessage.js
 	if (formatted != undefined) {
 		$('#wall_message')[0].value = formatted;
 	}
@@ -627,7 +627,7 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 			if (prior && !prior["pd"]) {logicarr["pd"] = checkforpd(logicarr["pd"])}
 			Write(logicarr, settings, prior);
 			rmnotification(settings);
-			writemessage(settings, prior, lastfeed["newspot"]);
+			writemessage(settings, prior, lastfeed["newspot"], logicarr);
 			waterbutton(settings, logicarr);
 			if (addbuttons) {
 			addrefresh(settings);
