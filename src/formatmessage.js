@@ -88,7 +88,7 @@ function condenser(critter) {
   "Moonlight Tranquility Butterfly":"MTB", 
   "Mellow Yellow Caterpillar":"MYC", 
   "Pink Fairy Armadillo":"PFA", 
-  "Pushmi-pullyu":"PP", 
+  "Pushmi-Pullyu":"PP", 
   "Prickly Orange Caterpillar":"POC", 
   "Rainbow Butterfly":"RB", 
   "Rainbow Dragon":"RD", 
@@ -126,13 +126,12 @@ function condenser(critter) {
 }
 
 function pluralhandler(critter) {
-	var plurallist = ["Mouse", "Wolf", "Fairy", "Butterfly", "Bfly"];
+	var plurallist = ["Mouse", "Wolf", "Fairy", "Butterfly"];
 	var plural = {
 			"Mouse": "Mice",
 			"Wolf": "Wolves",
 			"Fairy": "Fairies",
-			"Butterfly": "Butterflies",
-			"Bfly": "Bflies",
+			"Butterfly": "Butterflies"
 			
 		};
 		
@@ -143,7 +142,7 @@ function pluralhandler(critter) {
 			return critter;
 		}
 	}
-	if (critter.includes("fish") && critter != "Kingfisher") {
+	if (critter.toLowerCase().includes("fish") && critter != "Kingfisher") {
 		return critter;
 	}
 	if (plural[critter] != undefined) {
@@ -197,7 +196,7 @@ function formatmessage(settings, prior, spotlist) {
 			if (counts[part] != 1) { // plural
 				this[index] = `${counts[part]} ` + pluralhandler(part);
 			} else { // singular
-				this[index] = part;
+				this[index] = 'a ' + part;
 			}
 		}, finallist);
 		
@@ -259,7 +258,7 @@ function formatmessage(settings, prior, spotlist) {
 		}
 		if (settings.debug) {console.log(msg);}
 	return msg;
-	} else if (settings.automsg && !prior) {
+	} else if (settings.automsg) {
 		return settings.msg;
 	} 
 }

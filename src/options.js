@@ -99,11 +99,11 @@ function save_options() {
 	
 	automushroom: automushroom,
 	mushroomgameamount: mushroomgameamount
-	
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
+	document.getElementById("sampletext").value = (formatmessage({"pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4]));
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -153,6 +153,8 @@ function restore_options() {
 	document.getElementById("step3choice").value = items.step3choice;
 	document.getElementById("step4choice").value = items.step4choice;
 	
+	document.getElementById("blocktotal").value = items.blocktotal;
+	document.getElementById("blockid").value = items.blockid;
 	document.getElementById("automushroom").checked = items.automushroom;
 	document.getElementById("mushroomgameamount").value = items.mushroomgameamount;
 	
@@ -177,7 +179,7 @@ function restore_options() {
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
 	
-	document.getElementById("sampletext").append(formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4]));
+	document.getElementById("sampletext").value = (formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4]));
   });
 }
 

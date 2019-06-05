@@ -41,7 +41,7 @@ function hidenofood() { // hides gardens on home page with no food
 				continue;
 			}
 		} else {
-			console.log("Something stranged happened while loading gardens!");
+			continue;
 		}
 		
 	}

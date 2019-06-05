@@ -34,6 +34,8 @@ var defaults = {
 	step2choice: "dust7",
 	step3choice: "item12",
 	step4choice: "wand0",
+	blocktotal: "No Data",
+	blockid: "No Data - Visit and wildlife page",
 	automushroom: false,
 	mushroomgameamount: 0,
 	seen: false

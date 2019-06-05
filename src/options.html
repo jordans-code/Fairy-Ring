@@ -8,8 +8,8 @@
 <style>
 body {
 	width: 460px;
-	
 }
+
 .tab {
 	height: 43px;
 	border: 2px solid #ccc;
@@ -39,16 +39,12 @@ body {
 <script src="jquery.js"></script>
 <script src="jscolor.js"></script>
 
-
-<div class="banner">
-<img src="/icons/fring.png">
-</div>
 <div class="tab">
   <button class="tablinks" id="settingstab">Settings</button>
   <button class="tablinks" id="thresholdstab">Thresholds</button>
   <button class="tablinks" id="autotab">Typer</button>
   <button class="tablinks" id="gamestab">Games</button>
-  <button class="tablinks" id="alchemytab">Alchemy</button>
+  <button class="tablinks" id="alchemytab">Misc</button>
   <button class="tablinks" id="abouttab">About</button>
   
 </div>
@@ -59,32 +55,31 @@ body {
 	  <input type="checkbox" id="hidenofood">
 	  Hide gardens with no food on home page (will not hide wilting gardens).
 	</div>
-	
-	<br>
+	<hr>
 	<div id="divfoodoverlay" style="">
 	  <input type="checkbox" id="foodoverlay">
 	  Display % chance and visit window over food plates.
 	</div>
 	
-	<br>
+	<hr>
 	<div id="divcolorgardentext" style="">
 	  <input type="checkbox" id="colorgardentext">
 	  Change color of food % chance to match threshold colors. 
 	</div>
 	
-	<br>
+	<hr>
 	<div id="divtoprightchance" style="">
 	  <input type="checkbox" id="toprightchance">
 	  Display total wildlife % chance for the garden in the top right corner of a garden window. 
 	</div>
 
-	<br>
+	<hr>
 	<div id="divcolorborder" style="">
 	  <input type="checkbox" id="colorborder">
 	  Change color of garden border to match threshold colors for the overall % chance. 
 	  </div>
 	
-	<br>
+	<hr>
 	<div id="divwaterbutton" style="">
 	  <input type="checkbox" id="waterbutton">
 	  Left click on garden plants to water them (the plant itself, not the popup)
@@ -102,31 +97,30 @@ body {
 	<br>
 	
 	<div>
-	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
+	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
 	</div>
 	</div>
 	
 	<br>
 	<div id="divnewspotmsg" style="">
 	  <input type="checkbox" id="newspotmsg">
-	  Change the message above to this if your watering spots a critter. Note: <b>(critter)</b> is replaced by the name(s) of what you spotted! <b>(pd)</b> is replaced by the pink diamond box below, but only if your spot earns you a pink diamond. <b>(crittercondensed)</b> is an alternative to (critter) which will make the message smaller (removes grammar).
+	  Change the message above to this if your watering spots a critter. <br><b>(critter)</b> is replaced by the name(s) of what you spotted! <br><b>(pd)</b> is replaced by the pd box below, but only if your spot earns you a pd. <br><b>(crittercondensed)</b> is an alternative to (critter) which will make the message smaller (removes grammar and abbreviates).
 
 	<br>
 	
 	<div>
-	  <textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
+	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
 	</div>
 	<br>
-	Pink Diamond <b>(pd)</b> text:  (you probably want to prefix with a space)<textarea style="display: block; height: 30px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="pdtext" value=""></textarea>
+	Pink Diamond <b>(pd)</b> text:  (you probably want to prefix with a space)<textarea style="display: block; height: 15px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="pdtext" value=""></textarea>
 	<br>
-	-------------Sample Area-------------<br>
+	<hr>
 	An example of what your message will look like can be tested below.<br>
 	If you notice anything wrong, please let me know (contact info on about tab).<br>
-	Note: Names must be written exactly how they appear in Fairyland or grammar may be off!<br>
 	PD? <input type="checkbox" id="samplepd"> 
 	<br>Critter1: <input id="samplecritter1" style="width: 80px"> Critter2: <input id="samplecritter2" style="width: 80px"> 
 	<br>Critter3: <input id="samplecritter3" style="width: 80px"> Critter4: <input id="samplecritter4" style="width: 80px"> 
-	<textarea style="display: block; height: 60px; padding: 0.75%; width: 263px; margin: 0px 11.8125px 0px 0px;" id="sampletext" value=""></textarea>
+	<textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="sampletext" value="" readonly></textarea>
 	</div>
 	<br>
 	
@@ -136,23 +130,23 @@ body {
 	<br>% chance <= <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
 	<input id="threshold1c" class="jscolor" style="width: 120px"> 
 
-	<br><br>Wildlife Threshold  2
+	<hr>Wildlife Threshold  2
 	<br>% chance < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold2c" class="jscolor" style="width: 120px">
 
-	<br><br>Wildlife Threshold  3
+	<hr>Wildlife Threshold  3
 	<br>% chance < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold3c" class="jscolor" style="width: 120px">
 
-	<br><br>Wildlife Threshold  4
+	<hr>Wildlife Threshold  4
 	<br>% chance < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold4c" class="jscolor" style="width: 120px">
 
-	<br><br>Wildlife Threshold  5
+	<hr>Wildlife Threshold  5
 	<br>% chance < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold5c" class="jscolor" style="width: 120px">
 
-	<br><br>Wildlife Threshold  6
+	<hr>Wildlife Threshold  6
 	<br>% chance <= 100 <input id="threshold6c" class="jscolor" style="width: 157px">
 	<br>(anything above threshold 5)
 	<br>
@@ -173,9 +167,11 @@ body {
 		<option value="5">Snail 5</option>
 		</select>
 	</div>
+	<hr>
 	<i>Did you know</i> that you do not need to stay in the garden once the snail race has started to get the reward? The reward is given as soon as the race starts!
 	<br><br><i>Did you know</i> that Mini Mushrooms (not to be confused with Magical Mushrooms) don't require you to click to win a diamond? Your choice actually doesn't matter, the diamond is given (or not) as soon as you water. This isn't the extension's doing, it's how Fairyland works!
-	<br><br> 
+	<br>
+	<hr>
 	<div id="divautomushroom" style="">
 	  <input type="checkbox" id="automushroom">
 	  Automatically complete games of <a href="https://www.fairylandgame.com/fbfairy/mushroomsplash.php" target="_blank">Magical Mushrooms</a>.
@@ -188,13 +184,10 @@ body {
 	  
 
 	</div>
-</div>
-
-<div id="Alchemy" class="tabcontent">
+	<hr>
 	<div id="divalchemybutton" style="">
 	  <input type="checkbox" id="alchemybutton">
 	  Automatically fill in alchemy settings to the below options.
-	</div>
 	
 	<br>
 	Step 1 (Base)
@@ -233,10 +226,29 @@ body {
 	<option value="wand3">Super Butterfly</option>
 	<option value="wand8">Sunshine</option>
 	</select>
-	
+	</div>
+</div>
+
+<div id="Alchemy" class="tabcontent">
+
+	<label>
+	  <input type="checkbox" id="debug">
+	  Show the math calculations/debug information in console (hit f12). 
+	</label>
+	<hr>
+	This section will show you every garden that you are being blocked by, and that you have blocked. If the numbers aren't showing, you need to go to <a href="https://www.fairylandgame.com/fbfairy/wildlifewall.php?wid=15" target="_blank">any wildlife page</a>!<br>
+	It is sorted with the gardens which <b>you are blocking</b> at the top. If you are not blocking the first entry in the list, then you are not blocking anyone.<br>
+	Do not use this as a tool to harass others! Use this to unblock others, spot accidental blocks, or for curiosity. 
+	<br>Total number of users which have blocked you: <input id="blocktotal" style="width: 60px" readonly> 
+	<br>
+	Fairyland user IDs (not garden!) which have blocked you, or that you have blocked:<br>
+	<textarea style="display: block; height: 80px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="blockid" value="" readonly></textarea>
 </div>
 
 <div id="About" class="tabcontent">
+<div class="banner">
+<img src="/icons/fring.png">
+</div>
 <br>
 App source: <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
 <br><div id="versiontext" style="">You are running version 0.4.0 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md" target="_blank">(Read changes)</a>
@@ -247,12 +259,7 @@ If you need help or have feedback, feel free to
 <a href="https://www.fairylandgame.com/fbfairy/fairywall.php?flid=70776656675200600226633" target="_blank"> drop by my wall.</a>
 <br>
 Note: This app only works on <a href="https://www.fairylandgame.com/fbfairy/" target="_blank"> the official fairyland site</a>, it will not work on Facebook!
-<br><br>
-	<label>
-	  <input type="checkbox" id="debug">
-	  Show the math calculations/debug information in console (hit f12). 
-	</label>
-	<br>
+<br>
 </div>
 	<br>
 	<div id="status"></div>

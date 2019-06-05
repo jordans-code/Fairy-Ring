@@ -1,3 +1,28 @@
+function getblocklist() {
+	if ($('#mainpage').children()[2].innerHTML.includes("{display:none")) {
+		var unfiltered = $('#mainpage').children()[2].innerHTML.split("{display:none;}");
+	} else {
+		return [];
+	}
+	var filtered = [];
+	unfiltered.forEach(function(part, index) {
+		if (part.length > 1) {
+		if (part[0] == " ") {
+			filtered.push(part.slice(5));
+		} else {
+		filtered.push(part.slice(4));
+		}
+		}
+	}, unfiltered);
+	return filtered;
+}
+
+function blockhandler() {
+	var blocklist = getblocklist();
+	
+	chrome.storage.sync.set({blocktotal: blocklist.length, blockid: blocklist.reverse().join(", ")});
+}
+
 function openurls() { // handles "open all" button on wildlife page
 	links = getlinks();
 	for (i = 0; i < links.length; i++) {
@@ -18,6 +43,7 @@ function getlinks() { // returns array of links to gardens from wildlife page
 		}
 	}
 	Final = [...new Set(links)]; // checks for duplicates
+	console.log(getblocklist());
 	return Final;
 }
 
@@ -42,4 +68,5 @@ function wallhandler() { // handles wildlife page buttons
 			document.getElementById ("openall").addEventListener ("click", openurls, false);
 			document.getElementById ("next").addEventListener ("click", next, false);
 		}
+		blockhandler();
 }
