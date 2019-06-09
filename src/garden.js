@@ -594,6 +594,40 @@ function getvalue() {
 	return $('scriptvalue').length;
 }
 
+function addopenall() {
+	$(".wall_form").children().eq(1).append('<input id="openall" class="inputsubmit" style="float:right;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>');
+	document.getElementById ("openall").addEventListener ("click", openurls, false);
+}
+
+function addnext() {
+	$(".wall_form").children().eq(1).append('<input id="next" class="inputsubmit" style="float:right;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Next"/>');
+	document.getElementById ("next").addEventListener ("click", next, false);
+}
+
+function handlepostbtn() { // "Post"
+	$('.inputsubmit').eq(0).attr('style','float: left;');
+	$('.inputsubmit').parent().attr('style','height: 18px; padding-top: 5px');
+}
+
+function buttonhandler(settings) { // adds buttons on garden page
+	handlepostbtn();
+	if (settings.gardenExtraBtns) {
+		addnext();
+		addopenall();
+	}
+	if (settings.biggerBtns) {
+		var defaultW = 10;
+		var defaultH = 3;
+		console.log((defaultH + parseInt(settings.biggerBtnsSizeH) + 10));
+		$('.inputsubmit').css('padding-top', ((defaultH + parseInt(settings.biggerBtnsSizeH)/2).toString() + 'px'));
+		$('.inputsubmit').css('padding-bottom', ((defaultH + parseInt(settings.biggerBtnsSizeH)/2).toString() + 'px'));
+		$('.inputsubmit').css('padding-left', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
+		$('.inputsubmit').css('padding-right', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
+		$('.inputsubmit').parent().css('height', ((defaultH + parseInt(settings.biggerBtnsSizeH)+10).toString() + 'px'));
+	}
+}
+
+
 function garden(settings, prior, priordict, addbuttons) { // calls all functions required when on a garden page
 	if (!prior) {
 		var script = document.createElement('script');
@@ -602,6 +636,7 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 		script.textContent = '$(document).bind("ajaxSend", function(){$("scriptvalue").remove();}).bind("ajaxComplete", function(){var scriptvalue = document.createElement("scriptvalue");scriptvalue.textContent = `true`;(document.head).appendChild(scriptvalue);});';
 		(document.head||document.documentElement).appendChild(script);
 		script.remove();
+		buttonhandler(settings);
 	}
 	var total = 0;
 	var interval = setInterval(function() { // 

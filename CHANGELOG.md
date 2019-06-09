@@ -1,5 +1,13 @@
 ## Versions
 
+### BETA 0.6.0:
+Features:
++ Added "Open All" and "Next" button options which will place them on the garden pages
++ Added the ability to resize the "Post" button and the above buttons, this should be especially useful on mobile.
+
+Changes:
++ Changed font for Firefox to the Chrome default, it was causing my formatting to be slightly off on the Firefox edition. 
+
 ### BETA 0.5.0:
 Features:
 + Added the "Misc" tab, which now has a feature for viewing who you have blocked and who has blocked you.

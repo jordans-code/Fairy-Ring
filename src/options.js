@@ -21,6 +21,10 @@ function save_options() {
   var toprightchance = document.getElementById('toprightchance').checked;
   var colorborder = document.getElementById('colorborder').checked;
   var waterbutton = document.getElementById('waterbutton').checked;
+  var gardenExtraBtns = document.getElementById('gardenExtraBtns').checked;
+  var biggerBtns = document.getElementById('biggerBtns').checked;
+  var biggerBtnsSizeW = document.getElementById('biggerBtnsSizeW').value;
+  var biggerBtnsSizeH = document.getElementById('biggerBtnsSizeH').value;
   var autosnail = document.getElementById('autosnail').checked;
   var snailchoice = document.getElementById('snailchoice').value;
   // typer
@@ -64,6 +68,10 @@ function save_options() {
 	toprightchance: toprightchance,
 	colorborder: colorborder,
 	waterbutton: waterbutton,
+	gardenExtraBtns: gardenExtraBtns,
+	biggerBtns: biggerBtns,
+	biggerBtnsSizeW: biggerBtnsSizeW,
+	biggerBtnsSizeH: biggerBtnsSizeH,
 	autosnail: autosnail,
 	snailchoice: snailchoice,
 	
@@ -120,6 +128,10 @@ function restore_options() {
 	document.getElementById('toprightchance').checked = items.toprightchance;
 	document.getElementById('colorborder').checked = items.colorborder;
 	document.getElementById('waterbutton').checked = items.waterbutton;
+	document.getElementById('gardenExtraBtns').checked = items.gardenExtraBtns;
+	document.getElementById('biggerBtns').checked = items.biggerBtns;
+	document.getElementById('biggerBtnsSizeW').value = items.biggerBtnsSizeW;
+	document.getElementById('biggerBtnsSizeH').value = items.biggerBtnsSizeH;
 	document.getElementById('autosnail').checked = items.autosnail;
 	document.getElementById('snailchoice').value = items.snailchoice;
 	
@@ -172,6 +184,8 @@ function restore_options() {
 	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
 	if (!items.colorborder) { $('#divcolorborder').css('background-color', color)}
 	if (!items.waterbutton) { $('#divwaterbutton').css('background-color', color)}
+	if (!items.gardenExtraBtns) { $('#divextraBtns').css('background-color', color)}
+	if (!items.biggerBtns) { $('#divbiggerBtns').css('background-color', color)}
 	if (!items.autosnail) { $('#divautosnail').css('background-color', color)}
 	if (!items.automsg) { $('#divautomsg').css('background-color', color)}
 	if (!items.newspotmsg) { $('#divnewspotmsg').css('background-color', color)}
