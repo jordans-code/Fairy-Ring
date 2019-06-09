@@ -8,6 +8,8 @@
 <style>
 body {
 	width: 460px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 75%;
 }
 
 .tab {
@@ -60,8 +62,7 @@ body {
 	  <input type="checkbox" id="foodoverlay">
 	  Display % chance and visit window over food plates.
 	</div>
-	
-	<hr>
+
 	<div id="divcolorgardentext" style="">
 	  <input type="checkbox" id="colorgardentext">
 	  Change color of food % chance to match threshold colors. 
@@ -84,7 +85,15 @@ body {
 	  <input type="checkbox" id="waterbutton">
 	  Left click on garden plants to water them (the plant itself, not the popup)
 	</div>
-	
+	<hr>
+	<div id="divextraBtns" style="">
+	  <input type="checkbox" id="gardenExtraBtns">
+	  Add "open all gardens" and "next" buttons near the "post" button on gardens.
+	</div>
+	<div id="divbiggerBtns" style="">
+	  <input type="checkbox" id="biggerBtns">
+	  Increase size of garden button(s) by Width:<input id="biggerBtnsSizeW" type="number" min="0" max="240" style="width: 30px">px,  Height:<input id="biggerBtnsSizeH" type="number" min="0" max="100" style="width: 30px">px
+	</div>
 	<br>
 
 </div>
