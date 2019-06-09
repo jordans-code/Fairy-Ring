@@ -35,6 +35,17 @@ body {
   background-color: #ccc;
 }
 
+.column {
+	float: left;
+	width: 49%
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
 </style>
 <body>
 
@@ -67,7 +78,10 @@ body {
 	  <input type="checkbox" id="colorgardentext">
 	  Change color of food % chance to match threshold colors. 
 	</div>
-	
+	<div id="divcolorwindow" style="">
+	  <input type="checkbox" id="colorwindow">
+	  Change color of the time window of plate to match threshold colors. 
+	</div>
 	<hr>
 	<div id="divtoprightchance" style="">
 	  <input type="checkbox" id="toprightchance">
@@ -135,31 +149,62 @@ body {
 	
 </div>
 <div id="Thresholds" class="tabcontent">
-	<br>Wildlife Threshold  1
-	<br>% chance <= <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
-	<input id="threshold1c" class="jscolor" style="width: 120px"> 
+	<div class="row">
+	<div class="column" style="border-right:2px solid #ccc;">
+	<br>Wildlife % chance threshold  1
+	<br>% ≤ <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
+	<input id="threshold1c" class="jscolor" style="width: 86px"> 
 
-	<hr>Wildlife Threshold  2
-	<br>% chance < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold2c" class="jscolor" style="width: 120px">
+	<hr>Wildlife % chance threshold  2
+	<br>% < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold2c" class="jscolor" style="width: 86px">
 
-	<hr>Wildlife Threshold  3
-	<br>% chance < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold3c" class="jscolor" style="width: 120px">
+	<hr>Wildlife % chance threshold  3
+	<br>% < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold3c" class="jscolor" style="width: 86px">
 
-	<hr>Wildlife Threshold  4
-	<br>% chance < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold4c" class="jscolor" style="width: 120px">
+	<hr>Wildlife % chance threshold  4
+	<br>% < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold4c" class="jscolor" style="width: 86px">
 
-	<hr>Wildlife Threshold  5
-	<br>% chance < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold5c" class="jscolor" style="width: 120px">
+	<hr>Wildlife % chance threshold  5
+	<br>% < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="threshold5c" class="jscolor" style="width: 86px">
 
-	<hr>Wildlife Threshold  6
-	<br>% chance <= 100 <input id="threshold6c" class="jscolor" style="width: 157px">
+	<hr>Wildlife % chance threshold  6
+	<br>% ≤ 100 <input id="threshold6c" class="jscolor" style="width: 122px">
 	<br>(anything above threshold 5)
 	<br>
+	</div>
+	<div class="column">
+	These are for the plate "windows", ex: 2 hours / 3 hours = 66%
+	<br>Plate window threshold  1
+	<br>% ≤ <input id="pthreshold1" type="number" min="0" max="100" style="width: 52px"> 
+	<input id="pthreshold1c" class="jscolor" style="width: 86px"> 
 
+	<hr>Plate window threshold  2
+	<br>% < <input id="pthreshold2" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="pthreshold2c" class="jscolor" style="width: 86px">
+
+	<hr>Plate window threshold  3
+	<br>% < <input id="pthreshold3" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="pthreshold3c" class="jscolor" style="width: 86px">
+
+	<hr>Plate window threshold  4
+	<br>% < <input id="pthreshold4" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="pthreshold4c" class="jscolor" style="width: 86px">
+
+	<hr>Plate window threshold  5
+	<br>% < <input id="pthreshold5" type="number" min="0" max="100" style="width: 60px"> 
+	<input id="pthreshold5c" class="jscolor" style="width: 86px">
+
+	<hr>Plate window threshold  6
+	<br>% ≤ 100 <input id="pthreshold6c" class="jscolor" style="width: 122px">
+	<br>(anything above threshold 5)
+	<br>
+	
+	</div>
+	</div>
 </div>
 
 <div id="Games" class="tabcontent">

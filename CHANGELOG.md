@@ -4,9 +4,11 @@
 Features:
 + Added "Open All" and "Next" button options which will place them on the garden pages
 + Added the ability to resize the "Post" button and the above buttons, this should be especially useful on mobile.
++ Added the ability to set colors on the food window text, these colors/percentages can be set on "Thresholds".
 
 Changes:
 + Changed font for Firefox to the Chrome default, it was causing my formatting to be slightly off on the Firefox edition. 
++ Moved stuff around in Thresholds tab to make room for the window thresholds. 
 
 ### BETA 0.5.0:
 Features:

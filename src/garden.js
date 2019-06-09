@@ -264,21 +264,32 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 	return Final;
 }
 
-function getcolor(percent, settings) { // takes a percentage and matches it to the thresholds set by user
-	if (percent <= parseFloat(settings.threshold1)/100) {
-		color = settings.threshold1c;
-	} else if (percent <  parseFloat(settings.threshold2)/100) {
-		color = settings.threshold2c;
-	} else if (percent <  parseFloat(settings.threshold3)/100) {
-		color = settings.threshold3c;
-	} else if (percent <  parseFloat(settings.threshold4)/100) {
-		color = settings.threshold4c;
-	} else if (percent <  parseFloat(settings.threshold5)/100) {
-		color = settings.threshold5c;
+function getcolor(percent, settings, type) { // takes a percentage and matches it to the thresholds set by user
+	if (type == "%") {
+		for (i=1; i < 7; i++) {
+			if (i == 1 && percent <= (parseFloat(settings[`threshold${i}`])/100)) {
+				return '#' + settings[`threshold${i}c`];
+			} else if (percent < (parseFloat(settings[`threshold${i}`])/100)) {
+				return '#' + settings[`threshold${i}c`];
+			} else if (i == 6) {
+				return '#' + settings[`pthreshold${i}c`];
+			}
+		}
+		console.log(percent);
+		console.log("Something went wrong with getting the percent color");
 	} else {
-		color = settings.threshold6c;
+		for (i=1; i < 7; i++) {
+			if (i == 1 && percent <= (parseFloat(settings[`pthreshold${i}`])/100)) {
+				return '#' + settings[`pthreshold${i}c`];
+			} else if (percent < (parseFloat(settings[`pthreshold${i}`])/100)) {
+				return '#' + settings[`pthreshold${i}c`];
+			} else if (i == 6) {
+				return '#' + settings[`pthreshold${i}c`];
+			}
+		}
+		console.log(percent);
+		console.log("Something went wrong with getting the window color");
 	}
-	return '#' + color;
 }
 
 function TopRightChance(chance, prior) {
@@ -319,37 +330,50 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var z = ActiveFood[i];
 		percentdecimal = dict[z]["math1"];
 		if (settings.colorgardentext) {
-			var ctest = getcolor(percentdecimal, settings);
+			var ctest = getcolor(percentdecimal, settings, "%");
 		} else {
 			var ctest = "black";
 		}
 		var seconds = dict[z]["math3"];
 		var outof = dict[z]["math2"] / 3600;
+		if (settings.colorwindow) {
+			var cwindow = getcolor((seconds/dict[z]["math2"]), settings, "w")
+		} else {
+			var cwindow = "black";
+		}
 		var bottom = "";
 		percent = Math.floor(percentdecimal * 1000)/10;
 		duepercentarr.push(dict[z]["math1"]);
 		if (settings.foodoverlay) {
 			if (seconds < 0) {
-				bottom = `<div class="foodwindow"><center><font color="white";>${Math.floor(seconds/60)}min/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span>/${outof}hrs</font></center></div>`;
 			} else if (seconds < 3600) {
-				bottom = `<div class="foodwindow"><center><font color="white";>${Math.floor(seconds/60)}min/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span>/${outof}hrs</font></center></div>`;
 			} else if (seconds >= 3600) {
 				var hours = seconds / 3600;
 				var rhours = Math.floor(hours);
 				var minutes = (hours - rhours) * 60;
 				var rminutes = Math.round(minutes);
-				bottom = `<div class="foodwindow"><center><font color="white";>${rhours}hr ${rminutes}min/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${rhours}hr ${rminutes}min</span>/${outof}hrs</font></center></div>`;
 			} else {
 				bottom = "Error.";
 			}
-			var Final = `<div class="foodpercent${z}"><center><font size="4px"; color="white";>${percent}%</font></center></div><br>`;
+			var Final = `<div class="foodpercent${i}"><center><font size="4px"; color="white";>${percent}%</font></center></div><br>`;
 			if (dict[z]["name"] == "Water") { // Water (birdbath) has formatting issues, this makes it so text doenst clip inside it
 				$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
 			}
 			$('.planttd').eq(z).prepend(bottom);
 			$('.planttd').eq(z).prepend(Final);
-			$('.foodwindow').css('textShadow','-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black');
-			$(`.foodpercent${z}`).css('textShadow',`-1px -1px 0 ${ctest},1px -1px 0 ${ctest},-1px 1px 0 ${ctest},1px 1px 0 ${ctest}`);
+			console.log(cwindow);
+			$(`.foodwindow${i}`).css('textShadow',`-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black`);
+			if (cwindow == "#000000") {
+				$(`#foodwindowZ${i}`).css('color', 'black');
+				$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 #999999,1px -1px 0 #999999,-1px 1px 0 #999999,1px 1px 0 #999999`);
+				console.log("yay");
+			} else {
+				$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${cwindow},1px -1px 0 ${cwindow},-1px 1px 0 ${cwindow},1px 1px 0 ${cwindow}`);
+			}
+			$(`.foodpercent${i}`).css('textShadow',`-1px -1px 0 ${ctest},1px -1px 0 ${ctest},-1px 1px 0 ${ctest},1px 1px 0 ${ctest}`);
 		}
 	}
 	if (duepercentarr.length == 2 ) {
@@ -606,7 +630,6 @@ function addnext() {
 
 function handlepostbtn() { // "Post"
 	$('.inputsubmit').eq(0).attr('style','float: left;');
-	$('.inputsubmit').parent().attr('style','height: 18px; padding-top: 5px');
 }
 
 function buttonhandler(settings) { // adds buttons on garden page
@@ -623,7 +646,7 @@ function buttonhandler(settings) { // adds buttons on garden page
 		$('.inputsubmit').css('padding-bottom', ((defaultH + parseInt(settings.biggerBtnsSizeH)/2).toString() + 'px'));
 		$('.inputsubmit').css('padding-left', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
 		$('.inputsubmit').css('padding-right', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
-		$('.inputsubmit').parent().css('height', ((defaultH + parseInt(settings.biggerBtnsSizeH)+10).toString() + 'px'));
+		$('.inputsubmit').parent().eq(0).css('height', ((defaultH + parseInt(settings.biggerBtnsSizeH)+10).toString() + 'px'));
 	}
 }
 

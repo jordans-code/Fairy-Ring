@@ -20,6 +20,7 @@ function save_options() {
   var foodoverlay = document.getElementById('foodoverlay').checked;
   var toprightchance = document.getElementById('toprightchance').checked;
   var colorborder = document.getElementById('colorborder').checked;
+  var colorwindow = document.getElementById('colorwindow').checked;
   var waterbutton = document.getElementById('waterbutton').checked;
   var gardenExtraBtns = document.getElementById('gardenExtraBtns').checked;
   var biggerBtns = document.getElementById('biggerBtns').checked;
@@ -52,6 +53,18 @@ function save_options() {
   var threshold4c = document.getElementById('threshold4c').value;
   var threshold5c = document.getElementById('threshold5c').value;
   var threshold6c = document.getElementById('threshold6c').value;
+  
+  var pthreshold1 = document.getElementById('pthreshold1').value; 
+  var pthreshold2 = document.getElementById('pthreshold2').value;
+  var pthreshold3 = document.getElementById('pthreshold3').value;
+  var pthreshold4 = document.getElementById('pthreshold4').value;
+  var pthreshold5 = document.getElementById('pthreshold5').value;
+  var pthreshold1c = document.getElementById('pthreshold1c').value;
+  var pthreshold2c = document.getElementById('pthreshold2c').value;
+  var pthreshold3c = document.getElementById('pthreshold3c').value;
+  var pthreshold4c = document.getElementById('pthreshold4c').value;
+  var pthreshold5c = document.getElementById('pthreshold5c').value;
+  var pthreshold6c = document.getElementById('pthreshold6c').value;
   // alchemy
   var alchemybutton = document.getElementById('alchemybutton').checked;
   var step1choice = document.getElementById('step1choice').value; 
@@ -67,6 +80,7 @@ function save_options() {
 	foodoverlay: foodoverlay,
 	toprightchance: toprightchance,
 	colorborder: colorborder,
+	colorwindow: colorwindow,
 	waterbutton: waterbutton,
 	gardenExtraBtns: gardenExtraBtns,
 	biggerBtns: biggerBtns,
@@ -98,6 +112,18 @@ function save_options() {
 	threshold4c: threshold4c,
 	threshold5c: threshold5c,
 	threshold6c: threshold6c,
+
+	pthreshold1: pthreshold1,
+	pthreshold2: pthreshold2,
+	pthreshold3: pthreshold3,
+	pthreshold4: pthreshold4,
+	pthreshold5: pthreshold5,
+	pthreshold1c: pthreshold1c,
+	pthreshold2c: pthreshold2c,
+	pthreshold3c: pthreshold3c,
+	pthreshold4c: pthreshold4c,
+	pthreshold5c: pthreshold5c,
+	pthreshold6c: pthreshold6c,
 	
 	alchemybutton: alchemybutton,
 	step1choice: step1choice,
@@ -127,6 +153,7 @@ function restore_options() {
 	document.getElementById('foodoverlay').checked = items.foodoverlay;
 	document.getElementById('toprightchance').checked = items.toprightchance;
 	document.getElementById('colorborder').checked = items.colorborder;
+	document.getElementById('colorwindow').checked = items.colorwindow;
 	document.getElementById('waterbutton').checked = items.waterbutton;
 	document.getElementById('gardenExtraBtns').checked = items.gardenExtraBtns;
 	document.getElementById('biggerBtns').checked = items.biggerBtns;
@@ -158,6 +185,18 @@ function restore_options() {
 	document.getElementById("threshold4c").value = items.threshold4c;
 	document.getElementById("threshold5c").value = items.threshold5c;
 	document.getElementById("threshold6c").value = items.threshold6c;
+
+	document.getElementById("pthreshold1").value = items.pthreshold1;
+	document.getElementById("pthreshold2").value = items.pthreshold2;
+	document.getElementById("pthreshold3").value = items.pthreshold3;
+	document.getElementById("pthreshold4").value = items.pthreshold4;
+	document.getElementById("pthreshold5").value = items.pthreshold5;
+	document.getElementById("pthreshold1c").value = items.pthreshold1c;
+	document.getElementById("pthreshold2c").value = items.pthreshold2c;
+	document.getElementById("pthreshold3c").value = items.pthreshold3c;
+	document.getElementById("pthreshold4c").value = items.pthreshold4c;
+	document.getElementById("pthreshold5c").value = items.pthreshold5c;
+	document.getElementById("pthreshold6c").value = items.pthreshold6c;
 	
 	document.getElementById('alchemybutton').checked = items.alchemybutton;
 	document.getElementById("step1choice").value = items.step1choice;
@@ -177,12 +216,19 @@ function restore_options() {
 	$('#threshold4c').css('background-color', getrgb(items.threshold4c));
 	$('#threshold5c').css('background-color', getrgb(items.threshold5c));
 	$('#threshold6c').css('background-color', getrgb(items.threshold6c));
+	$('#pthreshold1c').css('background-color', getrgb(items.pthreshold1c));
+	$('#pthreshold2c').css('background-color', getrgb(items.pthreshold2c));
+	$('#pthreshold3c').css('background-color', getrgb(items.pthreshold3c));
+	$('#pthreshold4c').css('background-color', getrgb(items.pthreshold4c));
+	$('#pthreshold5c').css('background-color', getrgb(items.pthreshold5c));
+	$('#pthreshold6c').css('background-color', getrgb(items.pthreshold6c));
 	var color = "#FFBFB3";
 	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
 	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
 	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
 	if (!items.colorborder) { $('#divcolorborder').css('background-color', color)}
+	if (!items.colorwindow) { $('#divcolorwindow').css('background-color', color)}
 	if (!items.waterbutton) { $('#divwaterbutton').css('background-color', color)}
 	if (!items.gardenExtraBtns) { $('#divextraBtns').css('background-color', color)}
 	if (!items.biggerBtns) { $('#divbiggerBtns').css('background-color', color)}
