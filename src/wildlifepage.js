@@ -1,7 +1,12 @@
-function getblocklist() {
+function getblocklist(settings) {
 	if ($('#mainpage').children()[2].innerHTML.includes("{display:none")) {
 		var unfiltered = $('#mainpage').children()[2].innerHTML.split("{display:none;}");
 	} else {
+		if (settings.debug) {
+		console.log("Found no blocks, if you know you are blocking someone then please send in a bug report with the below info:");
+		console.log($('#mainpage').children());
+		console.log($('#mainpage').children()[2]);
+		}
 		return [];
 	}
 	var filtered = [];
@@ -17,9 +22,9 @@ function getblocklist() {
 	return filtered;
 }
 
-function blockhandler() {
-	var blocklist = getblocklist();
-	
+function blockhandler(settings) {
+	var blocklist = getblocklist(settings);
+	if (settings.debug) {console.log(blocklist);}
 	chrome.storage.sync.set({blocktotal: blocklist.length, blockid: blocklist.reverse().join(", ")});
 }
 
@@ -55,7 +60,7 @@ function next() { // next page button
 	}
 }
 
-function wallhandler() { // handles wildlife page buttons
+function wallhandler(settings) { // handles wildlife page buttons
 		if ($(".mike_error").length == 0) { // If user is not on advert cooldown
 		$(".wall_form").children().eq(1).append('<input id="openall" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All Gardens"/>');
 		$(".wall_form").children().eq(1).append('<input id="next" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Next"/>');
@@ -67,5 +72,5 @@ function wallhandler() { // handles wildlife page buttons
 			document.getElementById ("openall").addEventListener ("click", openurls, false);
 			document.getElementById ("next").addEventListener ("click", next, false);
 		}
-		blockhandler();
+		blockhandler(settings);
 }

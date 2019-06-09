@@ -6,7 +6,7 @@ function main() {
 		if (path == "/fbfairy/fairygarden.php") {
 			garden(items, false, false, true);
 		} else if (path == "/fbfairy/wildlifewall.php") {
-			wallhandler();
+			wallhandler(items);
 		} else if (path == "/fbfairy/" || path == "/fbfairy/index.php") {
 			mainpage(items);
 		} else if (path == "/fbfairy/alchemy.php") {
