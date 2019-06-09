@@ -35,7 +35,6 @@ function getlinks() { // returns array of links to gardens from wildlife page
 	var links = [];
 	for (i = 0; i < posts.length; i++) {
 		if (posts.eq(i).is(":visible")) {
-		//$('#wallDiv').children().eq(4).is(':visible')
 		var linkz = posts[i].getElementsByTagName("a")[0].toString();
 		links.push(linkz);
 		} else {
