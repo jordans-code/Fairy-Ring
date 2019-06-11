@@ -80,7 +80,7 @@ body {
 	</div>
 	<div id="divcolorwindow" style="">
 	  <input type="checkbox" id="colorwindow">
-	  Change color of the time window of plate to match threshold colors. 
+	  Change color of the visit window of plate to match threshold colors. 
 	</div>
 	<hr>
 	<div id="divtoprightchance" style="">
@@ -151,24 +151,25 @@ body {
 <div id="Thresholds" class="tabcontent">
 	<div class="row">
 	<div class="column" style="border-right:2px solid #ccc;">
+	<b>These are for the % chance that a <br>critter is currently present.</b><br><br>
 	<br>Wildlife % chance threshold  1
 	<br>% ≤ <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
 	<input id="threshold1c" class="jscolor" style="width: 86px"> 
 
 	<hr>Wildlife % chance threshold  2
-	<br>% < <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
+	<br>% <b><</b> <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold2c" class="jscolor" style="width: 86px">
 
 	<hr>Wildlife % chance threshold  3
-	<br>% < <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
+	<br>% <b><</b> <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold3c" class="jscolor" style="width: 86px">
 
 	<hr>Wildlife % chance threshold  4
-	<br>% < <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
+	<br>% <b><</b> <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold4c" class="jscolor" style="width: 86px">
 
 	<hr>Wildlife % chance threshold  5
-	<br>% < <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
+	<br>% <b><</b> <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="threshold5c" class="jscolor" style="width: 86px">
 
 	<hr>Wildlife % chance threshold  6
@@ -177,28 +178,28 @@ body {
 	<br>
 	</div>
 	<div class="column">
-	These are for the plate "windows", ex: 2 hours / 3 hours = 66%
+	<b>These are for the visit window fraction located under the % chance on plates, ex: 2hrs/3hrs = 66%</b><br>
 	<br>Plate window threshold  1
 	<br>% ≤ <input id="pthreshold1" type="number" min="0" max="100" style="width: 52px"> 
 	<input id="pthreshold1c" class="jscolor" style="width: 86px"> 
 
-	<hr>Plate window threshold  2
+	<hr>Visit window threshold  2
 	<br>% < <input id="pthreshold2" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="pthreshold2c" class="jscolor" style="width: 86px">
 
-	<hr>Plate window threshold  3
+	<hr>Visit window threshold  3
 	<br>% < <input id="pthreshold3" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="pthreshold3c" class="jscolor" style="width: 86px">
 
-	<hr>Plate window threshold  4
+	<hr>Visit window threshold  4
 	<br>% < <input id="pthreshold4" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="pthreshold4c" class="jscolor" style="width: 86px">
 
-	<hr>Plate window threshold  5
+	<hr>Visit window threshold  5
 	<br>% < <input id="pthreshold5" type="number" min="0" max="100" style="width: 60px"> 
 	<input id="pthreshold5c" class="jscolor" style="width: 86px">
 
-	<hr>Plate window threshold  6
+	<hr>Visit window threshold  6
 	<br>% ≤ 100 <input id="pthreshold6c" class="jscolor" style="width: 122px">
 	<br>(anything above threshold 5)
 	<br>
@@ -297,6 +298,8 @@ body {
 	<br>
 	Fairyland user IDs (not garden!) which have blocked you, or that you have blocked:<br>
 	<textarea style="display: block; height: 80px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="blockid" value="" readonly></textarea>
+	Paste an ID (don't include the comma or space) at the end of this link to check. <br><b>https://www.fairylandgame.com/fbfairy/fairywall.php?flid=</b><br>
+	If you see "Unblock", it means that you have blocked them. If you see "block" and "Profile not availible", then they have blocked you. 
 </div>
 
 <div id="About" class="tabcontent">
@@ -305,8 +308,8 @@ body {
 </div>
 <br>
 App source: <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
-<br><div id="versiontext" style="">You are running version 0.5.0 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md" target="_blank">(Read changes)</a>
-<br>Main changes: Added new features to the Typer tab and added a new "Misc" tab.</div>
+<br><div id="versiontext" style="">You are running version 0.6.0 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md" target="_blank">(Read changes)</a>
+<br>Main changes: Added new buttons to garden pages, added the ability to change their size, and added the ability to set color thresholds for the visit window.</div><br>
 <b>If you have a question or issue, try checking the <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/README.md#faq" target="_blank">FAQ.</b></a>
 <br>
 If you need help or have feedback, feel free to
