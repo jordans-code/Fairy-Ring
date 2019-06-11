@@ -653,12 +653,13 @@ function buttonhandler(settings) { // adds buttons on garden page
 	if (settings.biggerBtns) {
 		var defaultW = 10;
 		var defaultH = 3;
-		console.log((defaultH + parseInt(settings.biggerBtnsSizeH) + 10));
 		$('.inputsubmit').css('padding-top', ((defaultH + parseInt(settings.biggerBtnsSizeH)/2).toString() + 'px'));
 		$('.inputsubmit').css('padding-bottom', ((defaultH + parseInt(settings.biggerBtnsSizeH)/2).toString() + 'px'));
 		$('.inputsubmit').css('padding-left', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
 		$('.inputsubmit').css('padding-right', ((defaultW + parseInt(settings.biggerBtnsSizeW)/2).toString() + 'px'));
-		$('.inputsubmit').parent().eq(0).css('height', ((defaultH + parseInt(settings.biggerBtnsSizeH)+10).toString() + 'px'));
+		$('.inputsubmit').parent().eq(0).css('height', ((defaultH + parseInt(settings.biggerBtnsSizeH)+14).toString() + 'px'));
+	} else {
+		$('.inputsubmit').parent().eq(0).css('height', ('14px'));
 	}
 }
 
