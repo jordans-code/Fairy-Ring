@@ -44,7 +44,7 @@ To use the app on your Android, you will need to install Firefox!
 ### Wildlife Calculations
 * This app will look at a loaded garden page and calculate the percent chance of wildlife in the garden, on a given plate, and the time period that a plate is able to recieve new wildlife.
 * Ability to embed the calculated information right into the page for quick decisions.
-* Ability to set custom percentages to alert, along with the ability to set custom colors to go with them.
+* Ability to set custom percentages thresholds with matching colors.
 
 <a name="qol"></a>
 ### Quality of life
@@ -52,14 +52,15 @@ To use the app on your Android, you will need to install Firefox!
 * Ability to automatically complete minigames and Magical Mushrooms.
 * Ability to click a plant directly to water it.
 * Ability to set a custom message to automatically type on every visited garden (you will still have to hit "post").
-* Wildlife pages now have two additional buttons:
+* Wildlife pages and garden pages now have two additional buttons:
   * Open all (opens all garden links on the page instantly)
   * Next (no more having to scroll down each time).
+* Ability to enlarge buttons to custom amounts, especially useful for mobile.
+* Display users who have blocked you. 
 
 <a name="planned"></a>
 ### Planned Features
 * Improve calculation algorithm as more data is aquired
-* Display users who have blocked you/hide their gardens so you do not waste your time. 
 * Potentially display all of the possible wildlife a garden can have below the garden window (like how wildlifecalc does). I could increase the accuracy of the calculation by this as well. 
 * Dark theme - I experimented with changing the colors of fairyland, the issue is there are some bits that look rather ugly that cannot be changed easily as they are embedded images. 
 

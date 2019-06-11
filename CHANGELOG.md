@@ -4,14 +4,15 @@
 Features:
 + Added "Open All" and "Next" button options which will place them on the garden pages
 + Added the ability to resize the "Post" button and the above buttons, this should be especially useful on mobile.
-+ Added the ability to set colors on the food window text, these colors/percentages can be set on "Thresholds". This changes the color of the text below the percentage based upon the window time / max time before feed fraction displayed.
++ Added the ability to set colors on the visit window fraction, these colors/percentages can be set on the "Thresholds" tab. This changes the color of the text below the percentage based upon the current time the window has been opened / max time before feed fraction displayed. Example: 2 hours / 3 hours = 66%. 
 
 Changes:
 + Changed font for Firefox to the Chrome default, it was causing my formatting to be slightly off on the Firefox edition. 
 + Moved stuff around in Thresholds tab to make room for the window thresholds. 
++ Added some text to the Misc tab to better explain how the blocked garden "snooper" works.
 
 Bug Fixes:
-+ Fixed an issue where the percentage and window fraction would appear behind the food of custom tables (the ones you get after you complete the quest levels). This will now check for them and handle them correctly. 
++ Fixed an issue where the percent chance and visit window would appear behind the food of custom tables (the ones you get after you complete the quest levels). This will now check for them and handle them correctly. 
 
 ### BETA 0.5.0:
 Features:
