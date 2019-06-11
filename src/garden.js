@@ -362,9 +362,18 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			if (dict[z]["name"] == "Water") { // Water (birdbath) has formatting issues, this makes it so text doenst clip inside it
 				$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
 			}
+			if ($('.planttd').eq(z).children().children().children().eq(0).children().length >= 5) { // Custom plates divs don't include food size, this adds extra spacing. 
+				if ($('.planttd').eq(z).children().children().children().eq(0).children()[4].src.includes("509")) { // birthday cake
+					if(settings.debug){console.log("Custom birthday cake plate detected")};
+					$('.planttd').eq(z).prepend('<br><br><br><br><br>');
+				} else { // normal foods
+					if(settings.debug){console.log("Custom plate detected")};
+					$('.planttd').eq(z).prepend('<br><br>');
+				}
+			}
 			$('.planttd').eq(z).prepend(bottom);
 			$('.planttd').eq(z).prepend(Final);
-			console.log(cwindow);
+			
 			$(`.foodwindow${i}`).css('textShadow',`-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black`);
 			if (cwindow == "#000000") {
 				$(`#foodwindowZ${i}`).css('color', 'black');

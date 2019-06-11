@@ -10,6 +10,9 @@ Changes:
 + Changed font for Firefox to the Chrome default, it was causing my formatting to be slightly off on the Firefox edition. 
 + Moved stuff around in Thresholds tab to make room for the window thresholds. 
 
+Bug Fixes:
++ Fixed an issue where the percentage and window fraction would appear behind the food of custom tables (the ones you get after you complete the quest levels). This will now check for them and handle them correctly. 
+
 ### BETA 0.5.0:
 Features:
 + Added the "Misc" tab, which now has a feature for viewing who you have blocked and who has blocked you.
