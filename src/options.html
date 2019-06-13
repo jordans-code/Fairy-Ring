@@ -151,56 +151,82 @@ body {
 <div id="Thresholds" class="tabcontent">
 	<div class="row">
 	<div class="column" style="border-right:2px solid #ccc;">
-	<b>These are for the % chance that a <br>critter is currently present.</b><br><br>
-	<br>Wildlife % chance threshold  1
-	<br>% ≤ <input id="threshold1" type="number" min="0" max="100" style="width: 52px"> 
-	<input id="threshold1c" class="jscolor" style="width: 86px"> 
+	<b>These are for the % chance that a <br>critter is currently present. The garden border will be the color under "Border"</b><br>
+	<br>Wildlife % chance threshold  1&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% ≤ &nbsp;&nbsp;&nbsp;&nbsp;<input id="threshold1" type="number" min="0" max="100" style="width: 35px"> <span id="threshold1s" style="background-color: #EDF0FF; font-size:150%;">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold1border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold1c" updatetype="glow" updateid="threshold1s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold1c" updatetype="inner" updateid="threshold1s" class="jscolor" style="width: 60px">
 
-	<hr>Wildlife % chance threshold  2
-	<br>% <b><</b> <input id="threshold2" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold2c" class="jscolor" style="width: 86px">
+	<hr>Wildlife % chance threshold  2&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% <b><</b> &nbsp;&nbsp;&nbsp;<input id="threshold2" type="number" min="0" max="100" style="width: 35px"> <span id="threshold2s" style="background-color: #EDF0FF; font-size:150%;">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold2border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold2c" updatetype="glow" updateid="threshold2s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold2c" updatetype="inner" updateid="threshold2s" class="jscolor" style="width: 60px">
 
-	<hr>Wildlife % chance threshold  3
-	<br>% <b><</b> <input id="threshold3" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold3c" class="jscolor" style="width: 86px">
+	<hr>Wildlife % chance threshold  3&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% <b><</b> &nbsp;&nbsp;&nbsp;<input id="threshold3" type="number" min="0" max="100" style="width: 35px"> <span id="threshold3s" style="background-color: #EDF0FF; font-size:150%;">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold3border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold3c" updatetype="glow" updateid="threshold3s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold3c" updatetype="inner" updateid="threshold3s" class="jscolor" style="width: 60px">
 
-	<hr>Wildlife % chance threshold  4
-	<br>% <b><</b> <input id="threshold4" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold4c" class="jscolor" style="width: 86px">
+	<hr>Wildlife % chance threshold  4&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% <b><</b> &nbsp;&nbsp;&nbsp;<input id="threshold4" type="number" min="0" max="100" style="width: 35px"> <span id="threshold4s" style="background-color: #EDF0FF; font-size:150%;">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold4border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold4c" updatetype="glow" updateid="threshold4s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold4c" updatetype="inner" updateid="threshold4s" class="jscolor" style="width: 60px">
 
-	<hr>Wildlife % chance threshold  5
-	<br>% <b><</b> <input id="threshold5" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="threshold5c" class="jscolor" style="width: 86px">
+	<hr>Wildlife % chance threshold  5&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% <b><</b> &nbsp;&nbsp;&nbsp;<input id="threshold5" type="number" min="0" max="100" style="width: 35px"> <span id="threshold5s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold5border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold5c" updatetype="glow" updateid="threshold5s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold5c" updatetype="inner" updateid="threshold5s" class="jscolor" style="width: 60px">
 
-	<hr>Wildlife % chance threshold  6
-	<br>% ≤ 100 <input id="threshold6c" class="jscolor" style="width: 122px">
+	<hr>Wildlife % chance threshold  6&nbsp;&nbsp;&nbsp;<b>Border:</b>
+	<br>% ≤ 100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="threshold6s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	&nbsp;&nbsp;<select id="threshold6border" style="width:55px"><option value="glow">Glow - use the glow color for the garden border</option><option value="inner">Inner - use the inner color for the garden border</option>
+		</select>
+	<br>Glow: <input id="threshold6c" updatetype="glow" updateid="threshold6s" class="jscolor" style="width: 60px">
+	Inner: <input id="TextColorthreshold6c" updatetype="inner" updateid="threshold6s" class="jscolor" style="width: 60px">
 	<br>(anything above threshold 5)
 	<br>
 	</div>
 	<div class="column">
 	<b>These are for the visit window fraction located under the % chance on plates, ex: 2hrs/3hrs = 66%</b><br>
 	<br>Plate window threshold  1
-	<br>% ≤ <input id="pthreshold1" type="number" min="0" max="100" style="width: 52px"> 
-	<input id="pthreshold1c" class="jscolor" style="width: 86px"> 
+	<br>% ≤ &nbsp;&nbsp;&nbsp;<input id="Windowthreshold1" type="number" min="0" max="100" style="width: 35px"> <span id="Windowthreshold1s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold1c" updatetype="glow" updateid="Windowthreshold1s" class="jscolor" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold1c" updatetype="inner" updateid="Windowthreshold1s" class="jscolor" style="width: 60px">
 
 	<hr>Visit window threshold  2
-	<br>% < <input id="pthreshold2" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="pthreshold2c" class="jscolor" style="width: 86px">
+	<br>% < &nbsp;&nbsp;&nbsp;<input id="Windowthreshold2" type="number" min="0" max="100" style="width: 35px"> <span id="Windowthreshold2s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold2c" updatetype="glow" updateid="Windowthreshold2s" class="jscolor" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold2c" updatetype="inner" updateid="Windowthreshold2s" class="jscolor" style="width: 60px">
 
 	<hr>Visit window threshold  3
-	<br>% < <input id="pthreshold3" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="pthreshold3c" class="jscolor" style="width: 86px">
-
+	<br>% < &nbsp;&nbsp;&nbsp;<input id="Windowthreshold3" type="number" min="0" max="100" style="width: 35px"> <span id="Windowthreshold3s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold3c" class="jscolor" updatetype="glow" updateid="Windowthreshold3s" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold3c" updatetype="inner" updateid="Windowthreshold3s" class="jscolor" style="width: 60px">
+	
 	<hr>Visit window threshold  4
-	<br>% < <input id="pthreshold4" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="pthreshold4c" class="jscolor" style="width: 86px">
+	<br>% < &nbsp;&nbsp;&nbsp;<input id="Windowthreshold4" type="number" min="0" max="100" style="width: 35px"> <span id="Windowthreshold4s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold4c" updatetype="glow" updateid="Windowthreshold4s" class="jscolor" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold4c" updatetype="inner" updateid="Windowthreshold4s" class="jscolor" style="width: 60px">
 
 	<hr>Visit window threshold  5
-	<br>% < <input id="pthreshold5" type="number" min="0" max="100" style="width: 60px"> 
-	<input id="pthreshold5c" class="jscolor" style="width: 86px">
+	<br>% < &nbsp;&nbsp;&nbsp;<input id="Windowthreshold5" type="number" min="0" max="100" style="width: 35px"> <span id="Windowthreshold5s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold5c" updatetype="glow" updateid="Windowthreshold5s" class="jscolor" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold5c" updatetype="inner" updateid="Windowthreshold5s" class="jscolor" style="width: 60px">
 
 	<hr>Visit window threshold  6
-	<br>% ≤ 100 <input id="pthreshold6c" class="jscolor" style="width: 122px">
+	<br>% ≤ 100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Windowthreshold6s" style="background-color: #EDF0FF; font-size:150%">&nbsp; Sample &nbsp;</span>
+	<br>Glow: <input id="Windowthreshold6c" updatetype="glow" updateid="Windowthreshold6s" class="jscolor" style="width: 60px">
+	Inner: <input id="WindowTextColorthreshold6c" updatetype="inner" updateid="Windowthreshold6s" class="jscolor" style="width: 60px">
 	<br>(anything above threshold 5)
 	<br>
 	
@@ -290,6 +316,7 @@ body {
 	  <input type="checkbox" id="debug">
 	  Show the math calculations/debug information in console (hit f12). 
 	</label>
+	<br>Useful links: <a href="http://myarduinoprojects.com/flcalculator/" target="_blank">Go to Fairyland Spoiler</a> | <a href="http://myarduinoprojects.com/wildlifecalculator/index.html" target="_blank">Go to Wildlife Calculator</a>
 	<hr>
 	This section will show you every garden that you are being blocked by, and that you have blocked. If the numbers aren't showing, you need to go to <a href="https://www.fairylandgame.com/fbfairy/wildlifewall.php?wid=15" target="_blank">any wildlife page</a>!<br>
 	It is sorted with the gardens which <b>you are blocking</b> at the top. If you are not blocking the first entry in the list, then you are not blocking anyone.<br>
