@@ -686,7 +686,15 @@ var jsc = {
 			} else {
 				callback = thisObj.onFineChange;
 			}
-			callback.call(thisObj);
+			
+			if (thisObj.targetElement.attributes.updatetype.value == "glow") {
+				var rgbvar = `rgb(${thisObj.rgb[0]}, ${thisObj.rgb[1]}, ${thisObj.rgb[2]})`;
+				console.log(rgbvar);
+				$(`#${thisObj.targetElement.attributes.updateid.value}`).css('textShadow', `-1px -1px 0px ${rgbvar} , 1px -1px 0px ${rgbvar}, -1px 1px 0px ${rgbvar}, 1px 1px 0px ${rgbvar}`);
+			} else {
+				$(`#${thisObj.targetElement.attributes.updateid.value}`).css('color', `#${thisObj.targetElement.value}`);
+			}
+			//callback.call(thisObj);
 		}
 	},
 
@@ -985,7 +993,7 @@ var jsc = {
 		this.refine = true; // whether to refine the entered color code (e.g. uppercase it and remove whitespace)
 		this.hash = false; // whether to prefix the HEX color code with # symbol
 		this.uppercase = true; // whether to show the color code in upper case
-		this.onFineChange = null; // called instantly every time the color changes (value can be either a function or a string with javascript code)
+		this.onFineChange = true; // called instantly every time the color changes (value can be either a function or a string with javascript code)
 		this.activeClass = 'jscolor-active'; // class to be set to the target element when a picker window is open on it
 		this.overwriteImportant = false; // whether to overwrite colors of styleElement using !important
 		this.minS = 0; // min allowed saturation (0 - 100)
