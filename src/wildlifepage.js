@@ -47,7 +47,6 @@ function getlinks() { // returns array of links to gardens from wildlife page
 		}
 	}
 	Final = [...new Set(links)]; // checks for duplicates
-	console.log(getblocklist());
 	return Final;
 }
 
