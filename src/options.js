@@ -14,6 +14,41 @@ function getrgb(hex) {
 	return `rgb(${rawrgb.r}, ${rawrgb.g}, ${rawrgb.b})`
 }
 
+function getcolor(settings, type, i) { // takes a percentage and matches it to the thresholds set by user
+	
+	switch(type) {
+		case "NormalGlow":
+			var colorvar = "threshold";
+			break;
+		case "WindowGlow":
+			var colorvar = "Windowthreshold";
+			break;
+		case "NormalText":
+			var colorvar = "TextColorthreshold";
+			break;
+		case "WindowText":
+			var colorvar = "WindowTextColorthreshold";
+			break;
+	}
+	return '#' + settings[`${colorvar}${i}c`];
+}
+
+function setcolor(i, color, glowcolor, type) {
+	$(`#${type}${i}s`).css('textShadow',`-1px -1px 0 ${glowcolor},1px -1px 0 ${glowcolor},-1px 1px 0 ${glowcolor},1px 1px 0 ${glowcolor}`);
+	$(`#${type}${i}s`).css('color',`${color}`);
+}
+
+function getallsamples(settings) {
+	for (i=1; i < 7; i++) {
+		var Ninnercolor = getcolor(settings, "NormalText", i);
+		var Nglowcolor = getcolor(settings, "NormalGlow", i);
+		var Winnercolor = getcolor(settings, "WindowText", i);
+		var Nglowcolor = getcolor(settings, "WindowGlow", i);
+		setcolor(i, Ninnercolor, Nglowcolor, "threshold");
+		setcolor(i, Winnercolor, Nglowcolor, "Windowthreshold");
+	}
+}
+
 function save_options() {
   var hidenofood = document.getElementById('hidenofood').checked;
   var colorgardentext = document.getElementById('colorgardentext').checked;
@@ -53,18 +88,36 @@ function save_options() {
   var threshold4c = document.getElementById('threshold4c').value;
   var threshold5c = document.getElementById('threshold5c').value;
   var threshold6c = document.getElementById('threshold6c').value;
+  var TextColorthreshold1c = document.getElementById('TextColorthreshold1c').value;
+  var TextColorthreshold2c = document.getElementById('TextColorthreshold2c').value;
+  var TextColorthreshold3c = document.getElementById('TextColorthreshold3c').value;
+  var TextColorthreshold4c = document.getElementById('TextColorthreshold4c').value;
+  var TextColorthreshold5c = document.getElementById('TextColorthreshold5c').value;
+  var TextColorthreshold6c = document.getElementById('TextColorthreshold6c').value;
+  var threshold1border = document.getElementById('threshold1border').value;
+  var threshold2border = document.getElementById('threshold2border').value;
+  var threshold3border = document.getElementById('threshold3border').value;
+  var threshold4border = document.getElementById('threshold4border').value;
+  var threshold5border = document.getElementById('threshold5border').value;
+  var threshold6border = document.getElementById('threshold6border').value;
   
-  var pthreshold1 = document.getElementById('pthreshold1').value; 
-  var pthreshold2 = document.getElementById('pthreshold2').value;
-  var pthreshold3 = document.getElementById('pthreshold3').value;
-  var pthreshold4 = document.getElementById('pthreshold4').value;
-  var pthreshold5 = document.getElementById('pthreshold5').value;
-  var pthreshold1c = document.getElementById('pthreshold1c').value;
-  var pthreshold2c = document.getElementById('pthreshold2c').value;
-  var pthreshold3c = document.getElementById('pthreshold3c').value;
-  var pthreshold4c = document.getElementById('pthreshold4c').value;
-  var pthreshold5c = document.getElementById('pthreshold5c').value;
-  var pthreshold6c = document.getElementById('pthreshold6c').value;
+  var Windowthreshold1 = document.getElementById('Windowthreshold1').value; 
+  var Windowthreshold2 = document.getElementById('Windowthreshold2').value;
+  var Windowthreshold3 = document.getElementById('Windowthreshold3').value;
+  var Windowthreshold4 = document.getElementById('Windowthreshold4').value;
+  var Windowthreshold5 = document.getElementById('Windowthreshold5').value;
+  var Windowthreshold1c = document.getElementById('Windowthreshold1c').value;
+  var Windowthreshold2c = document.getElementById('Windowthreshold2c').value;
+  var Windowthreshold3c = document.getElementById('Windowthreshold3c').value;
+  var Windowthreshold4c = document.getElementById('Windowthreshold4c').value;
+  var Windowthreshold5c = document.getElementById('Windowthreshold5c').value;
+  var Windowthreshold6c = document.getElementById('Windowthreshold6c').value;
+  var WindowTextColorthreshold1c = document.getElementById('WindowTextColorthreshold1c').value;
+  var WindowTextColorthreshold2c = document.getElementById('WindowTextColorthreshold2c').value;
+  var WindowTextColorthreshold3c = document.getElementById('WindowTextColorthreshold3c').value;
+  var WindowTextColorthreshold4c = document.getElementById('WindowTextColorthreshold4c').value;
+  var WindowTextColorthreshold5c = document.getElementById('WindowTextColorthreshold5c').value;
+  var WindowTextColorthreshold6c = document.getElementById('WindowTextColorthreshold6c').value;
   // alchemy
   var alchemybutton = document.getElementById('alchemybutton').checked;
   var step1choice = document.getElementById('step1choice').value; 
@@ -112,18 +165,36 @@ function save_options() {
 	threshold4c: threshold4c,
 	threshold5c: threshold5c,
 	threshold6c: threshold6c,
-
-	pthreshold1: pthreshold1,
-	pthreshold2: pthreshold2,
-	pthreshold3: pthreshold3,
-	pthreshold4: pthreshold4,
-	pthreshold5: pthreshold5,
-	pthreshold1c: pthreshold1c,
-	pthreshold2c: pthreshold2c,
-	pthreshold3c: pthreshold3c,
-	pthreshold4c: pthreshold4c,
-	pthreshold5c: pthreshold5c,
-	pthreshold6c: pthreshold6c,
+	TextColorthreshold1c: TextColorthreshold1c,
+	TextColorthreshold2c: TextColorthreshold2c,
+	TextColorthreshold3c: TextColorthreshold3c,
+	TextColorthreshold4c: TextColorthreshold4c,
+	TextColorthreshold5c: TextColorthreshold5c,
+	TextColorthreshold6c: TextColorthreshold6c,
+	threshold1border: threshold1border,
+	threshold2border: threshold2border,
+	threshold3border: threshold3border,
+	threshold4border: threshold4border,
+	threshold5border: threshold5border,
+	threshold6border: threshold6border,
+	
+	Windowthreshold1: Windowthreshold1,
+	Windowthreshold2: Windowthreshold2,
+	Windowthreshold3: Windowthreshold3,
+	Windowthreshold4: Windowthreshold4,
+	Windowthreshold5: Windowthreshold5,
+	Windowthreshold1c: Windowthreshold1c,
+	Windowthreshold2c: Windowthreshold2c,
+	Windowthreshold3c: Windowthreshold3c,
+	Windowthreshold4c: Windowthreshold4c,
+	Windowthreshold5c: Windowthreshold5c,
+	Windowthreshold6c: Windowthreshold6c,
+	WindowTextColorthreshold1c: WindowTextColorthreshold1c,
+	WindowTextColorthreshold2c: WindowTextColorthreshold2c,
+	WindowTextColorthreshold3c: WindowTextColorthreshold3c,
+	WindowTextColorthreshold4c: WindowTextColorthreshold4c,
+	WindowTextColorthreshold5c: WindowTextColorthreshold5c,
+	WindowTextColorthreshold6c: WindowTextColorthreshold6c,
 	
 	alchemybutton: alchemybutton,
 	step1choice: step1choice,
@@ -185,18 +256,37 @@ function restore_options() {
 	document.getElementById("threshold4c").value = items.threshold4c;
 	document.getElementById("threshold5c").value = items.threshold5c;
 	document.getElementById("threshold6c").value = items.threshold6c;
-
-	document.getElementById("pthreshold1").value = items.pthreshold1;
-	document.getElementById("pthreshold2").value = items.pthreshold2;
-	document.getElementById("pthreshold3").value = items.pthreshold3;
-	document.getElementById("pthreshold4").value = items.pthreshold4;
-	document.getElementById("pthreshold5").value = items.pthreshold5;
-	document.getElementById("pthreshold1c").value = items.pthreshold1c;
-	document.getElementById("pthreshold2c").value = items.pthreshold2c;
-	document.getElementById("pthreshold3c").value = items.pthreshold3c;
-	document.getElementById("pthreshold4c").value = items.pthreshold4c;
-	document.getElementById("pthreshold5c").value = items.pthreshold5c;
-	document.getElementById("pthreshold6c").value = items.pthreshold6c;
+	document.getElementById("TextColorthreshold1c").value = items.TextColorthreshold1c;
+	document.getElementById("TextColorthreshold2c").value = items.TextColorthreshold2c;
+	document.getElementById("TextColorthreshold3c").value = items.TextColorthreshold3c;
+	document.getElementById("TextColorthreshold4c").value = items.TextColorthreshold4c;
+	document.getElementById("TextColorthreshold5c").value = items.TextColorthreshold5c;
+	document.getElementById("TextColorthreshold6c").value = items.TextColorthreshold6c;
+	document.getElementById("threshold1border").value = items.threshold1border;
+	document.getElementById("threshold2border").value = items.threshold2border;
+	document.getElementById("threshold3border").value = items.threshold3border;
+	document.getElementById("threshold4border").value = items.threshold4border;
+	document.getElementById("threshold5border").value = items.threshold5border;
+	document.getElementById("threshold6border").value = items.threshold6border;
+	
+	
+	document.getElementById("Windowthreshold1").value = items.Windowthreshold1;
+	document.getElementById("Windowthreshold2").value = items.Windowthreshold2;
+	document.getElementById("Windowthreshold3").value = items.Windowthreshold3;
+	document.getElementById("Windowthreshold4").value = items.Windowthreshold4;
+	document.getElementById("Windowthreshold5").value = items.Windowthreshold5;
+	document.getElementById("Windowthreshold1c").value = items.Windowthreshold1c;
+	document.getElementById("Windowthreshold2c").value = items.Windowthreshold2c;
+	document.getElementById("Windowthreshold3c").value = items.Windowthreshold3c;
+	document.getElementById("Windowthreshold4c").value = items.Windowthreshold4c;
+	document.getElementById("Windowthreshold5c").value = items.Windowthreshold5c;
+	document.getElementById("Windowthreshold6c").value = items.Windowthreshold6c;
+	document.getElementById("WindowTextColorthreshold1c").value = items.WindowTextColorthreshold1c;
+	document.getElementById("WindowTextColorthreshold2c").value = items.WindowTextColorthreshold2c;
+	document.getElementById("WindowTextColorthreshold3c").value = items.WindowTextColorthreshold3c;
+	document.getElementById("WindowTextColorthreshold4c").value = items.WindowTextColorthreshold4c;
+	document.getElementById("WindowTextColorthreshold5c").value = items.WindowTextColorthreshold5c;
+	document.getElementById("WindowTextColorthreshold6c").value = items.WindowTextColorthreshold6c;
 	
 	document.getElementById('alchemybutton').checked = items.alchemybutton;
 	document.getElementById("step1choice").value = items.step1choice;
@@ -216,12 +306,24 @@ function restore_options() {
 	$('#threshold4c').css('background-color', getrgb(items.threshold4c));
 	$('#threshold5c').css('background-color', getrgb(items.threshold5c));
 	$('#threshold6c').css('background-color', getrgb(items.threshold6c));
-	$('#pthreshold1c').css('background-color', getrgb(items.pthreshold1c));
-	$('#pthreshold2c').css('background-color', getrgb(items.pthreshold2c));
-	$('#pthreshold3c').css('background-color', getrgb(items.pthreshold3c));
-	$('#pthreshold4c').css('background-color', getrgb(items.pthreshold4c));
-	$('#pthreshold5c').css('background-color', getrgb(items.pthreshold5c));
-	$('#pthreshold6c').css('background-color', getrgb(items.pthreshold6c));
+	$('#TextColorthreshold1c').css('background-color', getrgb(items.TextColorthreshold1c));
+	$('#TextColorthreshold2c').css('background-color', getrgb(items.TextColorthreshold2c));
+	$('#TextColorthreshold3c').css('background-color', getrgb(items.TextColorthreshold3c));
+	$('#TextColorthreshold4c').css('background-color', getrgb(items.TextColorthreshold4c));
+	$('#TextColorthreshold5c').css('background-color', getrgb(items.TextColorthreshold5c));
+	$('#TextColorthreshold6c').css('background-color', getrgb(items.TextColorthreshold6c));
+	$('#Windowthreshold1c').css('background-color', getrgb(items.Windowthreshold1c));
+	$('#Windowthreshold2c').css('background-color', getrgb(items.Windowthreshold2c));
+	$('#Windowthreshold3c').css('background-color', getrgb(items.Windowthreshold3c));
+	$('#Windowthreshold4c').css('background-color', getrgb(items.Windowthreshold4c));
+	$('#Windowthreshold5c').css('background-color', getrgb(items.Windowthreshold5c));
+	$('#Windowthreshold6c').css('background-color', getrgb(items.Windowthreshold6c));
+	$('#WindowTextColorthreshold1c').css('background-color', getrgb(items.WindowTextColorthreshold1c));
+	$('#WindowTextColorthreshold2c').css('background-color', getrgb(items.WindowTextColorthreshold2c));
+	$('#WindowTextColorthreshold3c').css('background-color', getrgb(items.WindowTextColorthreshold3c));
+	$('#WindowTextColorthreshold4c').css('background-color', getrgb(items.WindowTextColorthreshold4c));
+	$('#WindowTextColorthreshold5c').css('background-color', getrgb(items.WindowTextColorthreshold5c));
+	$('#WindowTextColorthreshold6c').css('background-color', getrgb(items.WindowTextColorthreshold6c));
 	var color = "#FFBFB3";
 	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
@@ -238,7 +340,7 @@ function restore_options() {
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
-	
+	getallsamples(items);
 	document.getElementById("sampletext").value = (formatmessage(items, {"pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}));
   });
 }

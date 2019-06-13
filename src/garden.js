@@ -265,30 +265,50 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 }
 
 function getcolor(percent, settings, type) { // takes a percentage and matches it to the thresholds set by user
-	if (type == "%") {
-		for (i=1; i < 7; i++) {
-			if (i == 1 && percent <= (parseFloat(settings[`threshold${i}`])/100)) {
-				return '#' + settings[`threshold${i}c`];
-			} else if (percent < (parseFloat(settings[`threshold${i}`])/100)) {
-				return '#' + settings[`threshold${i}c`];
-			} else if (i == 6) {
-				return '#' + settings[`pthreshold${i}c`];
+	var border = false;
+	switch(type) {
+		case "GardenBorder":
+			var percentvar = "threshold";
+			var colorvar = "threshold";
+			var border = true;
+			break;
+		case "NormalGlow":
+			var percentvar = "threshold";
+			var colorvar = "threshold";
+			break;
+		case "WindowGlow":
+			var percentvar = "Windowthreshold";
+			var colorvar = "Windowthreshold";
+			break;
+		case "NormalText":
+			var percentvar = "threshold";
+			var colorvar = "TextColorthreshold";
+			break;
+		case "WindowText":
+			var percentvar = "Windowthreshold"
+			var colorvar = "WindowTextColorthreshold";
+			break;
+	}
+	for (i=1; i < 7; i++) {
+		if (i == 1 && percent <= (parseFloat(settings[`${percentvar}${i}`])/100)) {
+			if (border && settings[`threshold${i}border`] == "inner") {
+				console.log("Inner");
+				return '#' + settings[`TextColorthreshold${i}c`];
 			}
-		}
-		console.log(percent);
-		console.log("Something went wrong with getting the percent color");
-	} else {
-		for (i=1; i < 7; i++) {
-			if (i == 1 && percent <= (parseFloat(settings[`pthreshold${i}`])/100)) {
-				return '#' + settings[`pthreshold${i}c`];
-			} else if (percent < (parseFloat(settings[`pthreshold${i}`])/100)) {
-				return '#' + settings[`pthreshold${i}c`];
-			} else if (i == 6) {
-				return '#' + settings[`pthreshold${i}c`];
+			return '#' + settings[`${colorvar}${i}c`];
+		} else if (percent < (parseFloat(settings[`${percentvar}${i}`])/100)) {
+			if (border && settings[`threshold${i}border`] == "inner") {
+				console.log("Inner");
+				return '#' + settings[`TextColorthreshold${i}c`];
 			}
+			return '#' + settings[`${colorvar}${i}c`];
+		} else if (i == 6) {
+			if (border && settings[`threshold${i}border`] == "inner") {
+				console.log("Inner");
+				return '#' + settings[`TextColorthreshold${i}c`];
+			}
+			return '#' + settings[`${colorvar}${i}c`];
 		}
-		console.log(percent);
-		console.log("Something went wrong with getting the window color");
 	}
 }
 
@@ -330,35 +350,41 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var z = ActiveFood[i];
 		percentdecimal = dict[z]["math1"];
 		if (settings.colorgardentext) {
-			var ctest = getcolor(percentdecimal, settings, "%");
+			var NormGlow = getcolor(percentdecimal, settings, "NormalGlow");
+			var NormColor = getcolor(percentdecimal, settings, "NormalText");
 		} else {
-			var ctest = "black";
+			var NormGlow = "black";
+			var NormColor = "white";
 		}
 		var seconds = dict[z]["math3"];
 		var outof = dict[z]["math2"] / 3600;
 		if (settings.colorwindow) {
-			var cwindow = getcolor((seconds/dict[z]["math2"]), settings, "w")
+			var WindowGlow = getcolor((seconds/dict[z]["math2"]), settings, "WindowGlow");
+			var WindowColor = getcolor((seconds/dict[z]["math2"]), settings, "WindowText");
+			console.log(WindowColor);
+			console.log(WindowGlow);
 		} else {
-			var cwindow = "black";
+			var WindowGlow = "black";
+			var WindowColor = "white";
 		}
 		var bottom = "";
 		percent = Math.floor(percentdecimal * 1000)/10;
 		duepercentarr.push(dict[z]["math1"]);
 		if (settings.foodoverlay) {
 			if (seconds < 0) {
-				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
 			} else if (seconds < 3600) {
-				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
 			} else if (seconds >= 3600) {
 				var hours = seconds / 3600;
 				var rhours = Math.floor(hours);
 				var minutes = (hours - rhours) * 60;
 				var rminutes = Math.round(minutes);
-				bottom = `<div class="foodwindow${i}"><center><font color="white";><span id="foodwindowZ${i}">${rhours}hr ${rminutes}min</span>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${rhours}hr ${rminutes}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
 			} else {
 				bottom = "Error.";
 			}
-			var Final = `<div class="foodpercent${i}"><center><font size="4px"; color="white";>${percent}%</font></center></div>`;
+			var Final = `<div class="foodpercent${i}"><center><font size="4px"; color="${NormColor}";>${percent}%</font></center></div>`;
 			if (dict[z]["name"] == "Water") { // Water (birdbath) has formatting issues, this makes it so text doenst clip inside it
 				$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
 			}
@@ -378,14 +404,10 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			$('.planttd').eq(z).prepend(Final);
 			
 			$(`.foodwindow${i}`).css('textShadow',`-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black`);
-			if (cwindow == "#000000") {
-				$(`#foodwindowZ${i}`).css('color', 'black');
-				$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 #999999,1px -1px 0 #999999,-1px 1px 0 #999999,1px 1px 0 #999999`);
-				console.log("yay");
-			} else {
-				$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${cwindow},1px -1px 0 ${cwindow},-1px 1px 0 ${cwindow},1px 1px 0 ${cwindow}`);
-			}
-			$(`.foodpercent${i}`).css('textShadow',`-1px -1px 0 ${ctest},1px -1px 0 ${ctest},-1px 1px 0 ${ctest},1px 1px 0 ${ctest}`);
+
+			$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${WindowGlow},1px -1px 0 ${WindowGlow},-1px 1px 0 ${WindowGlow},1px 1px 0 ${WindowGlow}`);
+			
+			$(`.foodpercent${i}`).css('textShadow',`-1px -1px 0 ${NormGlow},1px -1px 0 ${NormGlow},-1px 1px 0 ${NormGlow},1px 1px 0 ${NormGlow}`);
 		}
 	}
 	if (duepercentarr.length == 2 ) {
@@ -404,7 +426,7 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		TopRightChance(duepercent, prior);
 	}
 	var color;
-	color = getcolor(duepercent, settings);
+	color = getcolor(duepercent, settings, "GardenBorder");
 	if (settings.colorborder) {
 		ColorBorder(color);
 	}
