@@ -43,9 +43,9 @@ function getallsamples(settings) {
 		var Ninnercolor = getcolor(settings, "NormalText", i);
 		var Nglowcolor = getcolor(settings, "NormalGlow", i);
 		var Winnercolor = getcolor(settings, "WindowText", i);
-		var Nglowcolor = getcolor(settings, "WindowGlow", i);
+		var Wglowcolor = getcolor(settings, "WindowGlow", i);
 		setcolor(i, Ninnercolor, Nglowcolor, "threshold");
-		setcolor(i, Winnercolor, Nglowcolor, "Windowthreshold");
+		setcolor(i, Winnercolor, Wglowcolor, "Windowthreshold");
 	}
 }
 
