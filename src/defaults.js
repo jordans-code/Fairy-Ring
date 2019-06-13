@@ -50,7 +50,7 @@ var defaults = {
 	Windowthreshold2: 35,
 	Windowthreshold3: 50,
 	Windowthreshold4: 65,
-	Windowthreshold5: 75,
+	Windowthreshold5: 80,
 	Windowthreshold1c: "6AA1E6",
 	Windowthreshold2c: "007f00",
 	Windowthreshold3c: "bfbf1e",
