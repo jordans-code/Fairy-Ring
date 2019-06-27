@@ -1,8 +1,18 @@
 ## Versions
 
-### BETA 0.6.1:
+<a name="latest"></a>
+### BETA 0.7.0:
 Changes:
-+ Added abbreviations for summer creatures for (crittercondensed)
+
++ Open All button overhaul:
+  + The button will now check if a garden has already been opened during a "session" (until you refresh or leave the page) and will ignore gardens which have already been opened. This means that even when you click "next", it will still remember to ignore what you've already opened.
+  + Added interface on wildlife pages to track how many unique gardens have been opened this session.
+  + Added a spot to place your FLID on the settings tab, this will let the open-all button know who you are so that it can skip your garden.
+  + All of these changes are both for the open-all buttons on the wildlife pages and the garden pages. 
+
++ Autotyper changes:
+  + Added the ability to lowercase creature names on the wildlife autotyper. 
+  + Added abbreviations for summer creatures for (crittercondensed)
 
 ### BETA 0.6.0:
 Features:
