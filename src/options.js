@@ -63,6 +63,7 @@ function save_options() {
   var biggerBtnsSizeH = document.getElementById('biggerBtnsSizeH').value;
   var autosnail = document.getElementById('autosnail').checked;
   var snailchoice = document.getElementById('snailchoice').value;
+  var flid = document.getElementById('flid').value;
   // typer
   var automsg = document.getElementById('automsg').checked;
   var msg = document.getElementById('msg').value;
@@ -141,6 +142,7 @@ function save_options() {
 	biggerBtnsSizeH: biggerBtnsSizeH,
 	autosnail: autosnail,
 	snailchoice: snailchoice,
+	flid: flid,
 	
 	automsg: automsg,
 	msg: msg,
@@ -232,6 +234,7 @@ function restore_options() {
 	document.getElementById('biggerBtnsSizeH').value = items.biggerBtnsSizeH;
 	document.getElementById('autosnail').checked = items.autosnail;
 	document.getElementById('snailchoice').value = items.snailchoice;
+	document.getElementById('flid').value = items.flid;
 	
 	document.getElementById('automsg').checked = items.automsg;
 	document.getElementById('msg').value = items.msg;
@@ -325,6 +328,7 @@ function restore_options() {
 	$('#WindowTextColorthreshold5c').css('background-color', getrgb(items.WindowTextColorthreshold5c));
 	$('#WindowTextColorthreshold6c').css('background-color', getrgb(items.WindowTextColorthreshold6c));
 	var color = "#FFBFB3";
+	if (items.flid.length == 0) { $('#divflid').css('background-color', color)}
 	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
 	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
