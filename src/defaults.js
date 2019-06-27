@@ -22,6 +22,7 @@ var defaults = {
 	samplecritter2: "Field Mouse",
 	samplecritter3: "Birthday Field Mouse",
 	samplecritter4: "",
+	msglowercase: false,
 	debug: false,
 	threshold1: 0,
 	threshold2: 15,

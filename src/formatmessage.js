@@ -170,7 +170,6 @@ function formatmessage(settings, prior, spotlist, current) {
 		var finallist = [];
 		var condensedlist = [];
 		for (i = 0; i < spotlist.length; i++) {
-			console.log(finallist);
 			x = spotlist[i].split('amp;').join('');// somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
 			counts[x] = (counts[x] || 0)+1;
 			if (!(finallist.includes(x)) && x != "") {
@@ -186,7 +185,6 @@ function formatmessage(settings, prior, spotlist, current) {
 			} else {
 			}
 		}
-		console.log(finallist);
 		condensedlist.forEach(function(part, index) {
 			if (countc[part] != 1) { // plural
 				this[index] = pluralhandler(part, true);
@@ -206,6 +204,16 @@ function formatmessage(settings, prior, spotlist, current) {
 		}, finallist);
 		
 		if (settings.debug) {console.log(finallist);console.log(condensedlist);}
+		if (settings.msglowercase) {
+			finallist.forEach(function(part, index) {
+				this[index] = part.toLowerCase();
+			}, finallist);
+			console.log(finallist);
+			condensedlist.forEach(function(part, index) {
+				this[index] = part.toLowerCase();
+			}, condensedlist);
+		}
+		
 		if (finallist.length == 1) {
 			spot = finallist[0];
 			condensedspot = condensedlist[0];
