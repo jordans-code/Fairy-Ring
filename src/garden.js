@@ -104,7 +104,6 @@ function gettype(dict) { // determines type of food then removes from string
 			if (statusindex == 1) { // remove two word food types
 				Final[i]["string"] = Final[i]["string"].slice(1);
 			}
-			console.log(Final[i]["string"]);
 			var spacetype = "  "; // %A0
 			if (escape(Final[i]["string"][0]).includes("%20")) {
 				spacetype = "  "; // %20
@@ -121,7 +120,6 @@ function getfeeds(dict, HasFood) { // get the feeds left on food, creates array 
 	var NewAFood = ActiveFood;
 	for (var z = 0; z < ActiveFood.length; z++) {
 		var i = ActiveFood[z];
-		console.log(Final[i]["string"]);
 		var feeds = Final[i]["string"][0].split(":")[1];
 		Final[i]["feedsremaining"] = feeds;
 		if (feeds == "0") {
@@ -361,8 +359,6 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		if (settings.colorwindow) {
 			var WindowGlow = getcolor((seconds/dict[z]["math2"]), settings, "WindowGlow");
 			var WindowColor = getcolor((seconds/dict[z]["math2"]), settings, "WindowText");
-			console.log(WindowColor);
-			console.log(WindowGlow);
 		} else {
 			var WindowGlow = "black";
 			var WindowColor = "white";
@@ -669,6 +665,7 @@ function handlepostbtn() { // "Post"
 function buttonhandler(settings) { // adds buttons on garden page
 	handlepostbtn();
 	if (settings.gardenExtraBtns) {
+		window.sessionStorage.setItem("openedlinks", JSON.stringify([settings.flid]));
 		addnext();
 		addopenall();
 	}
