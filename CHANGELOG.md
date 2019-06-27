@@ -1,5 +1,9 @@
 ## Versions
 
+### BETA 0.6.1:
+Changes:
++ Added abbreviations for summer creatures for (crittercondensed)
+
 ### BETA 0.6.0:
 Features:
 + Added "Open All" and "Next" button options which will place them on the garden pages
