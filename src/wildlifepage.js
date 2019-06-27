@@ -49,11 +49,7 @@ function getlinks() { // returns array of links to gardens from wildlife page
 			var stringify = JSON.stringify(openedlinks);
 			window.sessionStorage.setItem("openedlinks", stringify);
 			if (window.location.pathname == "/fbfairy/wildlifewall.php") {
-				if (window.sessionStorage.getItem("flid")) {
-					updatetotals(openedlinks.length - 1);
-				} else {
-					updatetotals(openedlinks.length);
-				}
+				updatetotals(openedlinks.length - 1);
 			}
 			links.push(linkz);
 		} else {
