@@ -553,7 +553,7 @@ function logic(settings, dict, prior, priordict) { // config values for timings 
 	var ActiveFood = dict['ActiveFood'];
 	var superfood = {
 		"minftime": 0,  // Unknown if minimum times exist for fresh food, if they do this can be changed.
-		"maxftime": 5400, //90 max time in mins for fresh food visit, assumed
+		"maxftime": 6000, //100 max time is the highest I have seen
 		"maxtime": 10800}; //180 maximum time for visit, this value is 100% known
 	var organic = {
 		"minftime": 0,
