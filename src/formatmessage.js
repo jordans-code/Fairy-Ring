@@ -203,12 +203,10 @@ function formatmessage(settings, prior, spotlist, current) {
 			}
 		}, finallist);
 		
-		if (settings.debug) {console.log(finallist);console.log(condensedlist);}
 		if (settings.msglowercase) {
 			finallist.forEach(function(part, index) {
 				this[index] = part.toLowerCase();
 			}, finallist);
-			console.log(finallist);
 			condensedlist.forEach(function(part, index) {
 				this[index] = part.toLowerCase();
 			}, condensedlist);
