@@ -1,6 +1,12 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.7.1:
+Bug Fixes:
++ Fixed an issue with spotting wildlife after refreshing a garden with the in-page buttons, the issue would cause a crash and would not let the typer function correctly.
++ The percentages over plates will no longer be hidden behind pumpkins.
++ Fixed an issue which could cause refreshing the page too quickly with the in-page buttons to display multiple percentages.
+
 ### BETA 0.7.0:
 Changes:
 

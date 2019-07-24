@@ -400,10 +400,15 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			$('.planttd').eq(z).prepend(Final);
 			
 			$(`.foodwindow${i}`).css('textShadow',`-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black`);
+			$(`.foodwindow${i}`).css('position', "relative");
+			$(`.foodwindow${i}`).css('z-index', "999");
 
 			$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${WindowGlow},1px -1px 0 ${WindowGlow},-1px 1px 0 ${WindowGlow},1px 1px 0 ${WindowGlow}`);
 			
 			$(`.foodpercent${i}`).css('textShadow',`-1px -1px 0 ${NormGlow},1px -1px 0 ${NormGlow},-1px 1px 0 ${NormGlow},1px 1px 0 ${NormGlow}`);
+			$(`.foodpercent${i}`).css('position', "relative");
+			$(`.foodpercent${i}`).css('z-index', "999");
+
 		}
 	}
 	if (duepercentarr.length == 2 ) {
@@ -433,7 +438,7 @@ function checknewspot(oldspot) {
 	var spot = $('.standard_message.status').children().eq(0).children().eq(1).html();
 	if (spot == null || spot == "") {
 		return false;
-	} else if (oldspot == undefined) {
+	} else if (oldspot == undefined || oldspot == false) {
 		return [spot];
 	} else {
 		oldspot.push(spot);
@@ -637,10 +642,20 @@ function waterbutton(settings, finaldict) { // allows clicking plants to water t
 function addrefresh(settings) { // Adds listeners for the built in refresh buttons on the garden
  // refresh button
 	$('#gardenrefresh_icon').on("click", function() {
+			var tempcolor = $('#gardenrefresh_icon').eq(0).css("color");
+			
+			if (!(tempcolor == "rgb(0, 128, 0)")) {
+				$('#gardenrefresh_icon').eq(0).css("color", "rgb(0, 128, 0)");
 			garden(settings, true, false, false);
+			}
 	}); // Garden name button
 	$('.gardenskin').eq(0).on("click", function() {
+		var tempcolor = $('#gardenrefresh_icon').eq(0).css("color");
+			
+			if (!(tempcolor == "rgb(0, 128, 0)")) {
+			$('#gardenrefresh_icon').eq(0).css("color", "rgb(0, 128, 0)");
 			garden(settings, true, false, false);
+		}
 	});
 }
 
