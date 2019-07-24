@@ -237,26 +237,26 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 		}
 		Final[z]["lastvisitor"] = visitor;
 		seconds += gettime(current["string"][mindex + 1], current["string"][mindex + 2]);
-		var slotopen = 0;
+		var notspotted = 0;
 		if (current["string"][mindex+3].includes("ago")) {
 			Final[z]["lastfeed"] = seconds;
 			if (current["string"][mindex+3].includes("Stayed")) { // If wildlife wasn't spotted this gets the exact time of the slot opening
-				slotopen += gettime(current["string"][mindex+5], current["string"][mindex+6]);
+				notspotted += gettime(current["string"][mindex+5], current["string"][mindex+6]);
 				if (current["string"][mindex+9] == "but") {
-					slotopen += gettime(current["string"][mindex+7], current["string"][mindex+8]);
+					notspotted += gettime(current["string"][mindex+7], current["string"][mindex+8]);
 				}
 			}
 		} else {
 			seconds += gettime(current["string"][mindex + 3], current["string"][mindex + 4]);
 			if (current["string"][mindex+5].includes("Stayed")) { // If wildlife wasn't spotted this gets the exact time of the slot opening
-				slotopen += gettime(current["string"][mindex+7], current["string"][mindex+8]);
+				notspotted += gettime(current["string"][mindex+7], current["string"][mindex+8]);
 				if (current["string"][mindex+11] == "but") {
-					slotopen += gettime(current["string"][mindex+9], current["string"][mindex+10]);
+					notspotted += gettime(current["string"][mindex+9], current["string"][mindex+10]);
 				}
 			}
 
 		}
-		Final[z]["slotopen"] = slotopen;
+		Final[z]["notspotted"] = notspotted;
 		Final[z]["lastfeed"] = seconds;
 	}
 	return Final;
@@ -355,7 +355,13 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			var NormColor = "white";
 		}
 		var seconds = dict[z]["math3"];
-		var outof = dict[z]["math2"] / 3600;
+		var righthours = Math.floor(dict[z]["math2"] / 3600);
+		var rightminutes = Math.round(((dict[z]["math2"] / 3600) - righthours) * 60);
+		if (rightminutes == 0) {
+			var righttotal = righthours + "h";
+		} else {
+			var righttotal = righthours + "h " + rightminutes + "m";
+		}
 		if (settings.colorwindow) {
 			var WindowGlow = getcolor((seconds/dict[z]["math2"]), settings, "WindowGlow");
 			var WindowColor = getcolor((seconds/dict[z]["math2"]), settings, "WindowText");
@@ -368,15 +374,15 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		duepercentarr.push(dict[z]["math1"]);
 		if (settings.foodoverlay) {
 			if (seconds < 0) {
-				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}m</span></font><font color="white";>/${righttotal}</font></center></div>`;
 			} else if (seconds < 3600) {
-				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${Math.floor(seconds/60)}m</span></font><font color="white";>/${righttotal}</font></center></div>`;
 			} else if (seconds >= 3600) {
 				var hours = seconds / 3600;
 				var rhours = Math.floor(hours);
 				var minutes = (hours - rhours) * 60;
 				var rminutes = Math.round(minutes);
-				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${rhours}hr ${rminutes}min</span></font><font color="white";>/${outof}hrs</font></center></div>`;
+				bottom = `<div class="foodwindow${i}"><center><font color="${WindowColor}";><span id="foodwindowZ${i}">${rhours}h ${rminutes}m</span></font><font color="white";>/${righttotal}</font></center></div>`;
 			} else {
 				bottom = "Error.";
 			}
@@ -505,18 +511,25 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 		return fin;
 	} else { // not fresh
 		var mtime = type["maxtime"];
-		if (current["slotopen"] > 0) { // if the stay time is known calculate off this, otherwise go off defaults
-			var vtime = current["slotopen"];
+		if (current["notspotted"] > 0) { // if the stay time is known calculate off this, otherwise go off defaults
+			var vtime = current["notspotted"];
 			if (settings.debug) {console.log(current["lastvisitor"] + " visited " + lfeed/60 + " mins ago and stayed for " + vtime/60 + " mins, the current slot opened at the end of that.");}
 		} else {
-			var vtime = maxtimes[current["lastvisitor"]]*60;
-			if (settings.debug) {console.log(current["lastvisitor"] + " visited " + lfeed/60 + " mins ago. This creature's max time slot is " + vtime/60 + " mins, the current slot opened at or before that time. We will assume it opened at the end of the window but it likely opened sooner.");}
+			if (type["issuperfood"] == true) {
+				console.log("Superfood detected, using max time instead of min");
+				var vtime = maxtimes[current["lastvisitor"]]*60;
+			} else {
+				var vtime = mintimes[current["lastvisitor"]]*60;
+			}
+			if (settings.debug) {console.log(current["lastvisitor"] + " visited " + lfeed/60 + " mins ago. This creature's minimum time slot is " + vtime/60 + " mins, the current slot opened at or after that time. We will assume it opened at the end of the window but it likely opened sooner.");}
 		}
 		var activetime = (lfeed - vtime);
 		if (settings.debug) {console.log("This slot has been opened for at least " + activetime/60 + " minutes");}
+		var newmtime = mtime - vtime;
+		console.log("Because the max time between visits is " + mtime/60 + " for this food type and this creature stayed for " + vtime/60 + ", the new maximum time before the next arrival is " + newmtime);
 		if (activetime < 0) {
 			if (settings.debug) {console.log("There is no chance of wildlife here currently.");}
-			return [0, mtime, activetime, water];
+			return [0, newmtime, activetime, water];
 		}
 		if (activetime > maxtime) {
 			overtime = activetime - maxtime;
@@ -540,11 +553,10 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 			}
 		}
 		//var fin = [(lfeed - vtime) / mtime, mtime];
-		var fin = [time / (mtime - overtime), mtime];
+		var fin = [time / (newmtime - overtime), newmtime];
 		fin.push(activetime);
 		fin.push(water);
-		if (settings.debug) {console.log("This food type's max time between visits is " + mtime/60 + " mins (this considers fresh food as it has a different window)");
-		console.log("There is " + Math.floor(fin[0]*100) + "% chance that wildlife is on this plate. Formula: Activetime / (max time between visits - overtime " + ` ${time/60} / (${mtime/60}-${overtime/60})`);}
+		console.log("There is " + Math.floor(fin[0]*100) + "% chance that wildlife is on this plate. Formula: Activetime / (max time between visits - overtime " + ` ${time/60} / (${mtime/60}-${overtime/60})`);
 		return fin;
 	}
 }
@@ -552,6 +564,7 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 function logic(settings, dict, prior, priordict) { // config values for timings and calls calc() to set percentages
 	var ActiveFood = dict['ActiveFood'];
 	var superfood = {
+		"issuperfood": true,
 		"minftime": 0,  // Unknown if minimum times exist for fresh food, if they do this can be changed.
 		"maxftime": 6000, //100 max time is the highest I have seen
 		"maxtime": 10800}; //180 maximum time for visit, this value is 100% known

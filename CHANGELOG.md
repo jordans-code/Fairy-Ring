@@ -1,6 +1,18 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.8.0:
+Changes:
++ Changed the visit window and percent chance algorithm, they will now be far more accurate.
+	+ A community member pointed out an important detail that I was mistaken on: The max time between visits starts with the arrival of the last creature, not it's departure. This is despite the fact that nothing can come while the last creature is present.
+	+ The algorithm will now subtract the stay time of the last creature from the max time between visits on the window fraction so that users can get an accurate reading of the true maximum time before something arrives
+	+ In events where the stay time is 100% known (superfood and if the last creature wasn't spotted), the percentage given will be very accurate. The only other variables will be alerts and the type of creatures the garden can attract/the rarity. 
+	+ The algorithm will now assume the minimum stay times in cases where it has to estimate how long a creature would have stayed, it will still lowball it but this will be much more negligable than it was prior. 
+	 
+Bug Fixes:
++ Fixed a couple of incorrect maximum stay times on wildlife.
++ Changed the maximum time between a visit for fresh superfood to 1 hour 40 minutes, this is the highest that I have seen but I am starting to think that it could be 1 hour 45 minutes. If anyone has seen a time higher than this for a first feed please let me know.
+
 ### BETA 0.7.1:
 Bug Fixes:
 + Fixed an issue with spotting wildlife after refreshing a garden with the in-page buttons, the issue would cause a crash and would not let the typer function correctly.

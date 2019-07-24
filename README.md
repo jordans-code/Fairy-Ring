@@ -60,7 +60,6 @@ To use the app on your Android, you will need to install Firefox!
 
 <a name="planned"></a>
 ### Planned Features
-* Improve calculation algorithm as more data is aquired
 * Potentially display all of the possible wildlife a garden can have below the garden window (like how wildlifecalc does). I could increase the accuracy of the calculation by this as well. 
 * Dark theme - I experimented with changing the colors of fairyland, the issue is there are some bits that look rather ugly that cannot be changed easily as they are embedded images. 
 
@@ -95,15 +94,17 @@ The open all gardens button also checks for duplicates and will only open one li
 
 >What do the numbers over the plates mean?
 
-The percentage above the plate indicates the chance that wildlife will be at that plate at that exact moment. 
+The percentage above the plate indicates the chance that wildlife will be at that plate at that exact moment.
 
-The fraction below the percentage is the "visit window". The number on the right is the maximum time between visits for that food type (this differs if the food is fresh). The number on the left is the time since the window opened. The number on the left is 100% accurate in the case of fresh food, superfood (as all wildlife stay for their max time), and when the previous wildlife was not spotted (as it will give the exact duration of it's stay). Anything else will assume the maximum stay time of the last wildlife to visit that plate. 
+The fraction below the percentage is the "visit window". 
+* The number on the right is the time before something MUST arrive. (maximum time between visits for that food type - the time the last wildlife stayed for).
+* The number on the left is the "Visit window" (time elapsed since the last creature left). The number on the left is 100% accurate in the case of fresh food, superfood (as all wildlife stay for their max time), and when the previous creature was not spotted (as it will give the exact duration of it's stay). Anything else will assume the minimum stay time of the last wildlife to visit that plate. 
 
 The overall chance listed in the top right is the combined chance for all plates in a garden. 
 
 >Why is the visit window a negative number?
 
-This is because the visit window has not opened yet for the next wildlife, it is impossible for new wildlife to currently be there. Fairyland allots "windows", which is an arrival time and a leave time based upon the maximum and minimum duration for that given wildlife. Even if wildlife is spotted on a plate, new wildlife cannot come until it would have "left" if not spotted. 
+This is because the last creature has not yet left, it is impossible for new wildlife to currently be there. Fairyland gives an arrival time and a leave time based upon the maximum and minimum duration for that given wildlife. Even if wildlife is spotted on a plate, new wildlife cannot come until it would have "left" if not spotted. 
 
 >Why is the percent chance so low on a garden with food that has been left out for a long time? 
 
@@ -119,19 +120,31 @@ The app cannot detect alerts, if there is an alert then the percentages will not
 
 Currently the calculation is as follows:
 
-Active time (capped at 60) <b>/</b> ( [max time between visits for the given food type] - Inactive time )
+Active time (capped at 60) <b>/</b> ( [max time between visits for the given food type] - [Inactive time + last creature stay time] )
 
 * Active time is the time that wildlife could have visited the plate since the food was left out, or since the last water.
 * Active time is capped at 60 minutes as nothing can stay longer than 60 minutes, anything beyond this moves to inactive time.
-* Watering resets Active time to when the last water occured and moves everything before the watering to inactive time. 
+* Watering resets Active time to when the last water occured and moves everything before the watering to inactive time.
+* The total stay time of the creature is also added to inactive time, because the fairyland time between visit counter starts counting as soon as it visits, even though something new cannot visit until it leaves.
+
 In practice it looks like this:
-*Organic food has a maximum visit time of 6 hours, we will assume that this food has already been visited. 
-*Mouse arrived 4 hours ago.
-*Maximum stay time of the mouse is 1 hour.
-*Because of this, we can assume that the slot opened exactly 3 hours ago ( arrival - stay time ). 
-*The current active time is 1 hour, and the inactive time is 2 hours.
-*The garden was watered 30 minutes ago. Now the final active time is 30 minutes and the inactive time is 2.5 hours.
-* 0.5 / (6 - 2.5) = 14.2% of wildlife being on this plate at this exact moment.
+* Organic food has a maximum time between visits of 6 hours, we will assume that this food has already been visited. 
+* Mouse arrived 4 hours ago.
+* Minimum staytime of mouse is 55 minutes.
+* Visit window = (arrival time - staytime) / (max time between feeds - staytime)
+* The visit window would look like: 3 hours 5 minutes / 5 hours 5 minutes
+
+* Because of this, we will assume that the slot opened exactly 3 hours 5 minutes ago ( arrival - stay time ).
+* The current active time is 1 hour, and the inactive time is 2 hours and 5 minutes.
+* The garden was watered 30 minutes ago. Now the final active time is 30 minutes and the inactive time is 2 hours 35 minutes
+* Finally, we add the last creature's stay time (55 minutes) to the inactive time, even though wildlife cannot come during this period this is still part of the "max time between visits".
+* 30 min activetime / ( [6 hr max time between visits] - [2hr 35 min inactive time + 55min time last creature stayed])
+* 0.5 / (6 - (2.583 + 0.917)) = 20% chance of wildlife being on this plate at this exact moment.
+
+If someone hadn't of watered 30 minutes ago, it would instead look like this:
+* 60 min activetime / ( [6 hr max time between visits] - [2hr 5 min inactivetime + 55min time last creature stayed])
+* 1.0 / (6 - (2.083 + 0.917)) = 33.33% chance of wildlife being here currently.
+
 
 If additional plates in the garden exist and have a chance of containing wildlife, the total percentage is calculated in the formula below by calculating the odds of there not being wildlife and subtracting that from the final percentage. This is to factor in the fact that there are four outcomes, one is due, the other is due, both are due, none are due. This will also scale up to 4 plates. 
 
@@ -141,13 +154,9 @@ If additional plates in the garden exist and have a chance of containing wildlif
 ## Limitations / Current Issues
 The calculations involving wildlife have come a long way, but there are some bits of information missing or not yet implemented which keep the percentage from being as accurate as it can be. 
 
-* It is impossible to determine the exact stay time if the wildlife was spotted. If it was not spotted then the exact slot time is known and used, but usually this is not the case. Currently this app uses the maximum stay time for the last visiting wildlife (superfood is always max), but this could be updated to be an average between the max and min for regular and organic food.
-* While the app can see what has already visited and use this to calculate the visit windows, the calculation currently does not take into consideration the specific wildlife that a garden can attract. This only impacts certain circumstances (gardens which can ONLY attract wildlife with long stay times should have a higher percentage as they must arrive 1 hour prior to the food window closing). 
-* If the above issue is ever fixed, the rarity of wildlife and how much of a factor it is is an unknown variable, along with the numbers behind how deterrants function.
+* It is impossible to determine the exact stay time if the wildlife was spotted. If it was not spotted then the exact slot time is known and used, but usually this is not the case. Currently this app uses the minimum stay time for the last visiting wildlife.
+* If the ability to see which wildlife a garden attracts is ever added, the rarity of wildlife and how much of a factor it is is an unknown variable, along with the numbers behind how deterrants function.
 * The app cannot see alerts. There are too many variables associated with this, mainly with it being impossible to know when the alert started. If you see an alert, ignore the percentages and use your own judgement. 
-
-Fixing some of these will require more data and input from the community.
-
 
 <a name="Versions"></a>
 ## Versions
@@ -167,5 +176,6 @@ If you are interested in contributing I would love to see a pull request. Submit
 
 <a name="license"></a>
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
 Disclaimer: Fairyland is a registered trademark, this extension/project is not affiliated with it.
