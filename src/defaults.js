@@ -1,5 +1,5 @@
 var defaults = {
-	hidenofood: true,
+	hidenofood: false,
     colorgardentext: true,
 	foodoverlay: true,
 	toprightchance: true,

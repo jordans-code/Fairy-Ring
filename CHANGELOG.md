@@ -7,6 +7,8 @@ Changes:
 + Typer will now always use "and" for the last creature in the list if multiple are spotted, before it just used commas. 
 	+ Changed default value for the "PD box" to ". Also got a pink diamond"
 + Typer will now use "an" instead of "a" when creatures start with a vowel sound.
++ Default settings for "hide gardens without food" option to "Off". 
+	+ Some people were getting confused after installing fairy ring why they could not see friends who didn't have food, I will leave this feature but just have it be off by default.
 
 ### BETA 0.8.0:
 Changes:
