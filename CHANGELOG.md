@@ -4,7 +4,7 @@
 
 ### BETA 0.8.1:
 Changes:
-+ Typer will now use "and" when a pink diamond and two critters are found, before it just used a comma despite the list only being two items.
++ Typer will now always use "and" for the last creature in the list if multiple are spotted, before it just used commas. 
 	+ Changed default value for the "PD box" to ". Also got a pink diamond"
 + Typer will now use "an" instead of "a" when creatures start with a vowel sound.
 
