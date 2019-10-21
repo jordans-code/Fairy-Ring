@@ -220,29 +220,12 @@ function formatmessage(settings, prior, spotlist, current) {
 		
 		if (finallist.length == 1) {
 			spot = finallist[0];
-			condensedspot = condensedlist[0];
 		} else if (finallist.length == 2) {
-			if (pdspotted) {
-				spot = finallist[0] + " and " + finallist[1];
-				condensedspot = condensedlist[0] + " & " + condensedlist[1];
-			} else {
-				condensedspot = condensedlist[0] + " & " + condensedlist[1];
-				spot = finallist[0] + " and " + finallist[1];
-			}
+			spot = finallist[0] + " and " + finallist[1];
 		} else if (finallist.length == 3) {
-			if (pdspotted) {
-				spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2];
-			} else {
-				spot = finallist[0] + ", " + finallist[1] + ", and " + finallist[2];
-			}
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2];
+			spot = finallist[0] + ", " + finallist[1] + ", and " + finallist[2];
 		} else if (finallist.length == 4) {
-			if (pdspotted) {
-				spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2] + ", " + finallist[3];
-			} else {
-				spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2] + ", and " + finallist[3];
-			}
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2] + ", " + condensedlist[3];
+			spot = finallist[0] + ", " + finallist[1] + ", " + finallist[2] + ", and " + finallist[3];
 		} else {
 			console.log("Something weird happened: " + finallist);
 		}
@@ -250,15 +233,11 @@ function formatmessage(settings, prior, spotlist, current) {
 		if (condensedlist.length == 1) {
 			condensedspot = condensedlist[0];
 		} else if (condensedlist.length == 2) {
-			if (pdspotted) {
-				condensedspot = condensedlist[0] + ", " + condensedlist[1];
-			} else {
-				condensedspot = condensedlist[0] + " & " + condensedlist[1];
-			}
+			condensedspot = condensedlist[0] + " & " + condensedlist[1];
 		} else if (condensedlist.length == 3) {
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2];
+			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", & " + condensedlist[2];
 		} else if (condensedlist.length == 4) {
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2] + ", " + condensedlist[3];
+			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2] + ", & " + condensedlist[3];
 		} else {
 			console.log("Something weird happened: " + finallist);
 		}
