@@ -199,7 +199,13 @@ function formatmessage(settings, prior, spotlist, current) {
 			if (counts[part] != 1) { // plural
 				this[index] = `${counts[part]} ` + pluralhandler(part);
 			} else { // singular
-				this[index] = 'a ' + part;
+				var vowels = "aeio"; // left out u as it is handled below (because of unicorn)
+				if (vowels.includes(part[0].toLowerCase()) || part == "Ugly Duckling") {
+					var grammartype = 'an ';
+				} else {
+					var grammartype = 'a ';
+				}
+				this[index] = grammartype + part;
 			}
 		}, finallist);
 		
@@ -217,8 +223,8 @@ function formatmessage(settings, prior, spotlist, current) {
 			condensedspot = condensedlist[0];
 		} else if (finallist.length == 2) {
 			if (pdspotted) {
-				spot = finallist[0] + ", " + finallist[1];
-				condensedspot = condensedlist[0] + ", " + condensedlist[1];
+				spot = finallist[0] + " and " + finallist[1];
+				condensedspot = condensedlist[0] + " & " + condensedlist[1];
 			} else {
 				condensedspot = condensedlist[0] + " & " + condensedlist[1];
 				spot = finallist[0] + " and " + finallist[1];

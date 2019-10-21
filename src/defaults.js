@@ -16,7 +16,7 @@ var defaults = {
 	biggerBtnsSizeW: 12,
 	biggerBtnsSizeH: 8,
 	newmsgtext: 'Spotted (critter)(pd), thanks!',
-	pdtext: ' and got a Pink Diamond',
+	pdtext: '. Also got a pink diamond',
 	samplepd: true,
 	samplecritter1: "Field Mouse",
 	samplecritter2: "Field Mouse",
