@@ -134,7 +134,7 @@ var maxtimes = {
 "Ghostly Sea-Unicorn": 8,
 "Ghostly Boxfish": 15,
 "Ghostly Zebrafish": 30,
-"Ghostly lock Ness Monster": 5,
+"Ghostly Loch Ness Monster": 5,
 "Ghostly Frog": 15,
 "Ghostly Octopus": 30,
 "Red Fly": 55,

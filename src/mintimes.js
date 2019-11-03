@@ -134,7 +134,7 @@ var mintimes = {
 "Ghostly Sea-Unicorn": 3,
 "Ghostly Boxfish": 10,
 "Ghostly Zebrafish": 20,
-"Ghostly lock Ness Monster": 2,
+"Ghostly Loch Ness Monster": 2,
 "Ghostly Frog": 10,
 "Ghostly Octopus": 15,
 "Red Fly": 50,
