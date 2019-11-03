@@ -2,6 +2,10 @@
 
 <a name="latest"></a>
 
+### BETA 0.8.2:
+Bug Fix:
++ Fixed a typo for Ghostly Loch Ness Monster which caused an error.
+
 ### BETA 0.8.1:
 Changes:
 + Typer will now always use "and" for the last creature in the list if multiple are spotted, before it just used commas. 
