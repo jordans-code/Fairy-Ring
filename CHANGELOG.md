@@ -2,6 +2,10 @@
 
 <a name="latest"></a>
 
+### BETA 0.8.3:
+Bug Fix:
++ Fixed a bug causing the (1) notification to persist when multiple synced devices are used. 
+
 ### BETA 0.8.2:
 Bug Fix:
 + Fixed a typo for Ghostly Loch Ness Monster which caused an error.
