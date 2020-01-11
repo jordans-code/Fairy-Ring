@@ -169,6 +169,9 @@ function formatmessage(settings, prior, spotlist, current) {
 		var countc = {};
 		var finallist = [];
 		var condensedlist = [];
+		//spotlist.forEach(function(part, index) { // Removes "The "
+		//	this[index] = (part.split("The ")).join("");
+		//}, spotlist);
 		for (i = 0; i < spotlist.length; i++) {
 			x = spotlist[i].split('amp;').join('');// somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
 			counts[x] = (counts[x] || 0)+1;
@@ -200,7 +203,19 @@ function formatmessage(settings, prior, spotlist, current) {
 				this[index] = `${counts[part]} ` + pluralhandler(part);
 			} else { // singular
 				var vowels = "aeio"; // left out u as it is handled below (because of unicorn)
-				if (vowels.includes(part[0].toLowerCase()) || part == "Ugly Duckling") {
+				var nogrammar = 
+				["jack", 
+				"snow white",
+				"blusher",
+				"jolly",
+				"wheezy",
+				"grouchy",
+				"prof",
+				"snoozy",
+				"dozy"]
+				if (part.toLowerCase().includes("the ") || nogrammar.includes(part.toLowerCase())) {
+					var grammartype = "";
+				} else if (vowels.includes(part[0].toLowerCase()) || part == "Ugly Duckling") {
 					var grammartype = 'an ';
 				} else {
 					var grammartype = 'a ';
