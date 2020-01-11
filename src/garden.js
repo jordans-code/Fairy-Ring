@@ -719,7 +719,6 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 		script.textContent = '$(document).bind("ajaxSend", function(){$("scriptvalue").remove();}).bind("ajaxComplete", function(){var scriptvalue = document.createElement("scriptvalue");scriptvalue.textContent = `true`;(document.head).appendChild(scriptvalue);});';
 		(document.head||document.documentElement).appendChild(script);
 		script.remove();
-		buttonhandler(settings);
 	}
 	var total = 0;
 	var interval = setInterval(function() { // 
@@ -731,6 +730,9 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 		}
 		var finishedloading = getvalue();
 		if (finishedloading != 0) {
+			if (!prior) {
+				buttonhandler(settings);
+			}
 			clearInterval(interval);
 			$("scriptvalue").remove();
 			var Plantarray = fetcher();
