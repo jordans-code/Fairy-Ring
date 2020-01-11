@@ -2,6 +2,11 @@
 
 <a name="latest"></a>
 
+### BETA 0.9.1:
+Bug Fixes:
+	+ Fixed a bug with custom plates where the percentages would be inside the food.
+	+ The above fix should also have fixed a bug involving percentages sometimes moving upon watering.
+	
 ### BETA 0.9.0:
 
 Features:
@@ -13,7 +18,7 @@ Features:
 Changes:
 	+ Fixed grammar for certain fairytale creatures, ex: You will see "Spotted The Giant" instead of "Spotted a The Giant"
 
-Bug Fix:
+Bug Fixes:
 	+ Fixed the new candy wildlife from throwing errors
 	+ Various behind the scenes fixes to allow the dark theme to work
 	
