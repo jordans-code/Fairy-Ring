@@ -91,4 +91,25 @@ function updatehandler(items) {
 	}
 }
 
-main(); // start
+if(document.readyState === "complete") {
+    // Fully loaded!
+	main();
+}
+else if(document.readyState === "interactive") {
+    // DOM ready! Images, frames, and other subresources are still downloading.
+	main();
+}
+else {
+    // Loading still in progress.
+    // To wait for it to complete, add "DOMContentLoaded" or "load" listeners.
+
+    window.addEventListener("DOMContentLoaded", () => {
+        // DOM ready! Images, frames, and other subresources are still downloading.
+		main();
+    });
+
+    window.addEventListener("load", () => {
+        // Fully loaded!
+    });
+}
+
