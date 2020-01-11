@@ -390,9 +390,13 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			if (dict[z]["name"] == "Water") { // Water (birdbath) has formatting issues, this makes it so text doenst clip inside it
 				$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
 			}
-			else if ($('.planttd').eq(z).children()[0].innerHTML.includes("byo_table")) {
+			else if ($('.planttd').eq(z).children()[0].innerHTML.includes("byo_table/top")) {
 				if(settings.debug){console.log("Custom mini-plate detected")};
-				$('.planttd').eq(z).prepend('<br><br>');
+				if (dict[z].name == "Birthday") {
+					$('.planttd').eq(z).prepend('<br><br><br><br><br>');
+				} else {
+					$('.planttd').eq(z).prepend('<br><br>');
+				}
 			}
 			$('.planttd').eq(z).prepend(bottom);
 			$('.planttd').eq(z).prepend(Final);
