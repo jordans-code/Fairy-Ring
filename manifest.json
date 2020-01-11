@@ -27,6 +27,7 @@
   "storage",
   "https://www.fairylandgame.com/*"],
   "content_scripts": [{
+	"run_at": "document_start",
 	"matches": ["https://www.fairylandgame.com/*"],
 	"css": ["src/notification/notifications.css"],
 	"js": ["src/jquery.js", "src/notification/notifications.js", "src/maxtimes.js", "src/mintimes.js", "src/defaults.js", "src/formatmessage.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/alchemy.js", "src/mushroomgame.js", "src/main.js"]
