@@ -1,2 +1,4 @@
 .git/
 src/future/
+*.zip
+*.psd
