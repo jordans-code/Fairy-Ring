@@ -50,7 +50,7 @@ function hidenofood() { // hides gardens on home page with no food
 function gethomepagelinks(type){
 	var links = []
 	if (type == "friends") {
-		var linkq = $("#mainright div[style='width:196px;float:left'] a[style='color:#000']")
+		var linkq = $("#mainright div[style='width:196px;float:left'] a[style='color:#000']") // to not open your own
 	} else if (type == "favorites") {
 		var linkq = $("#mainright div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left'] a[style='color:#000']")
 	} else if (type == "randoms") {
@@ -58,9 +58,13 @@ function gethomepagelinks(type){
 	} else {
 		console.log("Error in types of gethomepagelinks")
 	}
-	console.log(linkq)
+	var mygardenid = $("div[style='position:absolute;left:344px;top:2px;width:70px;height:18px;cursor:pointer']").eq(0).children()[0];
+	
+	if (mygardenid == undefined) {
+		var mygardenid = $("div[style='position: absolute; left: 344px; top: 2px; width: 70px; height: 18px; cursor: pointer; border-bottom: none;']").eq(0).children()[0]
+	}
 	for (i = 0; i < linkq.length; i++) {
-		if (linkq.eq(i).is(":visible")) {
+		if (linkq.eq(i).is(":visible") & !(mygardenid.href == linkq[i].href)) {
 			links.push(linkq[i].href)
 		}
 	}
