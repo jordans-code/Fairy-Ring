@@ -1,0 +1,914 @@
+
+:root {
+	background: url(https://static.fairylandgame.com/menu/backdrop2.png) repeat-y scroll center center var(--grey1) !important;
+	--green1: #132a13;
+	--green2old: #006d00;
+	--green3old: #0bd200;
+	--green2: #31572c;
+	--green3: #4f772d;
+	--blue1old: #001d3a;
+	--blue2old: #CCE5FF;
+	--blue3old: #2297ff;
+	--blue1: #081B33;
+	--blue2: #2F4562;
+	--blue3: #506680;
+	--blue4: #2297ff;
+	--yellow1old: #716100;
+	--yellow1: #282828;
+	--yellow2:rgb(169, 149, 22);
+	--grey1: #1f1f1f;
+	--grey2: #282828;
+	--grey3: #494949;
+	--grey4: #989898;
+	--red1: #282828;
+	--red1old: #1f0400;
+	--red2: #af0404; 
+	--red3: #ff0000;
+	--white: #f1f3f4;
+	--text: chrome.extension.getURL('/img/snails/snail1.png');
+}
+
+h3 {
+	color:black!important;
+}
+
+h1, h2, h4, h5 {
+	color:var(--white)!important;
+}
+
+div.mike_error h3 {
+	color:var(--white)!important;
+}
+
+body {
+color:var(--white) !important;
+background-color:var(--grey1) !important;
+}
+
+.status {
+	color: var(--grey4)!important;
+    border: 1px solid var(--yellow2)!important;
+    background-color: var(--yellow1)!important;
+}
+
+.forum_topic_detail {
+	color: var(--grey4)!important;
+}
+div#canvaspage {
+color:var(--grey4)!important;
+background-color:var(--grey1)!important;
+}
+div.gardenwall_subtitle {
+border-bottom:1px solid var(--grey3);
+border-top:1px solid var(--grey3);
+color:var(--grey4)!important;
+background-color:var(--grey2)!important;
+}
+
+div.wall_subtitle {
+	color:var(--white)!important;
+	background-color:var(--grey2)!important;
+}
+
+td.label{
+color:var(--white)!important;
+background-color:var(--grey2)!important;
+}
+
+div[style="padding:3px;background-color:#ddeedd"] {
+	background-color:var(--green1)!important;
+}
+
+div.wall_actionset[style="background-color:#ddeedd"] {
+	background-color:var(--green1)!important;
+}
+div.wall_postcontent {
+color:var(--grey4)!important;
+background-color:var(--grey2)!important;
+}
+
+div[style="width:120px;float:left;padding-left:8px;padding-bottom:3px;vertical-align:top"] div[style="clear:both;border-bottom:2px solid #007f00"] {
+	border-bottom:2px solid var(--grey2)!important;
+}
+
+div.wall_post .wall_postcontent h4 {
+color:var(--grey4)!important;
+border-bottom:1px solid var(--grey3)!important;
+border-top:1px solid var(--grey3)!important;
+background-color:var(--grey2)!important;
+}
+
+span[style="color:#990000"] {
+	color:var(--red2)!important;
+}
+div.wall_form {
+	color:var(--white)!important;
+	background-color:var(--grey2)!important;
+	border-bottom:1px solid var(--grey3)!important;
+}
+
+.wall_post div.wall_actionset {
+		border-bottom:1px solid var(--grey3)!important;
+}
+textarea { 
+background-color:var(--grey1)!important;
+color:var(--grey4)!important;
+border: 1px solid var(--grey3)!important;
+}
+
+div.plantpopup[style] {
+	border: var(--yellow2)!important;
+	border-top-color: var(--yellow2)!important;
+    border-right-color: var(--yellow2)!important;
+    border-bottom-color: var(--yellow2)!important;
+    border-left-color: var(--yellow2)!important;
+    background-color: var(--yellow1)!important;
+}
+
+span[style="color:red;cursor:pointer"] {
+	color:var(--red2)!important;
+}
+
+div.footer { 
+	color:var(--grey4)!important;
+	background-color:var(--grey2)!important;
+}
+
+div[style="width:270px;float:left;padding:5px;font-size:9.5px;background-color:#fff;border:1px solid #e2c822"] {
+	color:var(--white)!important;
+	background-color:var(--yellow1)!important;
+}
+
+div.backgroundgreen {
+color:var(--grey4)!important;!important;
+background-color:var(--grey2)!important;
+}
+
+a[style="color:#000"] { 
+	color:#3b5998!important;
+}
+
+div[style="background-color:#fff;width:196px;padding-top:20px;overflow:hidden"] {
+color:var(--white) !important;
+background-color:var(--grey1) !important;
+}
+
+input[type="text"] {
+border: 1px solid var(--grey4)!important;
+background-color:var(--grey1)!important;
+color:var(--grey4)!important;
+}
+
+span.shopinputsubmit {
+	color:var(--white)!important;
+}
+
+
+div#shoptitle {
+	color:black!important;
+}
+
+form[action="/fbfairy/statussave.php"] h3 {
+	color:var(--white)!important;
+}
+
+div[style="background-color:#fff;border:1px solid #000;width:330px;padding:10px"] {
+	color:var(--grey4) !important;
+	background-color:var(--grey1) !important;
+}
+
+#pagetitle {
+color:var(--white) !important;
+}
+
+.forum_header {
+color:var(--white)!important;
+background-color:var(--grey2)!important;
+}
+
+.link {
+	color:var(--blue4)!important;
+}
+
+a[title="New Message"] span[name="fbname"] {
+	color:var(--green3)!important;
+}
+
+div[style="background-color:#ddeedd;padding:5px"] {
+color:var(--grey4)!important;
+background-color:var(--grey2)!important;
+}
+
+div[style="border:1px solid #ccc;border-bottom-right-radius:5px;border-bottom-left-radius:5px;-moz-border-radius-bottomright:5px;-moz-border-radius-bottomleft:5px;margin-right:5px"] {
+	border:1px solid var(--green2)!important;
+	color: var(--grey4)!important;
+}
+.story {
+	color:var(--grey4)!important;
+	border:1px solid var(--green2)!important;
+	background-color:var(--green1)!important;
+}
+
+._2lqh {
+	background-color:var(--grey2)!important;
+}
+
+a[style="font-size:10px;color:#000"] {
+	color:var(--grey4)!important;
+}
+
+.dbbox {
+	border:1px solid var(--green2)!important;
+}
+
+.dbtitle {
+	color:var(--green3)!important;
+	background-color:var(--green1)!important;
+}
+
+.dbdesc {
+	color:var(--grey4)!important;
+	background-color:var(--green1)!important;
+	border-bottom: 1px solid var(--green2)!important;
+}
+
+span[style="font-size:10px;color:#000;cursor:pointer"] {
+	color:var(--grey4)!important;
+}
+div[style="background-color:var(--white);padding-top:4px"] {
+	background-color:var(--grey2)!important;
+}
+
+div[style="background-color:#007f00;color:#ffffff;font-weight:bold;width:190px;padding:2px"], div[style="background-color:#f7f7f7;padding-top:4px"] {
+	color:var(--grey4)!important;
+	background-color: var(--green1)!important;
+	border: 1px solid var(--green2)!important;
+}
+
+div[style="background-color:#007f00;font-weight:bold;padding:3px;color:#fff;border-top-right-radius:5px;border-top-left-radius:5px;-moz-border-radius-topright:5px;-moz-border-radius-topleft:5px;margin-right:5px"] {
+	color:var(--green3)!important;
+	background-color: var(--green1)!important;
+	border: 1px solid var(--green2)!important;
+}
+div[style="clear:both;border-bottom:2px solid #007f00"] {
+	border-bottom: 1px solid var(--green2)!important;
+}
+
+
+.wlsidetab {
+	color:var(--white)!important;
+	background-color: var(--green2)!important;
+	border: 1px solid var(--green1)!important;
+}
+
+.tab {
+	background-color: var(--green2)!important;
+	border:1px solid var(--green1)!important;
+}
+
+.tab_selected {
+	color:var(--grey4)!important;
+	background-color: var(--green1)!important;
+	border:1px solid var(--green2)!important;
+}
+
+.uwsidetab {
+	color:var(--white)!important;
+	background-color: var(--blue2)!important;
+	border:1px solid var(--blue3)!important;
+}
+
+.uwsidetab_selected {
+	color:var(--white)!important;
+	background-color: var(--blue1)!important;
+	border:1px solid var(--blue2)!important;
+}
+.wlsidetab_selected {
+	color:var(--grey4)!important;
+	background-color: var(--green1)!important;
+	border:1px solid var(--green2)!important;
+}
+
+div.backgroundgreenbox {
+	color:var(--grey4)!important;
+	background-color: var(--green1)!important;
+	border:1px solid var(--green2)!important;
+}
+
+div.backgroundbluebox {
+	border:1px solid var(--blue2)!important;
+	color:var(--grey4)!important;
+	background-color: var(--blue1)!important;
+}
+
+#shopdetail {
+	color:#000
+}
+
+div[style="padding:5px;border:1px solid #ccc;background-color:#fff"] {
+	border:1px solid var(--yellow2)!important;
+	background-color:var(--yellow1)!important;
+}
+
+div[style="margin-top:8px;padding:5px;border:1px solid #ccc;background-color:#fff"] {
+	border:1px solid var(--yellow2)!important;
+	background-color:var(--yellow1)!important;
+}
+
+table[style="width:758px;border:1px solid #3b5998;background-color:#f0f0f0"], div[style="margin-top:15px;background-color:#f7f7f7;padding:3px;border:1px solid #ccc"] {
+	border:1px solid var(--blue3)!important;
+	background-color:var(--blue1)!important;
+}
+
+tr[style="background-color:#f0f0f0"] {
+	background-color:var(--blue1)!important;
+}
+
+td[style="background-color:#f0f0f0;height:3px;"] {
+	background-color:var(--blue1)!important;
+}
+
+div[style="margin-top:15px;background-color:var(--white);padding:3px;border:1px solid #ccc"] {
+	border:1px solid var(--blue2)!important;
+	background-color:var(--blue1)!important;
+}
+
+.backgroundgreybox {
+	background-color:var(--green1)!important;
+	border:1px solid var(--green2)!important;
+	color:var(--white)!important;
+}
+
+.mike_error, div[style="background-color:#f7f7f7;padding-top:4px;padding-bottom:4px"] {
+	border:1px solid var(--red2)!important;
+	background-color: var(--red1)!important;
+}
+
+.popupdialogclass {
+	color:var(--white)!important;
+	border:1px solid var(--green2)!important;
+	background-color: var(--green1)!important;
+}
+
+.popupdialogclass h1 {
+	color:var(--white)!important;
+}
+
+.inputsubmit {
+	color:var(--grey4)!important;
+	background-color:var(--green1)!important;
+	border:1px outset var(--green2)!important;
+}
+
+a[href*="/fbfairy/fairywall.php?flid="],span[onclick*="reportclick"],a[href*="/fbfairy/fairygarden.php?id="] {
+	color: var(--blue4)!important;
+}
+
+span[style="color:#cc0000;font-size:9px"] {
+	color: var(--red2)!important;
+	font-size:12px!important;
+}
+
+span[style="color:#cc0000"] {
+	color: var(--red2)!important;
+	font-size:12px!important;
+}
+
+span[title="New Message"] {
+	font-size:12px!important;
+}
+#deletegardenwalllink {
+	color: var(--white)!important;
+}
+
+div.inputsubmit a[href*="wildlifewall.php?"]{
+	color:var(--green3)!important;
+}
+
+div[style="text-align:center;width:758px;text-align:left;padding-top:3px;padding-bottom:2px;color:#ffffff;background-color:#3b5998"] h3{
+	color:var(--white)!important;
+}
+
+div[style="width:470px;text-align:center;background-color:#ffffff;padding-left:5px"] {
+	background-color:var(--grey2)!important;
+}
+
+#rw h3 {
+	color:var(--white)!important;
+}
+div[style="width:450px;border:1px solid #ccc;background-color:#f0f0f0;color:#000;padding:5px;text-align:left"] {
+	background-color:var(--grey2)!important;
+	color:var(--white)!important;
+	border:1px solid var(--grey3)!important;
+}
+
+div.golddetail {
+	font-size:15px!important;
+}
+
+div.golddetail a{
+	color:var(--green2)!important;
+	font-size:15px!important;
+}
+
+
+div[style="background-color:#BFE1BF;padding:4px"] {
+	background-color:var(--green1)!important;
+}
+
+div[style="background-color:#007f00;font-weight:bold;padding:3px;color:#ffffff"] {
+	color:var(--white)!important;
+	background-color:var(--green2)!important;
+}
+div#dialogdiv {
+	background-color:var(--grey2)!important;
+	color:var(--white)!important;
+	
+}
+div[style="padding-right:5px;width:90px;color:#690000;font-weight:bold"] {
+	color:var(--red2)!important;
+}
+div._1drm {
+	background-color: var(--grey2)!important;
+	border:1px solid var(--grey2)!important;
+}
+span[style="cursor:pointer;color:#3B5998;"] {
+	color: var(--blue4)!important;
+}
+
+a[title="New Message"]:first-child {
+	color:var(--green3)!important;
+}
+
+
+div#totals {
+	background-color:var(--green1)!important;
+	border: 1px solid var(--green2)!important;
+}
+div[style="background-color:#ddeedd;padding:4px"] {
+	background-color:var(--green1)!important;
+	
+}
+div#mainpage div[style="height:80px"] {
+	height:90px!important;
+}
+span[onclick="refreshgarden();"] {
+	color: var(--white)!important;
+}
+
+#wallrefresh_icon {
+	color: var(--white)!important;
+}
+
+a {
+	color: var(--blue4)!important;
+}
+
+img[src="https://static.fairylandgame.com/buy/700.png"],img[src="https://static.fairylandgame.com/buy/300.png"],img[src="https://static.fairylandgame.com/buy/1600.png"],img[src="https://static.fairylandgame.com/buy/3600.png"] {
+	background-color:var(--grey4)!important;
+}
+span[onclick="showShop('storage',3679152);"] {
+	color:var(--white)!important;
+}
+div#notificationcount {
+	color:var(--red2)!important;
+}
+.newsbutton1 {
+	color:var(--white)!important;
+	background-color:var(--green1)!important;
+	border:1px outset var(--green2)!important;
+}
+
+div[style="background-color:#f0f0f0;min-height:135px;border:1px solid #ccc;padding:5px;padding-bottom:15px;margin-bottom:0px;margin-left:2px"] {
+	background-color:var(--grey2)!important;
+	border: 1px solid var(--grey3)!important;
+}
+
+span[style="color:#006900"] {
+	color:var(--green2)!important;
+}
+
+div[style="text-align:center;font-weight:bold;padding-bottom:10px;color:#006900;float:none;clear:both"] {
+	color:var(--green2)!important;
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/snail1.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/snail1.png) no-repeat;
+	width:42px;
+	height:25px;
+	padding-left:180px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/snail2.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/snail2.png) no-repeat;
+	width:42px;
+	height:25px;
+	padding-left:180px;
+
+}
+
+#infotitle {
+	color:black;
+}
+
+#infodetail {
+	color:black;
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/snail3.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/snail3.png) no-repeat;
+	width:42px;
+	height:25px;
+	padding-left:180px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/snail4.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/snail4.png) no-repeat;
+	width:42px;
+	height:25px;
+	padding-left:180px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/snail5.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/snail5.png) no-repeat;
+	width:42px;
+	height:25px;
+	padding-left:180px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/prize2.gif"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/gold2.gif) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+	margin-left:auto;
+	margin-right:auto;
+	float :none;
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/prize9.gif"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/prize9.gif) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+	margin-left:auto;
+	margin-right:auto;
+	float :none;
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mystery.gif"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mystery.gif) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+	margin-left:auto;
+	margin-right:auto;
+	float :none;
+
+}
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_3.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_3.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_2.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_2.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_1.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_1.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_4.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_4.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_5.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_5.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+div[style="padding:3px;padding-bottom:15px;background-color:#ddeedd"], div[style="float:right;font-size:9px;color:#999;background-color:#ddeedd"] {
+	background-color:var(--green1)!important;
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/mushroom30_6.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/mushroom30_6.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+img[src="https://static.fairylandgame.com/mushrooms/lose.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/lose.png) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
+
+}
+
+
+div[style="z-index:9010;width:420px;height:440px;border:1px solid #000;position:absolute;left:10px;top:10px;background-color:#ffffff"] {
+	background-color:var(--grey1)!important;
+}
+
+div[style="position:absolute;top:45px;left:190px;background-color:#ffffff"] {
+	background-color:var(--grey1)!important;
+}
+
+img[src="https://static.fairylandgame.com/menu/forums_title3.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/forum.png) no-repeat;
+	width:313px;
+	height:67px;
+	padding-left:314px;
+}
+
+img[src="https://static.fairylandgame.com/menu/forums_title3.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/forum.png) no-repeat;
+	width:313px;
+	height:67px;
+	padding-left:314px;
+}
+
+img[src="https://static.fairylandgame.com/menu/goldguide_title.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/goldguide.png) no-repeat;
+	width:395px;
+	height:67px;
+	padding-left:396px;
+}
+
+img[src="https://static.fairylandgame.com/menu/welcome3.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/welcometest.png) no-repeat;
+	width:760px;
+	height:143px;
+	padding-left:761px;
+}
+
+img[src="https://static.fairylandgame.com/menu/faq1_title.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/faq.png) no-repeat;
+	width:287px;
+	height:67px;
+	padding-left:288px;
+}
+
+img[src="https://static.fairylandgame.com/menu/faq2_title.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/faq2.png) no-repeat;
+	width:443px;
+	height:67px;
+	padding-left:444px;
+}
+
+img[src="https://static.fairylandgame.com/menu/wlguide_title.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/wlguide.png) no-repeat;
+	width:458px;
+	height:67px;
+	padding-left:459px;
+}
+
+img[src="https://static.fairylandgame.com/menu/title7.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/topbar.png) no-repeat;
+	width:760px;
+	height:46px;
+	padding-left:3000px;
+}
+
+img[src="https://static.fairylandgame.com/earngold/1.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/earngold.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/earngold/3.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/gold1.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+img[src="https://static.fairylandgame.com/earngold/8.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/snail.png) no-repeat;
+	width:75px;
+	height:75px;
+	padding-left:76px;
+}
+
+img[src="https://static.fairylandgame.com/alchemy/snail_75.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/snail.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/alchemy/gold5_75.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/earngold.png) no-repeat;
+	width:75px;
+	height:75px;
+	padding-left:76px;
+}
+img[src="https://static.fairylandgame.com/menu/bug.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/bug.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/earngold/9.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/shroom.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/earngold/4.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/herb.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/earngold/5.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/alchemy.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding-left:51px;
+}
+
+img[src="https://static.fairylandgame.com/wl/a1_6288.gif"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/mouse.gif) no-repeat;
+	width:100px;
+	height:65px;
+	padding-left:101px;
+}
+
+img[src="https://static.fairylandgame.com/news/news.png"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/newspage/news.png) no-repeat;
+	width:380px;
+	height:149px;
+	padding-left:381px;
+}
+
+
+img[src="https://static.fairylandgame.com/news/mushroom_separator.jpg"] {
+	display: block;
+	-mox-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/newspage/mushroom_separator.gif) no-repeat center;
+	width:25px;
+	height:34px;
+	padding-left:26px;
+	margin-left:auto;
+	margin-right:auto;
+	float :none;
+}
+
+div#mushroom {
+	text-align: center!important;
+}
+
+
+html[style="overflow-x:hidden;overflow-y: scroll;background: url('https://static.fairylandgame.com/menu/backdrop2.png') repeat-y scroll center center #FFFFFF;"] {
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/backdroptest.png) repeat-y scroll center center #1f1f1f!important;
+}
+
+.imagesprite {
+	background-image:url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/icons/icons.png) !important;
+}
+div#pagetitle {
+		border-bottom: 0px!important;
+}
+
+h1.status {
+	color: rgb(247, 247, 247);
+    border: 1px solid #e2c822;
+	border-top-color: rgb(169, 149, 22);
+    border-right-color: rgb(169, 149, 22);
+    border-bottom-color: rgb(169, 149, 22);
+    border-left-color: rgb(169, 149, 22);
+    background-color: rgb(75, 64, 0);
+}
+
