@@ -12,6 +12,7 @@ var defaults = {
 	msg: 'Sprinkles!',
 	newspotmsg: false,
 	gardenExtraBtns: true,
+	homepageExtraBtns: true,
 	biggerBtns: true,
 	biggerBtnsSizeW: 12,
 	biggerBtnsSizeH: 8,
@@ -74,5 +75,6 @@ var defaults = {
 	flid: "",
 	automushroom: false,
 	mushroomgameamount: 0,
+	darkmode: false,
 	seen: false
 }
