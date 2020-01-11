@@ -51,6 +51,7 @@ function getallsamples(settings) {
 
 function save_options() {
   var hidenofood = document.getElementById('hidenofood').checked;
+  var homepageExtraBtns = document.getElementById('homepageExtraBtns').checked;
   var colorgardentext = document.getElementById('colorgardentext').checked;
   var foodoverlay = document.getElementById('foodoverlay').checked;
   var toprightchance = document.getElementById('toprightchance').checked;
@@ -129,8 +130,11 @@ function save_options() {
   // Games
   var automushroom = document.getElementById('automushroom').checked;
   var mushroomgameamount = document.getElementById('mushroomgameamount').value; 
+  //darkmode
+  var darkmode = document.getElementById('darkmode').checked;
   chrome.storage.sync.set({
 	hidenofood: hidenofood,
+	homepageExtraBtns: homepageExtraBtns,
     colorgardentext: colorgardentext,
 	foodoverlay: foodoverlay,
 	toprightchance: toprightchance,
@@ -207,7 +211,9 @@ function save_options() {
 	step4choice: step4choice,
 	
 	automushroom: automushroom,
-	mushroomgameamount: mushroomgameamount
+	mushroomgameamount: mushroomgameamount,
+	// dark mode
+	darkmode: darkmode
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -224,6 +230,7 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get(defaults, function(items) {
 	document.getElementById('hidenofood').checked = items.hidenofood;
+	document.getElementById('homepageExtraBtns').checked = items.homepageExtraBtns;
     document.getElementById('colorgardentext').checked = items.colorgardentext;
 	document.getElementById('foodoverlay').checked = items.foodoverlay;
 	document.getElementById('toprightchance').checked = items.toprightchance;
@@ -305,6 +312,7 @@ function restore_options() {
 	document.getElementById("automushroom").checked = items.automushroom;
 	document.getElementById("mushroomgameamount").value = items.mushroomgameamount;
 	
+	document.getElementById("darkmode").checked = items.darkmode;
 	
 	$('#threshold1c').css('background-color', getrgb(items.threshold1c));
 	$('#threshold2c').css('background-color', getrgb(items.threshold2c));
@@ -333,6 +341,7 @@ function restore_options() {
 	var color = "#FFBFB3";
 	if (items.flid.length == 0) { $('#divflid').css('background-color', color)}
 	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
+	if (!items.homepageExtraBtns) { $('#divhomepageExtraBtns').css('background-color', color)}
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
 	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
 	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
@@ -348,6 +357,7 @@ function restore_options() {
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
+	if (!items.darkmode) { $('#divdarkmode').css('background-color', color)}
 	getallsamples(items);
 	document.getElementById("sampletext").value = (formatmessage(items, {"msglowercase": items.msglowercase, "pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}));
   });
