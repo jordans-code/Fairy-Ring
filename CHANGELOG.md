@@ -2,6 +2,21 @@
 
 <a name="latest"></a>
 
+### BETA 0.9.0:
+
+Features:
++ Added a Dark Theme mode, which can be enabled in the settings.
+	+ This is still a work and progress, expect frequent changes. I would like to make it so that people can set colors themselves.
+	+ Dark theme has required me to replace a number of images in fairyland, some I would like to redo when I have more time.
++ Added 3 "open all" buttons on the homepage for the friends, favorites and random gardens (can be disabled in the settings).
+
+Changes:
+	+ Fixed grammar for certain fairytale creatures, ex: You will see "Spotted The Giant" instead of "Spotted a The Giant"
+
+Bug Fix:
+	+ Fixed the new candy wildlife from throwing errors
+	+ Various behind the scenes fixes to allow the dark theme to work
+	
 ### BETA 0.8.3:
 Bug Fix:
 + Fixed a bug causing the (1) notification to persist when multiple synced devices are used. 
