@@ -47,8 +47,48 @@ function hidenofood() { // hides gardens on home page with no food
 	}
 }
 
+function gethomepagelinks(type){
+	var links = []
+	if (type == "friends") {
+		var linkq = $("#mainright div[style='width:196px;float:left'] a[style='color:#000']")
+	} else if (type == "favorites") {
+		var linkq = $("#mainright div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left'] a[style='color:#000']")
+	} else if (type == "randoms") {
+		var linkq = $("#mainright div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] a[style='color:#000']")
+	} else {
+		console.log("Error in types of gethomepagelinks")
+	}
+	console.log(linkq)
+	for (i = 0; i < linkq.length; i++) {
+		if (linkq.eq(i).is(":visible")) {
+			links.push(linkq[i].href)
+		}
+	}
+	return links;
+}
+
+function openhomepageurls(type) { // handles "open all" button on wildlife page
+	links = gethomepagelinks(type);
+	for (i = 0; i < links.length; i++) {
+		window.open(links[i]);
+	}
+}
+
+function addmainpagebuttons() {
+	
+	$("div[style='width:196px;overflow:hidden;float:left']").children(":first").after('<input id="openallfriends" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left']").children(":first").after('<input id="openallfavorites" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] div[style='background-color:#007f00;color:#ffffff;font-weight:bold;width:190px;padding:2px']").eq(1).after('<input id="openallrandoms" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	document.getElementById ("openallfriends").addEventListener ("click", openhomepageurls.bind(this, "friends"));
+	document.getElementById ("openallfavorites").addEventListener ("click", openhomepageurls.bind(this, "favorites"));
+	document.getElementById ("openallrandoms").addEventListener ("click", openhomepageurls.bind(this, "randoms"));
+}
+
 function mainpage(settings) {
 	if (settings.hidenofood) {
 		hidenofood();
+	}
+	if (settings.homepageExtraBtns) {
+		addmainpagebuttons();
 	}
 }
