@@ -798,19 +798,19 @@ img[src="https://static.fairylandgame.com/alchemy/snail_75.jpg"] {
 	-mox-box-sizing: border-box;
 	box-sizing: border-box;
 	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/snail.png) no-repeat;
-	width:50px;
-	height:50px;
-	padding-left:51px;
+	width:75px;
+	height:75px;
+	padding-left:76px;
 }
 
 img[src="https://static.fairylandgame.com/alchemy/gold5_75.jpg"] {
 	display: block;
 	-mox-box-sizing: border-box;
 	box-sizing: border-box;
-	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/goldpage/earngold.png) no-repeat;
-	width:75px;
-	height:75px;
-	padding-left:76px;
+	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/prize9.gif) no-repeat;
+	width:30px;
+	height:30px;
+	padding-left:31px;
 }
 img[src="https://static.fairylandgame.com/menu/bug.jpg"] {
 	display: block;
