@@ -80,9 +80,9 @@ function openhomepageurls(type) { // handles "open all" button on wildlife page
 
 function addmainpagebuttons() {
 	
-	$("div[style='width:196px;overflow:hidden;float:left']").children(":first").after('<input id="openallfriends" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
-	$("div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left']").children(":first").after('<input id="openallfavorites" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
-	$("div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] div[style='background-color:#007f00;color:#ffffff;font-weight:bold;width:190px;padding:2px']").eq(1).after('<input id="openallrandoms" class="inputsubmit" style="float:right;width:196px;border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='width:196px;overflow:hidden;float:left']").children(":first").after('<input id="openallfriends" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left']").children(":first").after('<input id="openallfavorites" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] div[style='background-color:#007f00;color:#ffffff;font-weight:bold;width:190px;padding:2px']").eq(1).after('<input id="openallrandoms" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
 	document.getElementById ("openallfriends").addEventListener ("click", openhomepageurls.bind(this, "friends"));
 	document.getElementById ("openallfavorites").addEventListener ("click", openhomepageurls.bind(this, "favorites"));
 	document.getElementById ("openallrandoms").addEventListener ("click", openhomepageurls.bind(this, "randoms"));
