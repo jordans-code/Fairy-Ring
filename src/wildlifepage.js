@@ -63,7 +63,7 @@ function getlinks() { // returns array of links to gardens from wildlife page
 function next() { // next page button
 	if ($("span.link")[0].innerHTML == "Older Posts &gt;") {
 		$("span.link").eq(0).click();
-	} else {
+	} else if ($("span.link")[1].innerHTML == "Older Posts &gt;") {
 		$("span.link").eq(1).click();
 	}
 }
