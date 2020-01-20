@@ -44,7 +44,27 @@ body {
 	display: table;
 	clear: both;
 }
+.collapsible {
+	background-color: #ddd;
+  cursor: pointer;
+  padding: 3px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: 2px solid #ccc;
+  text-align: left;
+  outline: none;
+  font-size: 13px;
+}
 
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
 
 </style>
 <body>
@@ -133,7 +153,6 @@ body {
 	<div>
 	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
 	</div>
-	(note: you can resize the boxes by clicking and dragging their bottom right corner!) 
 	</div>
 	<hr>
 	<div id="divnewspotmsg" style="">
@@ -157,8 +176,14 @@ body {
 	<div id="divcustomcritternames" style="">
 	<input type="checkbox" id="customcritternames"> Enable custom critter names for the Typer to use.
 	<br><textarea style="display: block; height: 50px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="customcritterdata" value=""></textarea>
-	Format: <b>(</b>normalcrittername<b>=</b>newcrittername<b>)</b> - Can come back to back or be separated by new lines
-	<br><b>If you forget an = or parentheses it will break fairy ring until it is fixed!</b> <br>To check if it's working correctly, save the changes and check the sample box below.
+	<button type="button" class="collapsible">Open Custom Critter Instructions</button>
+		<div class="content">
+		Format: <b>(</b><i>normalcrittername</i><b>=</b><i>newcrittername</i><b>)</b> <br>
+		You can resize the boxes by clicking and dragging their bottom right corner!<br>
+		Put as many custom critters as you like! You must use the full critter name for the "normalcrittername". The separation outside the parentheses does not matter (can be back to back, separated by new lines or spaces).<br>
+		The "normalcrittername" is not case sensitive and spacing does not matter (Field Mouse=fm) is the same as (fieldmouse=fm).
+		<br><b>If you forget an = or parentheses it will break fairy ring until it is fixed!</b> <br>To check if it's working correctly, save the changes and check the sample box below.
+		</div>
 	</div>
 	<hr>
 	An example of what your message will look like can be tested below.<br>
@@ -358,11 +383,10 @@ body {
 </div>
 <br>
 App source: <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
-<br><div id="versiontext" style="">You are running version 0.9.1 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md#latest" target="_blank">(Read changes)</a>
-<br>Features: Dark Mode is here (enable in settings)! Added "open all" buttons to the homepage, fixed new candy wildlife as well as other bugs.
-<br>Dark Mode is very experimental, I'd like to let people set their own colors eventually. Let me know if you find an area I forgot to change, or if you have suggestions!
-<br>Also I have some exciting things planned for the near future, I am hoping to let people set their own wildlife nicknames for the typer to use.
-<br>0.9.1: Fixed a bug with custom plates and dark theme, also fixed percentages moving sometimes after watering. 
+<br><div id="versiontext" style="">You are running version 0.10.0 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md#latest" target="_blank">(Read changes)</a>
+<br><b>Features:</b> Overhauled the typer tab, the main feature is that you can now set your own custom names for as many creatures as you want (Unicorn to Uni, ect.)
+<br><b>(crittercondensed) has been removed</b> as custom names are a direct upgrade. Also various other grammar changes and bug fixes.
+
 </div><br>
 <b>If you have a question or issue, try checking the <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/README.md#faq" target="_blank">FAQ.</b></a>
 <br>
