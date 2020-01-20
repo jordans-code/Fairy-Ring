@@ -115,7 +115,7 @@ body {
 	<hr>
 	<div id="divdarkmode" style="">
 	<input type="checkbox" id="darkmode">
-	Enable "Dark Mode" for Fairyland (Note: This is experimental and is not yet perfect!)
+	Enable "Dark Mode" for Fairyland (Note: This is still being tweaked!)
 	</div>
 	<hr>
 	
@@ -128,38 +128,45 @@ body {
 	<br>
 	<div id="divautomsg" style="">
 	  <input type="checkbox" id="automsg">
-	  Automatically type the below message on gardens (you still have to click post). 
+	  Insert the below message by default into garden text boxes.
 	<br>
-	
 	<div>
 	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="msg" value=""></textarea>
 	</div>
+	(note: you can resize the boxes by clicking and dragging their bottom right corner!) 
 	</div>
-	
-	<br>
+	<hr>
 	<div id="divnewspotmsg" style="">
 	  <input type="checkbox" id="newspotmsg">
-	  Change the message above to this if your watering spots a critter. <br><b>(critter)</b> is replaced by the name(s) of what you spotted! <br><b>(pd)</b> is replaced by the pd box below, but only if your spot earns you a pd. <br><b>(crittercondensed)</b> is an alternative to (critter) which will make the message smaller (removes grammar and abbreviates).
-
+	  Insert the below message when critters are spotted. 
 	<br>
 	
 	<div>
 	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
 	</div>
+	<b>(critter)</b> is replaced by the name(s) of what you spotted! <br><b>(pd)</b> is replaced by the pd box below, but only if your spot earns you a pd. <br><del>(crittercondensed)</del> has been removed as you can now set your own custom nicknames.
+
 	<div id="divmsglowercase" style="">
 	<input type="checkbox" id="msglowercase">
 	Fully lowercase the names of the spotted critters.
 	</div>
+	
 	<br>
-	Pink Diamond <b>(pd)</b> text:  (you probably want to prefix with a space)<textarea style="display: block; height: 15px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="pdtext" value=""></textarea>
-	<br>
+	Pink Diamond <b>(pd)</b> text:  (Recommended to prefix message with a period and a space)<textarea style="display: block; height: 15px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="pdtext" value=""></textarea>
+	<hr>
+	<div id="divcustomcritternames" style="">
+	<input type="checkbox" id="customcritternames"> Enable custom critter names for the Typer to use.
+	<br><textarea style="display: block; height: 50px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="customcritterdata" value=""></textarea>
+	Format: <b>(</b>normalcrittername<b>=</b>newcrittername<b>)</b> - Can come back to back or be separated by new lines
+	<br><b>If you forget an = or parentheses it will break fairy ring until it is fixed!</b> <br>To check if it's working correctly, save the changes and check the sample box below.
+	</div>
 	<hr>
 	An example of what your message will look like can be tested below.<br>
 	If you notice anything wrong, please let me know (contact info on about tab).<br>
 	PD? <input type="checkbox" id="samplepd"> 
 	<br>Critter1: <input id="samplecritter1" style="width: 80px"> Critter2: <input id="samplecritter2" style="width: 80px"> 
 	<br>Critter3: <input id="samplecritter3" style="width: 80px"> Critter4: <input id="samplecritter4" style="width: 80px"> 
-	<textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="sampletext" value="" readonly></textarea>
+	<textarea style="display: block; height: 60px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="sampletext" value="" readonly></textarea>
 	</div>
 	<br>
 	
