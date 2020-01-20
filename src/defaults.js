@@ -24,7 +24,7 @@ var defaults = {
 	samplecritter3: "Birthday Field Mouse",
 	samplecritter4: "",
 	customcritternames: false,
-	customcritterdata: "(Field Mouse=FM)\n(white mouse=wm)",
+	customcritterdata: "(Field Mouse=FM) (pygmy mouse=PM)\n(whitemouse=WM)",
 	msglowercase: false,
 	debug: false,
 	threshold1: 0,
