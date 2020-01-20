@@ -77,6 +77,8 @@ function save_options() {
   var samplecritter3 = document.getElementById('samplecritter3').value;
   var samplecritter4 = document.getElementById('samplecritter4').value;
   var msglowercase = document.getElementById('msglowercase').checked;
+  var customcritterdata = document.getElementById('customcritterdata').value;
+  var customcritternames = document.getElementById('customcritternames').checked;
   //
   var debug = document.getElementById('debug').checked;
   // thresholds
@@ -160,6 +162,8 @@ function save_options() {
 	samplecritter3: samplecritter3,
 	samplecritter4: samplecritter4,
 	msglowercase: msglowercase,
+	customcritternames: customcritternames,
+	customcritterdata: customcritterdata,
 	
 	debug: debug,
 	threshold1: threshold1,
@@ -218,7 +222,7 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
-	document.getElementById("sampletext").value = (formatmessage({"msglowercase": msglowercase, "pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4], {"pd": false}));
+	document.getElementById("sampletext").value = (formatmessage({"customcritternames": customcritternames, "customcritterdata": customcritterdata, "msglowercase": msglowercase, "pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4], {"pd": false}));
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -256,6 +260,8 @@ function restore_options() {
 	document.getElementById('samplecritter3').value = items.samplecritter3;
 	document.getElementById('samplecritter4').value = items.samplecritter4;
 	document.getElementById('msglowercase').checked = items.msglowercase;
+	document.getElementById('customcritterdata').value = items.customcritterdata;
+	document.getElementById('customcritternames').checked = items.customcritternames;
 	
 	document.getElementById('debug').checked = items.debug;
 	document.getElementById("threshold1").value = items.threshold1;
@@ -353,6 +359,7 @@ function restore_options() {
 	if (!items.autosnail) { $('#divautosnail').css('background-color', color)}
 	if (!items.automsg) { $('#divautomsg').css('background-color', color)
 	} else if (!items.msglowercase) { $('#divmsglowercase').css('background-color', color)}
+	if (!items.customcritternames) { $('#divcustomcritternames').css('background-color', color)}
 	if (!items.newspotmsg) { $('#divnewspotmsg').css('background-color', color)}
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
