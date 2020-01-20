@@ -4,27 +4,27 @@
 
 ### 0.10.0:
 Features:
-	+ Added ability to set custom critter nicknames in Typer tab which will replace the normal critter name
-		+ There is no limit to how many custom names can be set
-		+ The format is as easy as I could make it
-			+ The normal creature name is not case sensitive and spacing does not matter
-			+ The parenthesis and "=" character are VERY specific, for every open parenthasis "(" there must be an "=" inside it followed by a closing one ")"
-			+ If the above format is not followed, the application will throw an error until it is corrected (it will stop outputting stuff in the sample box and on the main page).
++ Added ability to set custom critter nicknames in Typer tab which will replace the normal critter name
+	+ There is no limit to how many custom names can be set
+	+ The format is as easy as I could make it
+		+ The normal creature name is not case sensitive and spacing does not matter
+		+ The parenthesis and "=" character are VERY specific, for every open parenthasis "(" there must be an "=" inside it followed by a closing one ")"
+		+ If the above format is not followed, the application will throw an error until it is corrected (it will stop outputting stuff in the sample box and on the main page).
 
 Changes:
-	+ Overhauled Typer tab
-		+ Removed (crittercondensed) as the custom critter nicknames box now fulfills this requirement. 
-		+ Added better handling of plural creatures to better support the new custom names.
-			+ Critters ending in "y" will instead end in "ies" when plural.
-			+ Critters ending in "s" will instead end in "es" when plural.
-			+ Critters with "Pair" in them (pair of magpies/lovebirds) will ignore the above rule and instead add an "s" to pair
-			+ Pegasus will change to "Pegasi"
-	+ Changed some colors for dark mode following user feedback
++ Overhauled Typer tab
+	+ Removed (crittercondensed) as the custom critter nicknames box now fulfills this requirement. 
+	+ Added better handling of plural creatures to better support the new custom names.
+		+ Critters ending in "y" will instead end in "ies" when plural.
+		+ Critters ending in "s" will instead end in "es" when plural.
+		+ Critters with "Pair" in them (pair of magpies/lovebirds) will ignore the above rule and instead add an "s" to pair
+		+ Pegasus will change to "Pegasi"
++ Changed some colors for dark mode following user feedback
 		
 Bug Fixes:
-	+ Fixed a dark theme bug which swapped snails with the gold image (it was only a visual bug). 
-	+ Fixed a bug which caused the wildlife page "next" buttons to open random windows when you were on the last page.
-	+ Fixed the "open all" buttons sizing on the home page for non dark mode users.
++ Fixed a dark theme bug which swapped snails with the gold image (it was only a visual bug). 
++ Fixed a bug which caused the wildlife page "next" buttons to open random windows when you were on the last page.
++ Fixed the "open all" buttons sizing on the home page for non dark mode users.
 	
 	
 ### BETA 0.9.1:
