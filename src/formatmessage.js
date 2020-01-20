@@ -10,18 +10,6 @@ function insertspot(msg, spot) {
 	}
 }
 
-function insertcondensed(condensedmsg, condensedspot) {
-	if (condensedmsg.length > 1) {
-		var Final = condensedmsg;
-		for (i = Final.length-1; i > 0; i--) {
-			Final.splice(i, 0, condensedspot);
-		}
-		return Final.join("");
-	} else {
-		return condensedmsg[0];
-	}
-}
-
 function insertpd(pinklist, pinkmsg) {
 	if (pinklist.length > 1) {
 		var Final = pinklist;
@@ -34,112 +22,16 @@ function insertpd(pinklist, pinkmsg) {
 	}
 }
 
-function condenser(critter) {
-	var condense = {
-	  "Field Mouse": "FM",
-	  "White Mouse": "WM",
-	  "Pygmy Mouse": "PM",
-	  "Antillean Crested Hummingbird":"ACH",
-	  "Australian King Parrot":"AKP",
-	  "Brown Bunny":"BB",
-	  "Baby Blue Caterpillar":"BBC",
-	  "Big Bad Wolf":"BBW",
-	  "Birthday Dodo":"BD",
-	  "Birthday Field Mouse": "BFM",
-	  "Birthday Unicorn": "BU",
-	  "Birthday Wriggly Red Caterpillar": "BWRC",
-	  "Birthday Mermaid": "BM",
-	  "Birthday Badger": "BB",
-	  "Birthday Kinkajou": "BK",
-	  "Birthday Wise Fairy": "BWF",
-	  "Birthday Orangutan": "BO",
-	  "Birthday Albino Raccoon": "BAR",
-	  "Red Chameleon": "RC",
-	  "Orange Chameleon": "OC",
-	  "Yellow Chameleon": "YC",
-	  "Green Chameleon": "GC",
-	  "Blue Chameleon": "BC",
-	  "Indigo Chameleon": "IC",
-	  "Violet Chameleon": "VC",
-	  "Rainbow Chameleon": "RC",
-	  "Blossomcrown Hummingbird":"BCH",
-	  "Broad Billed Hummingbird":"BBH",
-	  "Dancing Firewing Butterfly":"DFB",
-	  "Easter Bunny":"EB", 
-	  "Elf Field Mouse":"EFM",
-	  "Elf Mallard":"EM", 
-	  "Elf Pygmy Mouse":"EPM", 
-	  "Elf White Mouse":"EWM", 
-	  "Festive Field Mouse":"FFM", 
-	  "Festive White Mouse":"FWM",
-	  "Festive Pygmy Mouse":"FPM",
-	  "Forest Leafwing Butterfly":"FLB", 
-	  "Fluffy Violet Caterpillar":"FVC", 
-	  "Giant Anteater":"GA", 
-	  "Golden Dragon":"GD", 
-	  "Golden Dart Frog":"GDF", 
-	  "Ghostly Field Mouse":"GFM", 
-	  "Golden Lion Tamarin":"GLT", 
-	  "Hedgehog":"HH", 
-	  "Kingfisher": "KF",
-	  "Lazy Indigo Caterpillar":"LIC", 
-	  "Minty Green Caterpillar": "Minty",
-	  "Mystic River Butterfly":"MRB", 
-	  "Moonlight Tranquility Butterfly":"MTB", 
-	  "Mellow Yellow Caterpillar":"MYC", 
-	  "Pink Fairy Armadillo":"PFA", 
-	  "Pushmi-Pullyu":"PP", 
-	  "Prickly Orange Caterpillar":"POC", 
-	  "Rainbow Butterfly":"RB", 
-	  "Rainbow Dragon":"RD", 
-	  "Red Squirrel":"RS", 
-	  "Saw Billed Hummingbird":"SBH", 
-	  "Singing Bushlark":"SBL", 
-	  "Sunset Dreamer Butterfly":"SDB", 
-	  "Summer Field Mouse":"SFM",
-	  "Summer White Mouse":"SWM",
-	  "Summer Pygmy Mouse":"SPM",
-	  "Summer Mallard":"SM",
-	  "Rainbow Queen Bee":"RQB",
-	  "Shimmering Musicwing Butterfly":"SMB", 
-	  "Sunlight Sparklewing Butterfly":"SSB", 
-	  "Swallow Tailed Hummingbird":"STH", 
-	  "Topiary Black Unicorn":"TBU", 
-	  "Topiary Golden Unicorn":"TGU", 
-	  "Topiary Meerkat":"TopKat", 
-	  "Topiary Rainbow Unicorn":"TRU", 
-	  "Topiary Unicorn":"TU", 
-	  "Topiary Winged Unicorn":"TWU", 
-	  "Topiary White Unicorn":"TWU", 
-	  "Unicorn":"Uni", 
-	  "Violet Headed Hummingbird":"VHH", 
-	  "Violet Sabrewing Hummingbird":"VSH", 
-	  "Water Dragon":"WD", 
-	  "Wriggly Red Caterpillar":"WRC", 
-	  "Zombie Field Mouse":"ZFM", 
-	  "Zombie Mallard":"ZM", 
-	  "Zombie Pygmy Mouse":"ZPM", 
-	  "Zombie White Mouse":"ZWM"
-		
-	}
-	var newcrit = condense[critter];
-	if (newcrit != undefined) {
-		return newcrit;
-	} else {
-		return critter;
-	}
-}
-
 function pluralhandler(critter) {
-	var plurallist = ["Mouse", "Wolf", "Fairy", "Butterfly"];
+	var plurallist = ["Mouse", "Wolf", "Sweettooth", "mice", "wolf"]; // only needed when > 1 word 
 	var plural = {
 			"Mouse": "Mice",
 			"Wolf": "Wolves",
-			"Fairy": "Fairies",
-			"Butterfly": "Butterflies"
-			
+			"Sweettooth": "Sweettoothes",
+			"mouse": "mice", // lowercases are for if people set custom names in lowercase forms so that it will still do this right
+			"wolf": "wolves"
 		};
-		
+
 	for (i = 0; i < plurallist.length; i++) {
 		if (critter.includes(plurallist[i])) {
 			var newplural = plural[plurallist[i]];
@@ -147,15 +39,50 @@ function pluralhandler(critter) {
 			return critter;
 		}
 	}
+	
 	if (critter.toLowerCase().includes("fish") && critter != "Kingfisher") {
 		return critter;
 	}
 	if (plural[critter] != undefined) {
 		return plural[critter];
 	}
+	if (critter.toLowerCase().includes("pair")) {
+		return "Pairs" + critter.split("Pair")[1]
+	}
+	if (critter.toLowerCase() == "pegasus") {
+		return "Pegasi"
+	}
+	if (critter.toLowerCase().slice(-1) == "s") { // pair of magpies
+		return critter+"es"
+	}
+	if (critter.toLowerCase().slice(-1) == "y") { // bunny, 
+		return critter.slice(0, critter.length-1) +"ies"
+	}
 	return critter + "s"
 }
-
+function formatcustomnames(settings) {
+	var data = settings.customcritterdata
+	var datadict = {}
+	var lastopen = -1
+	console.log(data)
+	try {
+		for (i = 0; i < data.length; i++) {
+			if (lastopen == -1) {
+				if (data[i] == "(") {
+					lastopen = i
+				}
+			} else if (data[i] == ")") {
+				var whole = data.slice(lastopen+1,i)
+				datadict[whole.split("=")[0].toLowerCase().replace(/\s/g, '')]=whole.split("=")[1].trim();
+				lastopen = -1
+			}
+		}
+	} catch { 
+	datadict = false
+	}
+	console.log(datadict)
+	return datadict
+}
 function formatmessage(settings, prior, spotlist, current) {
 	if (prior && spotlist && settings.newspotmsg) {
 		var pdspotted = false;
@@ -164,38 +91,27 @@ function formatmessage(settings, prior, spotlist, current) {
 		}
 		var msg = settings.newmsgtext.split("(critter)");
 		var spot = "";
-		var condensedspot = "";
 		var counts = {};
 		var countc = {};
 		var finallist = [];
-		var condensedlist = [];
-		//spotlist.forEach(function(part, index) { // Removes "The "
-		//	this[index] = (part.split("The ")).join("");
-		//}, spotlist);
+		if (settings.customcritternames) {
+			console.log(settings)
+			var formatedcustomnames = formatcustomnames(settings)
+			if (!formatedcustomnames) {
+				return "There is an error in your formatting in custom critter names! Please ensure that you have exactly one equals sign within each pair of parentheses"
+			}
+		}
 		for (i = 0; i < spotlist.length; i++) {
 			x = spotlist[i].split('amp;').join('');// somewhat hack way of doing this, need to find out why some & symbols show up as &amp;
+			if (settings.customcritternames && x.toLowerCase().replace(/\s/g, '') in formatedcustomnames) {
+				x = formatedcustomnames[x.toLowerCase().replace(/\s/g, '')]
+			}
 			counts[x] = (counts[x] || 0)+1;
 			if (!(finallist.includes(x)) && x != "") {
 				finallist.push(x);
 			} else {
 			}
 		}
-		for (i = 0; i < spotlist.length; i++) {
-			x = condenser(spotlist[i].split('amp;').join(''));
-			countc[x] = (countc[x] || 0)+1;
-			if (!(condensedlist.includes(x)) && x != "") {
-				condensedlist.push(x);
-			} else {
-			}
-		}
-		condensedlist.forEach(function(part, index) {
-			if (countc[part] != 1) { // plural
-				this[index] = pluralhandler(part, true);
-			} else { // singular
-				this[index] = part;
-			}
-		}, condensedlist);
-		
 		
 		finallist.forEach(function(part, index) {
 			
@@ -204,7 +120,8 @@ function formatmessage(settings, prior, spotlist, current) {
 			} else { // singular
 				var vowels = "aeio"; // left out u as it is handled below (because of unicorn)
 				var nogrammar = 
-				["jack", 
+				["goldilocks",
+				"jack", 
 				"snow white",
 				"blusher",
 				"jolly",
@@ -228,9 +145,6 @@ function formatmessage(settings, prior, spotlist, current) {
 			finallist.forEach(function(part, index) {
 				this[index] = part.toLowerCase();
 			}, finallist);
-			condensedlist.forEach(function(part, index) {
-				this[index] = part.toLowerCase();
-			}, condensedlist);
 		}
 		
 		if (finallist.length == 1) {
@@ -245,21 +159,8 @@ function formatmessage(settings, prior, spotlist, current) {
 			console.log("Something weird happened: " + finallist);
 		}
 		
-		if (condensedlist.length == 1) {
-			condensedspot = condensedlist[0];
-		} else if (condensedlist.length == 2) {
-			condensedspot = condensedlist[0] + " & " + condensedlist[1];
-		} else if (condensedlist.length == 3) {
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", & " + condensedlist[2];
-		} else if (condensedlist.length == 4) {
-			condensedspot = condensedlist[0] + ", " + condensedlist[1] + ", " + condensedlist[2] + ", & " + condensedlist[3];
-		} else {
-			console.log("Something weird happened: " + finallist);
-		}
 		
 		msg = insertspot(msg, spot);
-		var condensedmsg = msg.split("(crittercondensed)");
-		msg = insertcondensed(condensedmsg, condensedspot);
 		var pinklist = msg.split("(pd)");
 		if (pdspotted) {
 			var pinktext = settings.pdtext;
