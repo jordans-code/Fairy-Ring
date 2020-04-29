@@ -2,7 +2,13 @@
 
 <a name="latest"></a>
 
-BETA ### 0.10.0:
+### BETA 0.10.1:
+
+Bug Fixes:
++ Added support for new rainbow candy creatures
++ Fixed some incorrect wildlife times for other candy creatures
+
+### BETA 0.10.0:
 Features:
 + Added ability to set custom critter nicknames in Typer tab which will replace the normal critter name
 	+ There is no limit to how many custom names can be set
