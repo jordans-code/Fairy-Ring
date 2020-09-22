@@ -2,10 +2,21 @@
 
 <a name="latest"></a>
 
+### BETA 0.10.2:
+Features:
++ Added support for new dinosaur creatures
++ Added the (gardenname) keyword to the typer tab, it will replace (gardenname) with the actual name of whatever garden you are currently in.
++ Added the (fairyname) keyword to the typer tab, it will replace (fairyname) with the actual name of the garden owner's fairy for the garden you are currently in.
+
+Changes:
++ Moved some text around on the typer page for cleanliness.
++ Fixed some boxes for the dark theme that were showing up as the original color.
+
 ### BETA 0.10.1:
+Features:
++ Added support for new rainbow candy creatures
 
 Bug Fixes:
-+ Added support for new rainbow candy creatures
 + Fixed some incorrect wildlife times for other candy creatures
 
 ### BETA 0.10.0:
