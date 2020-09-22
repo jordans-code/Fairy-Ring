@@ -449,6 +449,24 @@ div[style="background-color:#ddeedd;padding:4px"] {
 	background-color:var(--green1)!important;
 	
 }
+
+div[style="background-color:#fff;padding-bottom:5px"] {
+	background-color:var(--green1)!important;
+}
+
+div[style="background-color:#fff;border-radius:10px;-moz-border-radius:10px;padding:6px;margin:8px;padding-top:15px;min-height:600px"] {
+	background-color:var(--green1)!important;
+}
+
+div[style="background-color:#fff;border-radius:10px;-moz-border-radius:10px;padding:6px;margin:10px"] {
+	background-color:var(--green1)!important;
+}
+
+div[style="border:1px solid #ccc;background-color:#fff;margin-top:20px;padding:7px"] {
+	background-color:var(--green1)!important;
+	border: 1px solid var(--grey3)!important;
+}
+
 div#mainpage div[style="height:80px"] {
 	height:90px!important;
 }
