@@ -222,7 +222,7 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
-	document.getElementById("sampletext").value = (formatmessage({"customcritternames": customcritternames, "customcritterdata": customcritterdata, "msglowercase": msglowercase, "pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4], {"pd": false}));
+	document.getElementById("sampletext").value = (formatmessage({"customcritternames": customcritternames, "customcritterdata": customcritterdata, "msglowercase": msglowercase, "pdtext": pdtext, "msg": msg, "newspotmsg": newspotmsg, "newmsgtext": newmsgtext, "debug": debug, "automsg": automsg}, {"pd": samplepd}, [samplecritter1, samplecritter2, samplecritter3, samplecritter4], {"pd": false}, true));
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -366,7 +366,7 @@ function restore_options() {
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
 	if (!items.darkmode) { $('#divdarkmode').css('background-color', color)}
 	getallsamples(items);
-	document.getElementById("sampletext").value = (formatmessage(items, {"msglowercase": items.msglowercase, "pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}));
+	document.getElementById("sampletext").value = (formatmessage(items, {"msglowercase": items.msglowercase, "pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}, true));
   });
 }
 
