@@ -35,7 +35,19 @@ To use the app on your Android, you will need to install Firefox!
 
 ### Google Chrome: <a href="https://chrome.google.com/webstore/detail/fairy-ring/ncmgbhjephcfekbcdfeclbjldipffmge" target="_blank">Chrome Webstore</a>
 
-### Firefox & Firefox Android: <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a>
+### Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a>
+
+### Firefox Android: 
+In August 2020, the new mobile version of firefox was released which only supports around 5 extensinos currently (Fairy ring is not one of them). Due to this, fairy ring requires some additional steps to get working on mobile devices again. You will have to get a clone of firefox, but it is not on the app store.
+
+1. <a href="https://f-droid.org/en/" target="_blank">Download F-Droid</a> on your device. F-Droid is like a free app store of its own and is open source. 
+Note: You may be prompted to enable installations from unknown sources. This is because it isn't on the app store and so they want you to be careful about what you download, but you can rest assured with F-Droid as it is widely used, open source and safe. 
+
+2. Once you have F-Droid, open it and select between "Fennec" or "Icecat". Both are open sourced firefox clones that boast that they offer more privacy than the original. I use Fennec but both will work.
+
+3. Once you have either the Fennec or Icecat firefox clone downloaded, open it and go to the normal <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a> link to add fairy ring. That is it!
+
+Hopefully the normal firefox will push a fix soon to bring back the many thousands of addons like fairy ring, but until then this is the only way to fix it. 
 
 <a name="Features"></a>
 ## Features
