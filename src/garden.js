@@ -612,7 +612,7 @@ function rmnotification(settings) { // removes notifications in top right when o
 } 
 
 function writemessage(settings, prior, spotlist, current) {
-	formatted = formatmessage(settings, prior, spotlist, current); // formatmessage.js
+	formatted = formatmessage(settings, prior, spotlist, current, false); // formatmessage.js
 	if (formatted != undefined) {
 		$('#wall_message')[0].value = formatted;
 	}
