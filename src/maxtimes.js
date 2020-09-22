@@ -536,5 +536,14 @@ var maxtimes = {
 "Blue Chocobug": 60,
 "Indigo Chocobug": 60,
 "Violet Chocobug": 30,
-"Rainbow Chocobug": 10									
+"Rainbow Chocobug": 10,
+										// Dinos
+"Diplodocus": 2,
+"Stegosaurus": 2,
+"Velociraptor": 2,
+"Triceratops": 2,
+"Spinosaurus": 2,
+"Pterodactyl": 2,
+"Mosasaurus": 2,
+"T-Rex": 2									
 };

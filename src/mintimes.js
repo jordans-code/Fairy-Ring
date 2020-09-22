@@ -536,5 +536,14 @@ var mintimes = {
 "Blue Chocobug": 55,
 "Indigo Chocobug": 55,
 "Violet Chocobug": 5,
-"Rainbow Chocobug": 1
+"Rainbow Chocobug": 1,
+										// Dinos
+"Diplodocus": 1,
+"Stegosaurus": 1,
+"Velociraptor": 1,
+"Triceratops": 1,
+"Spinosaurus": 1,
+"Pterodactyl": 1,
+"Mosasaurus": 1,
+"T-Rex": 1
 };
