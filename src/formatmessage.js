@@ -1,24 +1,26 @@
-function insertspot(msg, spot) {
-	if (msg.length > 1) {
-		var Final = msg;
-		for (i = msg.length-1; i > 0; i--) {
-			Final.splice(i, 0, spot);
+function replacer(splitlist, newmsg) {
+	console.log(splitlist)
+	console.log(newmsg)
+	if (splitlist.length > 1) {
+		for (i = splitlist.length-1; i > 0; i--) {
+			splitlist.splice(i, 0, newmsg);
 		}
-		return Final.join("");
+		return splitlist.join("");
 	} else {
-		return msg[0];
+		return splitlist[0]
 	}
 }
 
-function insertpd(pinklist, pinkmsg) {
-	if (pinklist.length > 1) {
-		var Final = pinklist;
-		for (i = Final.length-1; i > 0; i--) {
-			Final.splice(i, 0, pinkmsg);
-		}
-		return Final.join("");
-	} else {
-		return pinklist[0];
+function nameinserter(msg, settingspage) {
+	if (settingspage) {
+		return msg;
+	}
+	try { // can't do owners name because it loads afterwards
+		gardenname = replacer(msg.split("(gardenname)"), $(".gardenskin").eq(0)[0].innerText.split(" ")[1])
+		fairyinserted = replacer(gardenname.split("(fairyname)"), $(".gardensidetext").eq(0)[0].innerText.split("\n")[0].split(" and ")[1])
+		return fairyinserted;
+	} catch {
+		console.log("error with fetching owner's garden/fairy name")
 	}
 }
 
@@ -55,8 +57,10 @@ function pluralhandler(critter) {
 	if (critter.toLowerCase().slice(-1) == "s") { // pair of magpies
 		return critter+"es"
 	}
-	if (critter.toLowerCase().slice(-1) == "y") { // bunny, 
-		return critter.slice(0, critter.length-1) +"ies"
+	if (critter.toLowerCase().slice(-1) == "y") { // bunny,
+		if (!(["blue jay", "donkey", "stringray", "snoozy", "dozy", "wheezy", "grouchy", "jolly"].includes(critter.toLowerCase()))) {
+			return critter.slice(0, critter.length-1) +"ies"
+		}
 	}
 	return critter + "s"
 }
@@ -83,7 +87,7 @@ function formatcustomnames(settings) {
 	console.log(datadict)
 	return datadict
 }
-function formatmessage(settings, prior, spotlist, current) {
+function formatmessage(settings, prior, spotlist, current, settingspage) {
 	if (prior && spotlist && settings.newspotmsg) {
 		var pdspotted = false;
 		if (prior["pd"] || current["pd"]) {
@@ -160,17 +164,17 @@ function formatmessage(settings, prior, spotlist, current) {
 		}
 		
 		
-		msg = insertspot(msg, spot);
+		msg = replacer(msg, spot);
 		var pinklist = msg.split("(pd)");
 		if (pdspotted) {
 			var pinktext = settings.pdtext;
-			msg = insertpd(pinklist, pinktext);
+			msg = replacer(pinklist, pinktext);
 		} else {
 			msg = pinklist.join("");
 		}
 		if (settings.debug) {console.log(msg);}
-	return msg;
+	return nameinserter(msg, settingspage);
 	} else if (settings.automsg && !prior) {
-		return settings.msg;
+		return nameinserter(settings.msg, settingspage);
 	} 
 }
