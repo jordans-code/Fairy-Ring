@@ -470,9 +470,6 @@ div[style="border:1px solid #ccc;background-color:#fff;margin-top:20px;padding:7
 div#mainpage div[style="height:80px"] {
 	height:90px!important;
 }
-span[onclick="refreshgarden();"] {
-	color: var(--white)!important;
-}
 
 #wallrefresh_icon {
 	color: var(--white)!important;
