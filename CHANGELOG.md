@@ -8,7 +8,8 @@ Features:
 
 Changes:
 + Added a timestamp in the browser console which shows how long it took for fairy ring to load (if debug enabled).
- 
++ Re-organized the settings page and fixed some grammar mistakes. 
+
 Bug Fixes:
 + Fixed an issue with the dark theme which caused errors when refreshing gardens
 + Removed some pointless console logs
