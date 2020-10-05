@@ -1,6 +1,4 @@
 function replacer(splitlist, newmsg) {
-	console.log(splitlist)
-	console.log(newmsg)
 	if (splitlist.length > 1) {
 		for (i = splitlist.length-1; i > 0; i--) {
 			splitlist.splice(i, 0, newmsg);
