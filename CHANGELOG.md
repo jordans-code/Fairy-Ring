@@ -2,6 +2,17 @@
 
 <a name="latest"></a>
 
+### BETA 0.10.3:
+Features:
++ You can now left click wilted plants to revive them (if the left click to water option is enabled). 
+
+Changes:
++ Added a timestamp in the browser console which shows how long it took for fairy ring to load (if debug enabled).
+ 
+Bug Fixes:
++ Fixed an issue with the dark theme which caused errors when refreshing gardens
++ Removed some pointless console logs
+
 ### BETA 0.10.2:
 Features:
 + Added support for new dinosaur creatures
