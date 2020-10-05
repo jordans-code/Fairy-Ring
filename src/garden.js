@@ -639,8 +639,20 @@ function waterbutton(settings, finaldict) { // allows clicking plants to water t
 			if (settings.waterbutton) {
 				var plantid = obj.outerHTML.slice(34, -23);
 				$(`#plantdiv${plantid}`).attr('onclick', `water(${plantid},null)`);
-				// I need to fix some things with this, but can make it so garden auto refreshes with percent chance
-				$(`#plantdiv${plantid}`).on("click", function() {  
+				$(`#plantdiv${plantid}`).on("click", function() {
+					garden(settings, true, finaldict, false); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
+				});
+			}
+		} else if (gardenobjs[i].innerHTML == "Revive It!") {
+			var obj = gardenobjs[i];
+			$('.link').eq(i).on("click", function() {  // Normal water button
+				garden(settings, true, finaldict, false); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
+			});
+			if (settings.waterbutton) {
+				var plantid = obj.outerHTML.slice(34, -30);
+				console.log(plantid)
+				$(`#plantdiv${plantid}`).attr('onclick', `water(${plantid},'diamond')`);
+				$(`#plantdiv${plantid}`).on("click", function() {
 					garden(settings, true, finaldict, false); // send past dictionary in case wildlife is spotted so it doesn't reset last water time.
 				});
 			}
@@ -706,8 +718,13 @@ function buttonhandler(settings) { // adds buttons on garden page
 	}
 }
 
+function getCurrentTime(){
+	var date = new Date();
+	return date.getTime()
+}
 
 function garden(settings, prior, priordict, addbuttons) { // calls all functions required when on a garden page
+	var startTime = getCurrentTime()
 	if (!prior) {
 		var script = document.createElement('script');
 		var scriptvalue = document.createElement('scriptvalue');
@@ -750,6 +767,9 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 			}
 			autosnail(settings);
 			if (settings.debug) {console.log(logicarr);}
+			if (settings.debug) {
+				console.log("Finished in " + (getCurrentTime() - startTime).toString())
+			}
 		} else {
 			if (settings.debug) {console.log("AJAX not loaded yet, timing out for 50ms before rechecking");}
 		}
