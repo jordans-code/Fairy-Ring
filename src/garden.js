@@ -512,7 +512,9 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 			if (settings.debug) {console.log(current["lastvisitor"] + " visited " + lfeed/60 + " mins ago and stayed for " + vtime/60 + " mins, the current slot opened at the end of that.");}
 		} else {
 			if (type["issuperfood"] == true) {
-				console.log("Superfood detected, using max time instead of min");
+				if (settings.debug) {
+					console.log("Superfood detected, using max time instead of min");
+				}
 				var vtime = maxtimes[current["lastvisitor"]]*60;
 			} else {
 				var vtime = mintimes[current["lastvisitor"]]*60;
@@ -522,7 +524,9 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 		var activetime = (lfeed - vtime);
 		if (settings.debug) {console.log("This slot has been opened for at least " + activetime/60 + " minutes");}
 		var newmtime = mtime - vtime;
-		console.log("Because the max time between visits is " + mtime/60 + " for this food type and this creature stayed for " + vtime/60 + ", the new maximum time before the next arrival is " + newmtime);
+		if (settings.debug) {
+			console.log("Because the max time between visits is " + mtime/60 + " for this food type and this creature stayed for " + vtime/60 + ", the new maximum time before the next arrival is " + newmtime);
+		}
 		if (activetime < 0) {
 			if (settings.debug) {console.log("There is no chance of wildlife here currently.");}
 			return [0, newmtime, activetime, water];
