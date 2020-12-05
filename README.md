@@ -43,9 +43,9 @@ In August 2020, the new mobile version of Firefox was released which unfortunate
 1. <a href="https://f-droid.org/en/" target="_blank">Download F-Droid</a> on your device. F-Droid is like a free app store of its own and is open source. 
 Note: You may be prompted to enable installations from unknown sources. This is because it isn't on the app store and so they want you to be careful about what you download, but you can rest assured with F-Droid as it is widely used, open source and safe. 
 
-2. Once you have F-Droid, open it and search for either "Fennec" or "Icecat" (I like Fennec) and then install one. Both are open source Firefox clones that function and look just like the old Firefox (aside from their icon), they generally offer more privacy than the actual Firefox as well.
+2. Once you have F-Droid, open it and search for "Icecat" (it is called IceCatMobile) and then install it. It is an open source Firefox clone that function and look just like the old Firefox (aside from it's icon), it generally offers more privacy than the actual Firefox as well.
 
-3. Once you have either the Fennec or Icecat Firefox clone downloaded, open it and go to the normal <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a> link to add Fairy Ring. That is it!
+3. Once you have Icecat Firefox clone downloaded, open it and go to the normal <a href="https://addons.mozilla.org/en-US/firefox/addon/fairy-ring/" target="_blank">Firefox Addons</a> link to add Fairy Ring. The blue button to add will probably be greyed out, but you can click the grey text right below it that says "download file" and that should add it and get it working. That is it! To access the settings, click the three dots in the top right of the icecat screen and scroll down to "Fairy Ring". 
 
 Hopefully the normal Firefox will push a fix soon to bring back the many thousands of addons like Fairy Ring, but until then this is the only way to fix it. 
 
