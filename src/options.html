@@ -112,6 +112,10 @@ body {
 	  <input type="checkbox" id="toprightchance">
 	  Display total wildlife % chance for the garden in the top right corner of a garden. 
 	</div>
+	<div id="divstatuschance" style="">
+	  <input type="checkbox" id="statuschance">
+	  Display total wildlife % chance for the garden in the garden status message.
+	</div>
 	<div id="divcolorborder" style="">
 	  <input type="checkbox" id="colorborder">
 	  Change color of garden border to match threshold colors for the overall % chance. 
@@ -129,6 +133,12 @@ body {
 	<div id="divbiggerBtns" style="">
 	  <input type="checkbox" id="biggerBtns">
 	  Increase size of garden button(s) by Width:<input id="biggerBtnsSizeW" type="number" min="0" max="240" style="width: 30px">px,  Height:<input id="biggerBtnsSizeH" type="number" min="0" max="100" style="width: 30px">px
+	</div>
+	<hr>
+	<b><center>Wildlife Page Settings</center></b>
+	<div id="divpersistentsessions" style="">
+	<input type="checkbox" id="persistentsessions">
+	Enable persistent opened garden sessions. <br>(To learn what this does, go to any <a href="https://www.fairylandgame.com/fbfairy/wildlifewall.php?wid=1" target="_blank">wildlife page</a> and view the bottom left text box)
 	</div>
 	<hr>
 	<b><center>Other Settings</center></b>
@@ -160,8 +170,9 @@ body {
 	<div>
 	  <textarea style="display: block; height: 30px; padding: 0.75%; width: 450px; margin: 0px 11.8125px 0px 0px;" id="newmsgtext" value=""></textarea>
 	</div>
-	<b>(critter)</b> is replaced with the name(s) of what you have spotted.
+	<b>(critter)</b> is replaced with the name(s) of what you have spotted. 
 	<br><b>(gardenname)</b> is replaced with the name of the garden you are currently in.
+	<br><b>(ownername)</b> is replaced with the name of the garden owner you are visiting.<b><font style=color:green> new!</font></b>
 	<br><b>(fairyname)</b> is replaced with the name of the owner's fairy for the garden you're in.
 	<br><b>(pd)</b> is replaced by the pd text box contents below (if your spot gets a pink diamond). 
 	<br>
@@ -384,8 +395,9 @@ body {
 </div>
 <br>
 App source: <a href="https://github.com/thedanger1/Fairy-Ring" target="_blank">Github</a>
-<br><div id="versiontext" style="">You are running version 0.10.3 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md#latest" target="_blank">(Read changes)</a>
-<br><b>You can now left click on wilted plants to revive them (if the option is enabled).</b><br>
+<br><div id="versiontext" style="">You are running version 0.11.0 <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/CHANGELOG.md#latest" target="_blank">(Read changes)</a>
+<br><b>Added (ownername) as an option for the typer tab
+<br>Added persistent garden open-all sessions to keep track of garden's opened across all wildlife pages (read more in changelog linked above).</b><br>
 <br><b>Important:</b> Recently Firefox for mobile devices updated which broke extensions like Fairy Ring, please see <a href="https://github.com/thedanger1/Fairy-Ring/blob/master/README.md#Installations" target="_blank">this guide</a> to learn how to fix it or message me for help.
 
 </div><br>
