@@ -15,10 +15,40 @@ function nameinserter(msg, settingspage) {
 	}
 	try { // can't do owners name because it loads afterwards
 		gardenname = replacer(msg.split("(gardenname)"), $(".gardenskin").eq(0)[0].innerText.split(" ")[1])
-		fairyinserted = replacer(gardenname.split("(fairyname)"), $(".gardensidetext").eq(0)[0].innerText.split("\n")[0].split(" and ")[1])
+		if ($(".gardensidetext").eq(0)[0].innerText.split("\n")[1].includes("waiting for a space")) { // owner garden with a gift waiting for them
+			fairyinserted = replacer(gardenname.split("(fairyname)"), $(".gardensidetext").eq(1)[0].innerText.split("\n")[0].split(" and ")[1])
+			$(".gardensidetext").eq(1).on('DOMSubtreeModified',function(){
+				ownernameinserter()
+			});
+		} else {
+			fairyinserted = replacer(gardenname.split("(fairyname)"), $(".gardensidetext").eq(0)[0].innerText.split("\n")[0].split(" and ")[1])
+			$(".gardensidetext").eq(0).on('DOMSubtreeModified',function(){
+				ownernameinserter()
+			});
+		}
 		return fairyinserted;
 	} catch {
 		console.log("error with fetching owner's garden/fairy name")
+	}
+}
+
+function ownernameinserter(){
+	try {
+	if ($(".gardensidetext").eq(0)[0].innerText.split("\n")[1].includes("waiting for a space")) { // owner garden with a gift waiting for them
+		var tempnum = 1
+	} else {
+		var tempnum = 0
+	}
+	var unfilteredname = $(".gardensidetext").eq(tempnum)[0].innerText.split("\n")[0].split(" and ")[0]
+	if (unfilteredname != "		") {
+		var filteredname = unfilteredname.split("		")[1]
+		console.log(filteredname);
+		$('#wall_message')[0].value = replacer($('#wall_message')[0].value.split("(ownername)"), filteredname)
+				
+		}
+	} catch (e) {
+		console.log(e)
+		console.log("Error inserting garden owner's name")
 	}
 }
 
