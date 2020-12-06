@@ -2,6 +2,20 @@
 
 <a name="latest"></a>
 
+### BETA 0.11.0:
+Features: 
++ Added "persistent opened garden sessions" setting
++ + When off: The open all buttons on wildlife pages functions as it did before (if you refresh or go to a different one it resets.
++ + When on: The open all button will now keep track of which gardens you have opened across all wildlife pages and after resets or even closing your browser, it can only be manually reset by clicking the button.
++ + + This means that you can hunt multiple wildlife types without opening the same gardens. Note, this does not impact the open all buttons on garden pages themselves, only wildlife.
+
++ Added (ownername) as an option that you can use in the typer tab, this will insert the garden owner's name into your message so you can thank them! 
++ + You may notice that it takes a second to fill it in rather than everything else being instant, this was the initial problem because the page takes longer to load the garden owner name because it has to fetch it from facebook each time. I found a way to have it simply insert it once the page gets it without having to stop everything to wait for it.
+
+Changes:
++ Added a toggle checkbox in settings to turn off the "and has a percent chance of..." message in the bottom right status message on gardens. It will now be off by default but can be re-enabled.
++ Some changes on the backend to make Fairy Ring run a bit faster/more efficient
+
 ### BETA 0.10.3:
 Features:
 + You can now left click wilted plants to revive them (if the left click to water option is enabled). 
