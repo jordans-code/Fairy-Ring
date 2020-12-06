@@ -13,7 +13,7 @@ function nameinserter(msg, settingspage) {
 	if (settingspage) {
 		return msg;
 	}
-	try { // can't do owners name because it loads afterwards
+	try {
 		gardenname = replacer(msg.split("(gardenname)"), $(".gardenskin").eq(0)[0].innerText.split(" ")[1])
 		if ($(".gardensidetext").eq(0)[0].innerText.split("\n")[1].includes("waiting for a space")) { // owner garden with a gift waiting for them
 			fairyinserted = replacer(gardenname.split("(fairyname)"), $(".gardensidetext").eq(1)[0].innerText.split("\n")[0].split(" and ")[1])

@@ -1,6 +1,9 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.11.1:
+Bug Fix:
++ Fixed a bug where (ownername) wasn't working in the typer tab box for when a critter is spotted.
 
 ### BETA 0.11.0:
 Features: 
