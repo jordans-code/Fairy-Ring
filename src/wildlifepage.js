@@ -22,10 +22,10 @@ function getblocklist(settings) {
 	return filtered;
 }
 
-function blockhandler(settings) {
+function blockhandler(settings, wildlifesettings) {
 	var blocklist = getblocklist(settings);
 	if (settings.debug) {console.log(blocklist);}
-	chrome.storage.sync.set({blocktotal: blocklist.length, blockid: blocklist.reverse().join(", ")});
+	chrome.storage.local.set({blocktotal: blocklist.length, blockid: blocklist.reverse().join(", ")});
 }
 
 function openurls() { // handles "open all" button on wildlife page
@@ -35,27 +35,77 @@ function openurls() { // handles "open all" button on wildlife page
 	}
 }
 
+function openurlspersist() { // handles "open all" button on wildlife page when persist option is checked, two functions because this one has to use a promise
+	getlinkspersist().then(function(links) {
+	console.log(links)
+	console.log(links.length);
+	for (i = 0; i < links.length; i++) {
+		console.log(links[i]);
+		window.open(links[i]);
+	}
+	console.log("done opening");
+	});
+}
+
+async function getlinkspersist() {
+	return new Promise((resolve, reject) => {
+		try {
+		var posts = $(".wall_postcontent");
+		var links = [];
+		var finaljawn = []
+		chrome.storage.sync.get({flid: ""}, function(item) {
+		chrome.storage.local.get({persistentsessionslist: []}, function(wildlifeitem) {
+			finaljawn = wildlifeitem.persistentsessionslist
+			console.log(finaljawn)
+			for (i = 0; i < posts.length; i++) {
+				var linkz = posts[i].getElementsByTagName("a")[0].toString();
+				var linkid = linkz.split("=")[1];
+				console.log(linkid)
+				var flid = item.flid;
+				if (!finaljawn.includes(flid)) {
+					finaljawn.push(flid);
+				}
+			
+			if (posts.eq(i).is(":visible") && !(finaljawn.includes(linkid))) {
+				finaljawn.push(linkid);
+				links.push(linkz);
+				console.log(finaljawn);
+			}
+			updatetotals(finaljawn.length - 1);
+			}
+			chrome.storage.local.set({persistentsessionslist: finaljawn});
+		console.log("final link return")
+		console.log(links);
+		resolve(links);
+			}
+		)})} catch (ex) {
+			reject(ex);
+		}
+	});
+}
+
+
 function getlinks() { // returns array of links to gardens from wildlife page
 	var posts = $(".wall_postcontent");
 	var links = [];
-	for (i = 0; i < posts.length; i++) {
-		var linkz = posts[i].getElementsByTagName("a")[0].toString();
-		var linkid = linkz.split("=")[1];
-		var raw = window.sessionStorage.getItem("openedlinks");
-		var openedlinks = JSON.parse(raw);
-		if (posts.eq(i).is(":visible") && !(openedlinks.includes(linkid))) {
-			openedlinks.push(linkid);
-			console.log(openedlinks);
-			var stringify = JSON.stringify(openedlinks);
-			window.sessionStorage.setItem("openedlinks", stringify);
-			if (window.location.pathname == "/fbfairy/wildlifewall.php") {
-				updatetotals(openedlinks.length - 1);
+		for (i = 0; i < posts.length; i++) {
+			var linkz = posts[i].getElementsByTagName("a")[0].toString();
+			var linkid = linkz.split("=")[1];
+			var raw = window.sessionStorage.getItem("openedlinks");
+			var openedlinks = JSON.parse(raw);
+			if (posts.eq(i).is(":visible") && !(openedlinks.includes(linkid))) {
+				openedlinks.push(linkid);
+				console.log(openedlinks);
+				var stringify = JSON.stringify(openedlinks);
+				window.sessionStorage.setItem("openedlinks", stringify);
+				if (window.location.pathname == "/fbfairy/wildlifewall.php") {
+					updatetotals(openedlinks.length - 1);
+				}
+				links.push(linkz);
+			} else {
+				console.log(posts[i].getElementsByTagName("a")[0].toString() + " is blocking us or has already been opened, skipping.");
 			}
-			links.push(linkz);
-		} else {
-			console.log(posts[i].getElementsByTagName("a")[0].toString() + " is blocking us or has already been opened, skipping.");
 		}
-	}
 	return links;
 }
 
@@ -68,16 +118,32 @@ function next() { // next page button
 	}
 }
 
-function initialhtml() {
-	$('.wildlifetype').parent().eq(0).append("<div id='totals' style='width: 370px; background-color: #ddeedd; border: 1px solid #aabbaa; margin-left: 10px; margin-right: 10px;'><span id='totalsspan'>You have opened 0 gardens for this creature during this session.</span><br><br>Note: This only keeps track of gardens opened through the <b>open all</b> button, the button will also ignore gardens which have already been opened this session. To reset it, simply refresh this page.<br><br>If the open all button does not respond, it is because you have already opened all of the gardens on that page during this session.</div>");
+function initialhtml(settings) {
+	var persistent = "off";
+	if (settings.persistentsessions) {
+		var persistent = "on";
+	}
+	$('.wildlifetype').parent().eq(0).append(`<div id='totals' style='width: 370px; background-color: #ddeedd;padding:4px;border: 1px solid #aabbaa; margin-left: 10px; margin-right: 10px;'><center><span id='totalsspan'>You have opened 0 gardens for this creature during this session.</span></center><br><br>Note: This only keeps track of gardens opened through the <b>open all</b> button, the button will also ignore gardens which have already been opened this session. If the open all button does not respond, it is because you have already opened all of the gardens on that page.<br><hr><span id='persistentsession'>Persistent opened garden sessions is currently <b>${persistent}</b>.</span><br><br>If it is off, then your opened gardens will reset each time the page is refreshed. This also means that it will be different for each wildlife page you visit. <br><br>If it is on, then your opened gardens will persist across all wildlife pages until you click the 'clear opened gardens' button below. This means you can hunt on as many different pages as you want without opening the same gardens, but you have to manually reset when you want to start over.</div>`);
+	if (settings.persistentsessions) {
+		$('#totals').prepend('<center><input id="sessionclear" class="inputsubmit" style="padding-top: 15px; padding-bottom: 15px;border:2px outset #007f00;background-color:#007f00;" type=button value="Clear Opened Gardens"/></center><br>');
+	}
 }
 
 function updatetotals(total) {
-	$('#totalsspan')[0].innerText = `You have opened ${total} gardens for this creature during this session.`;
+	if (total == -1) { total = 0 };
+	$('#totalsspan')[0].innerText = `You have opened ${total} gardens during this session.`;
 }
 
-function wallhandler(settings) { // handles wildlife page buttons
-		initialhtml();
+function wallhandler(settings, wildlifesettings) { // handles wildlife page buttons
+		console.log(wildlifesettings);
+		initialhtml(settings);
+		if (settings.persistentsessions) {
+			try {
+				updatetotals(wildlifesettings.persistentsessionslist.length - 1)
+			} catch (e) {
+				updatetotals("ERROR")
+			}
+		}
 		if (settings.flid.length != 0) {
 			window.sessionStorage.setItem("flid", true);
 		}
@@ -85,13 +151,25 @@ function wallhandler(settings) { // handles wildlife page buttons
 		if ($(".mike_error").length == 0) { // If user is not on advert cooldown
 		$(".wall_form").children().eq(1).append('<input id="openall" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Open All Gardens"/>');
 		$(".wall_form").children().eq(1).append('<input id="next" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Next"/>');
-		document.getElementById ("openall").addEventListener ("click", openurls, false);
+		if (settings.persistentsessions) {
+			document.getElementById ("openall").addEventListener ("click", openurlspersist, false);
+		} else {
+			document.getElementById ("openall").addEventListener ("click", openurls, false);
+		}
 		document.getElementById ("next").addEventListener ("click", next, false);
 		} else {
 			$('<input id="next" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00" type=button value="Next"/>').insertAfter($(".mike_error"));
 			$('<input id="openall" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00" type=button value="Open All Gardens"/>').insertAfter($(".mike_error"));
-			document.getElementById ("openall").addEventListener ("click", openurls, false);
+			if (settings.persistentsessions) {
+				document.getElementById ("openall").addEventListener ("click", openurlspersist, false);
+			} else {
+				document.getElementById ("openall").addEventListener ("click", openurls, false);
+			}
 			document.getElementById ("next").addEventListener ("click", next, false);
 		}
-		blockhandler(settings);
+		document.getElementById('sessionclear').addEventListener('click', function() {
+			chrome.storage.local.set({persistentsessionslist: []});
+			updatetotals(0);
+		});
+		blockhandler(settings, wildlifesettings);
 }
