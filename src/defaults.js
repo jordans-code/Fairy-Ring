@@ -3,6 +3,7 @@ var defaults = {
     colorgardentext: true,
 	foodoverlay: true,
 	toprightchance: true,
+	statuschance: false,
 	colorborder: true,
 	colorwindow: true,
 	waterbutton: true,
@@ -72,11 +73,16 @@ var defaults = {
 	step2choice: "dust7",
 	step3choice: "item12",
 	step4choice: "wand0",
-	blocktotal: "No Data",
-	blockid: "No Data - You must visit any wildlife page (not a garden, the actual wildlife pages) and re-open this window",
 	flid: "",
 	automushroom: false,
 	mushroomgameamount: 0,
+	persistentsessions: false,
 	darkmode: false,
 	seen: false
+}
+
+var wildlifedefaults = {
+	blocktotal: "No Data",
+	blockid: "No Data - You must visit any wildlife page (not a garden, the actual wildlife pages) and re-open this window",
+	persistentsessionslist: []
 }
