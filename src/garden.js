@@ -336,7 +336,9 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	if (!dict.HasFood) {
 		if (settings.toprightchance) {
 			TopRightChance(0, prior);
-			StatusChance(0);
+			if (settings.statuschance) {
+				StatusChance(0);
+			}
 		}
 		if (settings.colorborder) {
 			ColorBorder(`#${settings.threshold1c}`);
@@ -424,7 +426,9 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	}
 	//'<div id="questbar" style="position:absolute;top:29px;left:548px;font-weight:bold;cursor:pointer" onclick="showInfo(20,null);">3050</div>');
 	if (settings.debug) {console.log("There is a " + (Math.floor(duepercent*1000))/10 + "% overall chance that this garden contains wildlife.");}
-	StatusChance(duepercent);
+	if (settings.statuschance) {
+		StatusChance(duepercent);
+	}
 	if (settings.toprightchance) {
 		TopRightChance(duepercent, prior);
 	}
