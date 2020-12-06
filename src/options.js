@@ -55,6 +55,7 @@ function save_options() {
   var colorgardentext = document.getElementById('colorgardentext').checked;
   var foodoverlay = document.getElementById('foodoverlay').checked;
   var toprightchance = document.getElementById('toprightchance').checked;
+  var statuschance = document.getElementById('statuschance').checked;
   var colorborder = document.getElementById('colorborder').checked;
   var colorwindow = document.getElementById('colorwindow').checked;
   var waterbutton = document.getElementById('waterbutton').checked;
@@ -132,6 +133,8 @@ function save_options() {
   // Games
   var automushroom = document.getElementById('automushroom').checked;
   var mushroomgameamount = document.getElementById('mushroomgameamount').value; 
+  // Wildlife Pages
+  var persistentsessions = document.getElementById('persistentsessions').checked;
   //darkmode
   var darkmode = document.getElementById('darkmode').checked;
   chrome.storage.sync.set({
@@ -140,6 +143,7 @@ function save_options() {
     colorgardentext: colorgardentext,
 	foodoverlay: foodoverlay,
 	toprightchance: toprightchance,
+	statuschance: statuschance,
 	colorborder: colorborder,
 	colorwindow: colorwindow,
 	waterbutton: waterbutton,
@@ -216,6 +220,8 @@ function save_options() {
 	
 	automushroom: automushroom,
 	mushroomgameamount: mushroomgameamount,
+	//wildlife pages
+	persistentsessions: persistentsessions,
 	// dark mode
 	darkmode: darkmode
   }, function() {
@@ -232,12 +238,17 @@ function save_options() {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 function restore_options() {
+  chrome.storage.local.get(wildlifedefaults, function(wildlifeitems) {
+	document.getElementById("blocktotal").value = wildlifeitems.blocktotal;
+	document.getElementById("blockid").value = wildlifeitems.blockid;
+  });
   chrome.storage.sync.get(defaults, function(items) {
 	document.getElementById('hidenofood').checked = items.hidenofood;
 	document.getElementById('homepageExtraBtns').checked = items.homepageExtraBtns;
     document.getElementById('colorgardentext').checked = items.colorgardentext;
 	document.getElementById('foodoverlay').checked = items.foodoverlay;
 	document.getElementById('toprightchance').checked = items.toprightchance;
+	document.getElementById('statuschance').checked = items.statuschance;
 	document.getElementById('colorborder').checked = items.colorborder;
 	document.getElementById('colorwindow').checked = items.colorwindow;
 	document.getElementById('waterbutton').checked = items.waterbutton;
@@ -313,10 +324,9 @@ function restore_options() {
 	document.getElementById("step3choice").value = items.step3choice;
 	document.getElementById("step4choice").value = items.step4choice;
 	
-	document.getElementById("blocktotal").value = items.blocktotal;
-	document.getElementById("blockid").value = items.blockid;
 	document.getElementById("automushroom").checked = items.automushroom;
 	document.getElementById("mushroomgameamount").value = items.mushroomgameamount;
+	document.getElementById("persistentsessions").checked = items.persistentsessions;
 	
 	document.getElementById("darkmode").checked = items.darkmode;
 	
@@ -351,6 +361,7 @@ function restore_options() {
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
 	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
 	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
+	if (!items.statuschance) { $('#divstatuschance').css('background-color', color)}
 	if (!items.colorborder) { $('#divcolorborder').css('background-color', color)}
 	if (!items.colorwindow) { $('#divcolorwindow').css('background-color', color)}
 	if (!items.waterbutton) { $('#divwaterbutton').css('background-color', color)}
@@ -364,6 +375,7 @@ function restore_options() {
 	if (!items.debug) { $('#divdebug').css('background-color', color)}
 	if (!items.alchemybutton) { $('#divalchemybutton').css('background-color', color)}
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
+	if (!items.persistentsessions) { $('#divpersistentsessions').css('background-color', color)}
 	if (!items.darkmode) { $('#divdarkmode').css('background-color', color)}
 	getallsamples(items);
 	document.getElementById("sampletext").value = (formatmessage(items, {"msglowercase": items.msglowercase, "pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}, true));
@@ -413,6 +425,7 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
 
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
