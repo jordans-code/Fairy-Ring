@@ -6,7 +6,13 @@ function main() {
 		if (path == "/fbfairy/fairygarden.php") {
 			garden(items, false, false, true);
 		} else if (path == "/fbfairy/wildlifewall.php") {
-			wallhandler(items);
+			if (items.persistentsessions) {
+				chrome.storage.local.get(wildlifedefaults, function(wildlifeitems) {
+					wallhandler(items, wildlifeitems);
+				});
+			} else {
+				wallhandler(items, false);
+			}
 		} else if (path == "/fbfairy/" || path == "/fbfairy/index.php") {
 			mainpage(items);
 		} else if (path == "/fbfairy/alchemy.php") {
