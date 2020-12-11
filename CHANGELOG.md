@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.11.2:
+Bug Fix:
++ Fixed a bug which was preventing the blocklist from updating when the "persistent opened gardens" option was not checked. 
+
 ### BETA 0.11.1:
 Bug Fix:
 + Fixed a bug where (ownername) wasn't working in the typer tab box for when a critter is spotted.

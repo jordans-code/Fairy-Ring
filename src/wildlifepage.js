@@ -135,7 +135,7 @@ function updatetotals(total) {
 }
 
 function wallhandler(settings, wildlifesettings) { // handles wildlife page buttons
-		console.log(wildlifesettings);
+		if(settings.debug){console.log(wildlifesettings);}
 		initialhtml(settings);
 		if (settings.persistentsessions) {
 			try {
@@ -153,6 +153,10 @@ function wallhandler(settings, wildlifesettings) { // handles wildlife page butt
 		$(".wall_form").children().eq(1).append('<input id="next" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00;padding-top: 4px" type=button value="Next"/>');
 		if (settings.persistentsessions) {
 			document.getElementById ("openall").addEventListener ("click", openurlspersist, false);
+				document.getElementById('sessionclear').addEventListener('click', function() {
+					chrome.storage.local.set({persistentsessionslist: []});
+					updatetotals(0);
+				});
 		} else {
 			document.getElementById ("openall").addEventListener ("click", openurls, false);
 		}
@@ -162,14 +166,14 @@ function wallhandler(settings, wildlifesettings) { // handles wildlife page butt
 			$('<input id="openall" class="inputsubmit" style="border:1px outset #007f00;background-color:#007f00" type=button value="Open All Gardens"/>').insertAfter($(".mike_error"));
 			if (settings.persistentsessions) {
 				document.getElementById ("openall").addEventListener ("click", openurlspersist, false);
+				document.getElementById('sessionclear').addEventListener('click', function() {
+					chrome.storage.local.set({persistentsessionslist: []});
+					updatetotals(0);
+				});
 			} else {
 				document.getElementById ("openall").addEventListener ("click", openurls, false);
 			}
 			document.getElementById ("next").addEventListener ("click", next, false);
 		}
-		document.getElementById('sessionclear').addEventListener('click', function() {
-			chrome.storage.local.set({persistentsessionslist: []});
-			updatetotals(0);
-		});
 		blockhandler(settings, wildlifesettings);
 }
