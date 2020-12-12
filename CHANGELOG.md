@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.11.3:
+Bug Fix:
++ Fixed a bug which was occasionally causing (ownername) to not insert the owner's name. This was because the name was loading before fairy ring's code could run sometimes when the open-all buttons were used and it'd have to load a bunch of gardens at once. Added a check for this. 
+
 ### BETA 0.11.2:
 Bug Fix:
 + Fixed a bug which was preventing the blocklist from updating when the "persistent opened gardens" option was not checked. 

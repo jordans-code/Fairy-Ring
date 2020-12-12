@@ -624,9 +624,8 @@ function writemessage(settings, prior, spotlist, current) {
 	if (formatted != undefined) {
 		$('#wall_message')[0].value = formatted;
 	}
-	if (prior) {
-		ownernameinserter()
-	}
+	ownernameinserter()
+	
 }
 
 function autosnail(settings) { // Automatically does snail game for you
