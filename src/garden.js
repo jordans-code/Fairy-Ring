@@ -708,12 +708,21 @@ function handlepostbtn() { // "Post"
 	$('.inputsubmit').eq(0).attr('style','float: left;');
 }
 
+function checkunblocked() {
+	if (($('#wallButton').length) == 0) {
+		return false
+	} else {
+		return true
+	}
+}
 function buttonhandler(settings) { // adds buttons on garden page
 	handlepostbtn();
 	if (settings.gardenExtraBtns) {
 		window.sessionStorage.setItem("openedlinks", JSON.stringify([settings.flid]));
-		addnext();
-		addopenall();
+		if (checkunblocked()) {
+			addnext();
+			addopenall();
+		}
 	}
 	if (settings.biggerBtns) {
 		var defaultW = 10;
@@ -770,7 +779,7 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 			if (prior && !prior["pd"]) {logicarr["pd"] = checkforpd(logicarr["pd"])}
 			Write(logicarr, settings, prior);
 			rmnotification(settings);
-			writemessage(settings, prior, lastfeed["newspot"], logicarr);
+			if (checkunblocked()) { writemessage(settings, prior, lastfeed["newspot"], logicarr); }
 			waterbutton(settings, logicarr);
 			if (addbuttons) {
 			addrefresh(settings);

@@ -66,7 +66,8 @@ async function getlinkspersist() {
 					finaljawn.push(flid);
 				}
 			
-			if (posts.eq(i).is(":visible") && !(finaljawn.includes(linkid))) {
+			//if (posts.eq(i).is(":visible") && !(finaljawn.includes(linkid))) {
+			if (!(finaljawn.includes(linkid))) {
 				finaljawn.push(linkid);
 				links.push(linkz);
 				console.log(finaljawn);
@@ -93,7 +94,8 @@ function getlinks() { // returns array of links to gardens from wildlife page
 			var linkid = linkz.split("=")[1];
 			var raw = window.sessionStorage.getItem("openedlinks");
 			var openedlinks = JSON.parse(raw);
-			if (posts.eq(i).is(":visible") && !(openedlinks.includes(linkid))) {
+			//if (posts.eq(i).is(":visible") && !(openedlinks.includes(linkid))) {
+			if (!(openedlinks.includes(linkid))) {
 				openedlinks.push(linkid);
 				console.log(openedlinks);
 				var stringify = JSON.stringify(openedlinks);
