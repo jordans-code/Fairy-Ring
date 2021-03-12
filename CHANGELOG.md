@@ -1,6 +1,20 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.0:
+Features:
++ Updated timings for the latest food changes
++ + A script was made and we collected and analyzed 50k records of recent wildlife visits with the new food.
++ + To see our findings and the data, the link is here: https://docs.google.com/spreadsheets/d/1LBwHMC0UqZjxoIxJWJ9WNE5emCklzAeqvfpAuDNibIE/
++ Added the ability to buy custom amounts of dusts at the store.
+
+Changes:
++ Added "dead time" to the food timing equation, in a nutshell this considerably increases the accuracy of it all in general and you will see more plates with a negative number indicating that nothing can currently be present.
++ Minor formatting changes in some menus.
++ Removed the dark mode transparent gold image for prizes, it was causing images to stack vertically rather than horizontally and sadly with how fairyland was made I'm not sure of how to do it otherwise and so it'll just break the dark theme when you occasionally see it as white boxes, but you wont have gold going off the page.
+Bug Fix:
++ Fixed a dark mode bug which made some text for the sprinkle timer dissapear due to sizing.
+
 ### BETA 0.11.4:
 Changes:
 + The Open all button on wildlife pages will no longer ignore gardens which have blocked you as you can now water in them. This could be added as a toggle-able option if requested.
