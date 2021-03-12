@@ -42,7 +42,7 @@ function ownernameinserter(){
 	var unfilteredname = $(".gardensidetext").eq(tempnum)[0].innerText.split("\n")[0].split(" and ")[0]
 	if (unfilteredname != "		") {
 		var filteredname = unfilteredname.split("		")[1]
-		console.log(filteredname);
+		
 		$('#wall_message')[0].value = replacer($('#wall_message')[0].value.split("(ownername)"), filteredname)
 				
 		}
