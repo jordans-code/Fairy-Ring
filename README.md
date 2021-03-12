@@ -128,40 +128,50 @@ You should use the percent chance as a tool to help you decide when to water, an
 
 The app cannot detect alerts, if there is an alert then the percentages will not consider it and so you should go with your own judgement. 
 
->What is the exact equation used to calculate the chance of wildlife?
+>What is the exact equation used to calculate the chance of wildlife currently being present?
 
 Currently the calculation is as follows:
 
-Active time (capped at 60) <b>/</b> ( [max time between visits for the given food type] - [Inactive time + last creature stay time] )
+[Active time - plate dead time](capped at 60) <b>/</b> ( [max time between visits for the given food type] - [Inactive time + last creature stay time + plate dead time] )
 
 * Active time is the time that wildlife could have visited the plate since the food was left out, or since the last water.
 * Active time is capped at 60 minutes as nothing can stay longer than 60 minutes, anything beyond this moves to inactive time.
-* Watering resets Active time to when the last water occured and moves everything before the watering to inactive time.
+* Plate dead time is the minimum time between arrivals for the type of food, aka the time in which nothing can come.
+* Watering resets Active time if the activetime is a positive number to when the last water occured and moves the old activetime number to inactive time.
 * The total stay time of the creature is also added to inactive time, because the fairyland time between visit counter starts counting as soon as it visits, even though something new cannot visit until it leaves.
+* The plate dead time is also added to inactive time, because it is stll part of the window and so by subtracting it from both sides we narrow down the time in which wildlife can come.
 
-In practice it looks like this:
-* Organic food has a maximum time between visits of 6 hours, we will assume that this food has already been visited. 
-* Mouse arrived 4 hours ago.
-* Minimum staytime of mouse is 55 minutes.
-* Visit window = (arrival time - staytime) / (max time between feeds - staytime)
-* The visit window would look like: 3 hours 5 minutes / 5 hours 5 minutes
-
-* Because of this, we will assume that the slot opened exactly 3 hours 5 minutes ago ( arrival - stay time ).
-* The current active time is 1 hour, and the inactive time is 2 hours and 5 minutes.
-* The garden was watered 30 minutes ago. Now the final active time is 30 minutes and the inactive time is 2 hours 35 minutes
-* Finally, we add the last creature's stay time (55 minutes) to the inactive time, even though wildlife cannot come during this period this is still part of the "max time between visits".
-* 30 min activetime / ( [6 hr max time between visits] - [2hr 35 min inactive time + 55min time last creature stayed])
-* 0.5 / (6 - (2.583 + 0.917)) = 20% chance of wildlife being on this plate at this exact moment.
-
-If someone hadn't of watered 30 minutes ago, it would instead look like this:
-* 60 min activetime / ( [6 hr max time between visits] - [2hr 5 min inactivetime + 55min time last creature stayed])
-* 1.0 / (6 - (2.083 + 0.917)) = 33.33% chance of wildlife being here currently.
-
+<b>Step by step for getting the percent chance that something is currently on the plate:</b>
+* [Active time - plate dead time]<b>/</b>([max time between visits] - [Inactive time + last creature stay time + plate dead time])
+* Organic food has a maximum time between visits of 5 hours, we will assume that this is not the first feed.
+* [Active time - plate dead time]<b>/</b>(<b>5hr</b> - [Inactive time + last creature stay time + plate dead time])
+* The mid plate dead time for organic is 37min.
+* [Active time - <b>37min</b>]<b>/</b>(5hr - [Inactive time + <b>55min + 37min</b>])
+* Mouse arrived 4 hours ago, the minimum staytime of mouse is 55 minutes (if it is missed then we get the exact time and use that instead).
+* This means the mouse would have at the earliest departed 3 hours, 5 minutes ago. This is our "active time" before subtracting the dead time in which nothing could come.
+* [<b>3hr5min</b> - 37min]<b>/</b>(5hr - [Inactive time + 55min + 37min])
+* [<b>2hr28min</b>]<b>/</b>(5hr - [Inactive time + 55min + 37min])
+* Because the activetime is greater than 60, we leave 60 as the activetime and subtract 60 from the whole number and that is our inactive time
+* [<b>1hr</b>]<b>/</b>(5hr - [<b>1hr28min</b> + 55min + 37min])
+* Lets pretend that someone watered the plate 5 minutes ago, 5min is the new activetime since something could have come and we add the remaining 55 minutes into inactive time
+* [<b>5min</b>]<b>/</b>(5hr - [1hr28min + <b>55min</b> + 55min + 37min])
+* [5min]<b>/</b>(5hr - [<b>3hr55min</b>])
+* [5min]<b>/1hr5min</b>
+* There is a 7.69% chance that wildlife is currently on this plate at this exact moment.
+* The visit window would look like: 3 hours 5 minutes / 4 hours 5 minutes (to see how to get this, look at the guide below)
 
 If additional plates in the garden exist and have a chance of containing wildlife, the total percentage is calculated in the formula below by calculating the odds of there not being wildlife and subtracting that from the final percentage. This is to factor in the fact that there are four outcomes, one is due, the other is due, both are due, none are due. This will also scale up to 4 plates. 
 
 * Final percent = 100 * (1 - ((1 - duepercent) * (1 - duepercent2)))
 
+>What is the exact equation used to calculate the visit window fraction (bottom fraction)?
+<b>Step by step for getting the visit window (the bottom fraction over plates):</b>
+It is basically the same formula as above, minus the need for "inactive time" or to cap activetime at 60.
+Using the same example as above, lets say a field mouse came 4 hours ago on a plate of organic food that is not fresh. Remember that organic dead time is 37min.
+* [Active time(time since last critter departed) - plate dead time]<b>/</b>([max time between visits] - [last creature stay time + plate dead time])
+* [3hr5min - 37min]<b>/</b>([5hr] - [55min + 37min])
+* 2hr28min <b>/</b> 3hr28min
+* It has been 2 hours and 28 minutes since something has been able to arrive, and something must come by the 3hr 28 min mark so there is only 1 hour left in the window.
 <a name="issues"></a>
 ## Limitations / Current Issues
 The calculations involving wildlife have come a long way, but there are some bits of information missing or not yet implemented which keep the percentage from being as accurate as it can be. 
