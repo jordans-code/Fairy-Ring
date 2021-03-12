@@ -47,7 +47,7 @@ var maxtimes = {
 "Long-Eared Owl": 10,
 "Australian King Parrot": 20,
 "Magpie": 60,
-"Pair of Magpies": 60,
+"Pair of Magpies": 45,
 "Jackdaw": 25,
 "Zebra": 30,
 "Crane": 25,
