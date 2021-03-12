@@ -366,12 +366,13 @@ a[href*="/fbfairy/fairywall.php?flid="],span[onclick*="reportclick"],a[href*="/f
 
 span[style="color:#cc0000;font-size:9px"] {
 	color: var(--red2)!important;
-	font-size:12px!important;
+	font-size:10px!important;
 }
+
 
 span[style="color:#cc0000"] {
 	color: var(--red2)!important;
-	font-size:12px!important;
+	font-size:14px!important;
 }
 
 span[title="New Message"] {
@@ -403,12 +404,8 @@ div[style="width:450px;border:1px solid #ccc;background-color:#f0f0f0;color:#000
 }
 
 div.golddetail {
-	font-size:15px!important;
-}
-
-div.golddetail a{
-	color:var(--green2)!important;
-	font-size:15px!important;
+	font-size:14px!important;
+	height:80px;!important;
 }
 
 
@@ -575,19 +572,6 @@ img[src="https://static.fairylandgame.com/mushrooms/prize2.gif"] {
 	-mox-box-sizing: border-box;
 	box-sizing: border-box;
 	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/gold2.gif) no-repeat;
-	width:30px;
-	height:30px;
-	padding-left:31px;
-	margin-left:auto;
-	margin-right:auto;
-	float :none;
-}
-
-img[src="https://static.fairylandgame.com/mushrooms/prize9.gif"] {
-	display: block;
-	-mox-box-sizing: border-box;
-	box-sizing: border-box;
-	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/prize9.gif) no-repeat;
 	width:30px;
 	height:30px;
 	padding-left:31px;
@@ -818,15 +802,6 @@ img[src="https://static.fairylandgame.com/alchemy/snail_75.jpg"] {
 	padding-left:76px;
 }
 
-img[src="https://static.fairylandgame.com/alchemy/gold5_75.jpg"] {
-	display: block;
-	-mox-box-sizing: border-box;
-	box-sizing: border-box;
-	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/snails/prize9.gif) no-repeat;
-	width:30px;
-	height:30px;
-	padding-left:31px;
-}
 img[src="https://static.fairylandgame.com/menu/bug.jpg"] {
 	display: block;
 	-mox-box-sizing: border-box;
