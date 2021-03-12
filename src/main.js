@@ -15,10 +15,13 @@ function main() {
 			}
 		} else if (path == "/fbfairy/" || path == "/fbfairy/index.php") {
 			mainpage(items);
+			customstorebuy();
 		} else if (path == "/fbfairy/alchemy.php") {
 			alchemy(items);
 		} else if (path == "/fbfairy/alchemyresult.php") {
 			alchemyresult(items);
+		} else if (path == "/fbfairy/herbalism.php") {
+			customstorebuy();
 		} else if (path == "/fbfairy/mushroom.php") {
 			mushroomgame(items);
 		} else if (path == "/fbfairy/mushroomsplash.php") {
