@@ -1,9 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
-### BETA 0.12.1:
+### BETA 0.12.2:
 Changes:
 + Reworded the "hide gardens with no food" button to include frozen gardens. It always did this but now it says it.
++ Changed the update color highlight text, it should be a bit easier to read now.
 
 Bug Fix:
 + Fixed a bug where frozen gardens were no longer being hidden when the "hide gardens with no food" button was checked. 
