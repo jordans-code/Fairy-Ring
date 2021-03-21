@@ -7,7 +7,7 @@ function hidenofood() {
 	var objects = $('.gardeninfobox')
 	var wilting = "-48px 0px";
 	var food = "-160px 0px";
-	var frozen = "-96px 0px"
+	var frozen = "160px 0px"
 	for (var i = objects.length - 1; i > -1; i--) {
 		var iconlist = objects.eq(i).children().eq(0).children().eq(1).children().eq(1).children().eq(0).children();
 		if (iconlist.eq(0).css("background-position") == frozen) {

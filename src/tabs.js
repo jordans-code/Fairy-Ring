@@ -47,7 +47,7 @@ chrome.storage.sync.get({seen: false}, function(items) {
 	if (items.seen == true) {
 		document.getElementById("settingstab").click();
 	} else {
-	$('#versiontext').css('background-color', "#06CF20");
+	$('#versiontext').css('background-color', "#afffa8");
 	chrome.storage.sync.set({seen: true});
 	document.getElementById("abouttab").click();
 }

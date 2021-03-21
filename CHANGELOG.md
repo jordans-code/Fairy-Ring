@@ -2,6 +2,13 @@
 
 <a name="latest"></a>
 ### BETA 0.12.1:
+Changes:
++ Reworded the "hide gardens with no food" button to include frozen gardens. It always did this but now it says it.
+
+Bug Fix:
++ Fixed a bug where frozen gardens were no longer being hidden when the "hide gardens with no food" button was checked. 
+
+### BETA 0.12.1:
 Features:
 + Added a new button toggle in the settings to reorder the search gardens box on the home page. This will move it to the top of the page if enabled.
 
