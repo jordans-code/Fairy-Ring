@@ -14,6 +14,7 @@ var defaults = {
 	newspotmsg: false,
 	gardenExtraBtns: true,
 	homepageExtraBtns: true,
+	homepageReorderSearch: true,
 	biggerBtns: true,
 	biggerBtnsSizeW: 12,
 	biggerBtnsSizeH: 8,

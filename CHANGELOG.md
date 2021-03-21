@@ -1,6 +1,18 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.1:
+Features:
++ Added a new button toggle in the settings to reorder the search gardens box on the home page. This will move it to the top of the page if enabled.
+
+Changes:
++ The "hide gardens on the homepage with no food" will now also hide wilting gardens with no food.
++ + Before this did not hide wilting gardens due ot the valuable snails, but as they are now removed I feel it is no longer needed.
++ Changed the dark theme for the new homepage, it should look much better.
+
+Bug Fix:
++ Fixed the homepage open all buttons which were broken with the recent homepage update.
+
 ### BETA 0.12.0:
 Features:
 + Updated timings for the latest food changes

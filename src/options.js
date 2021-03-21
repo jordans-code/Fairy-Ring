@@ -52,6 +52,7 @@ function getallsamples(settings) {
 function save_options() {
   var hidenofood = document.getElementById('hidenofood').checked;
   var homepageExtraBtns = document.getElementById('homepageExtraBtns').checked;
+  var homepageReorderSearch = document.getElementById('homepageReorderSearch').checked;
   var colorgardentext = document.getElementById('colorgardentext').checked;
   var foodoverlay = document.getElementById('foodoverlay').checked;
   var toprightchance = document.getElementById('toprightchance').checked;
@@ -140,6 +141,7 @@ function save_options() {
   chrome.storage.sync.set({
 	hidenofood: hidenofood,
 	homepageExtraBtns: homepageExtraBtns,
+	homepageReorderSearch: homepageReorderSearch,
     colorgardentext: colorgardentext,
 	foodoverlay: foodoverlay,
 	toprightchance: toprightchance,
@@ -245,6 +247,7 @@ function restore_options() {
   chrome.storage.sync.get(defaults, function(items) {
 	document.getElementById('hidenofood').checked = items.hidenofood;
 	document.getElementById('homepageExtraBtns').checked = items.homepageExtraBtns;
+	document.getElementById('homepageReorderSearch').checked = items.homepageReorderSearch;
     document.getElementById('colorgardentext').checked = items.colorgardentext;
 	document.getElementById('foodoverlay').checked = items.foodoverlay;
 	document.getElementById('toprightchance').checked = items.toprightchance;
@@ -358,6 +361,7 @@ function restore_options() {
 	if (items.flid.length == 0) { $('#divflid').css('background-color', color)}
 	if (!items.hidenofood) { $('#divhidenofood').css('background-color', color)}
 	if (!items.homepageExtraBtns) { $('#divhomepageExtraBtns').css('background-color', color)}
+	if (!items.homepageReorderSearch) { $('#divhomepageReorderSearch').css('background-color', color)}
 	if (!items.colorgardentext) { $('#divcolorgardentext').css('background-color', color)}
 	if (!items.foodoverlay) { $('#divfoodoverlay').css('background-color', color)}
 	if (!items.toprightchance) { $('#divtoprightchance').css('background-color', color)}
