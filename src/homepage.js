@@ -49,15 +49,9 @@ function hidenofood() { // hides gardens on home page with no food
 
 function gethomepagelinks(type){
 	var links = []
-	if (type == "friends") {
-		var linkq = $("#mainright div[style='width:196px;float:left'] a[style='color:#000']") // to not open your own
-	} else if (type == "favorites") {
-		var linkq = $("#mainright div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left'] a[style='color:#000']")
-	} else if (type == "randoms") {
-		var linkq = $("#mainright div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] a[style='color:#000']")
-	} else {
-		console.log("Error in types of gethomepagelinks")
-	}
+	var typeformatted = "#homepage"+type
+	var linkq = $(typeformatted).find('a')
+	
 	var mygardenid = $("div[style='position:absolute;left:344px;top:2px;width:70px;height:18px;cursor:pointer']").eq(0).children()[0];
 	
 	if (mygardenid == undefined) {
@@ -79,10 +73,15 @@ function openhomepageurls(type) { // handles "open all" button on wildlife page
 }
 
 function addmainpagebuttons() {
-	
-	$("div[style='width:196px;overflow:hidden;float:left']").children(":first").after('<input id="openallfriends" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
-	$("div[style='margin-left:8px;width:196px;float:left;overflow:hidden;float:left']").children(":first").after('<input id="openallfavorites" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
-	$("div[style='margin-left:8px;margin-top:0px;width:196px;float:left;overflow:hidden;float:left'] div[style='background-color:#007f00;color:#ffffff;font-weight:bold;width:190px;padding:2px']").eq(1).after('<input id="openallrandoms" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 4px" type=button value="Open All"/>')
+	$("div[style='color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px']").eq(0).after('<input id="openallfriends" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 8px;padding-bottom: 8px;" type=button value="Open All"/>')
+	$('div[style="color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px"]').eq(0).parent().attr("id","homepagefriends");
+
+	$("div[style='color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px']").eq(1).after('<input id="openallfavorites" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 8px;padding-bottom: 8px;" type=button value="Open All"/>')
+	$('div[style="color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px"]').eq(1).parent().attr("id","homepagefavorites");
+
+	$("div[style='color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px']").eq(2).after('<input id="openallrandoms" class="inputsubmit" style="width:194px;border:1px outset #0a2d0a;background-color:#007f00;padding-top: 8px;padding-bottom: 8px;" type=button value="Open All"/>')
+	$('div[style="color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;border-radius:5px"]').eq(2).parent().attr("id","homepagerandoms");
+
 	document.getElementById ("openallfriends").addEventListener ("click", openhomepageurls.bind(this, "friends"));
 	document.getElementById ("openallfavorites").addEventListener ("click", openhomepageurls.bind(this, "favorites"));
 	document.getElementById ("openallrandoms").addEventListener ("click", openhomepageurls.bind(this, "randoms"));
