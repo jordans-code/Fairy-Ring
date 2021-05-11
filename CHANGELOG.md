@@ -1,6 +1,11 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.3:
+Bug Fix:
++ Fixed the open all buttons which were broken with the latest update
++ Many various dark theme fixes as the dark theme was ravaged by the new update.
+
 ### BETA 0.12.2:
 Changes:
 + Reworded the "hide gardens with no food" button to include frozen gardens. It always did this but now it says it.

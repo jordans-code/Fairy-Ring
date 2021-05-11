@@ -40,7 +40,7 @@ function gethomepagelinks(type){
 	var links = []
 	var typeformatted = "#homepage"+type
 	var linkq = $(typeformatted).find('a')
-	
+	/*
 	var mygardenid = $("div[style='position:absolute;left:344px;top:2px;width:70px;height:18px;cursor:pointer']").eq(0).children()[0];
 	
 	if (mygardenid == undefined) {
@@ -48,6 +48,12 @@ function gethomepagelinks(type){
 	}
 	for (i = 0; i < linkq.length; i++) {
 		if (linkq.eq(i).is(":visible") & !(mygardenid.href == linkq[i].href)) {
+			links.push(linkq[i].href)
+		}
+	}
+	*/
+	for (i = 0; i < linkq.length; i++) {
+		if (linkq.eq(i).is(":visible")) {
 			links.push(linkq[i].href)
 		}
 	}

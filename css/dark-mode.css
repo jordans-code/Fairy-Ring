@@ -135,6 +135,15 @@ div.footer {
 	background-color:var(--grey2)!important;
 }
 
+div[style="width:270px;float:left;padding-left:5px;background-color:#fff;border:1px solid #e2c822;padding:5px"] {
+	background-color:var(--grey2)!important;
+	color:var(--grey4)!important;
+}
+
+div[style="z-index:9010;width:420px;height:280px;border:1px solid #000;position:absolute;left:10px;top:10px;background-color:#ffffff"] {
+	background-color:var(--grey1)!important;
+	color:var(--grey4)!important;
+}
 div[style="width:270px;float:left;padding:5px;font-size:9.5px;background-color:#fff;border:1px solid #e2c822"] {
 	color:var(--white)!important;
 	background-color:var(--yellow1)!important;
@@ -897,7 +906,7 @@ div[style="color:#333;font-size:14px;font-weight:bold;width:220px;padding:2px;bo
 }
 
 
-html[style="overflow-x:hidden;overflow-y: scroll;background: url('https://static.fairylandgame.com/menu/backdrop2.png') repeat-y scroll center center #FFFFFF;"] {
+html[style="overflow-x:hidden;background: url('https://static.fairylandgame.com/menu/backdrop2.png') repeat-y scroll center center #FFFFFF;"] {
 	background: url(https://raw.githubusercontent.com/thedanger1/Fairy-Ring/master/img/banner/backdroptest.png) repeat-y scroll center center #1f1f1f!important;
 }
 
@@ -906,6 +915,48 @@ html[style="overflow-x:hidden;overflow-y: scroll;background: url('https://static
 }
 div#pagetitle {
 		border-bottom: 0px!important;
+}
+
+a[style="text-decoration:none;display:block;width:100%;height:100%;color:#111"] h4 b {
+	color:var(--blue4)!important;
+}
+a[style="text-decoration:none;color:#111;cursor:pointer;height:100%;width:100%;display:block"] h4 b{
+	color:var(--blue4)!important;
+}
+
+.wall_message {
+	color:var(--grey4)!important;
+	background-color:var(--grey2)!important;
+	border-bottom: 1px solid #494949!important;
+	border-left: 1px solid #494949!important;
+	border-right: 1px solid #494949!important;
+}
+div[style="background-color:#ddeedd"] {
+	background-color:var(--green1)!important;
+}
+div[style="padding:5px;background-color:#ddeedd"] {
+	background-color:var(--green1)!important;
+}
+
+div[style="background-color:#007f00;font-weight:bold;padding:3px;color:#ffffff"] {
+	background-color:var(--green1)!important;
+	border:1px solid var(--green2)!important;
+	color:var(--grey4)!important;
+}
+
+div[style="border:1px solid #aabbaa"] {
+	border:1px solid var(--green2)!important;
+}
+a[href="/fbfairy/wildlife.php?tab=5"] {
+	
+}
+.hoverlink {
+	color:var(--grey4)!important; 
+}
+.wall_post .wall_postcontent h4{
+	border-left: 1px solid #494949!important;
+	border-right: 1px solid #494949!important;
+	border-top: 1px solid #494949!important;
 }
 
 h1.status {
