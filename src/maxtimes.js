@@ -545,5 +545,18 @@ var maxtimes = {
 "Spinosaurus": 2,
 "Pterodactyl": 2,
 "Mosasaurus": 2,
-"T-Rex": 2									
+"T-Rex": 2,
+
+										// Alice
+"Card Gardener": 30,
+"The White Rabbit": 60,
+"Dinah": 60,
+"Bread and Butterfly": 60,
+"Rocking Horse Fly": 60,
+"Tweedledum": 60,
+"Tweedledee": 60,
+"The Dodo": 60,
+"The Lory": 60,
+"The Mouse": 60
+
 };

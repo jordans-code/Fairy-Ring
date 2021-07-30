@@ -57,6 +57,7 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				name == "Straw" || 
 				name == "Wood" || 
 				name == "Bricks" || 
+				name == "Comfits" ||
 				escape(name) == "Hot%A0%A0Porridge" ||
 				escape(name) == "Cold%A0%A0Porridge") { // These use different spaces so are not split
 				Final[i]["string"] = csplit.slice(1);
@@ -387,6 +388,15 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		percent = Math.floor(percentdecimal * 1000)/10;
 		duepercentarr.push(dict[z]["math1"]);
 		if (settings.foodoverlay) {
+			var foodheightoffset = 44
+			if (dict[z].name == "Treasure") {
+				foodheightoffset = 111
+			} else if (dict[z].name == "Birthday") {
+				foodheightoffset = 88
+			}
+			var position = parseInt($('.planttd').eq(z).children().eq(0).children().eq(0).children().eq(0).children('img[src*="byo_food"]').css('bottom').split("px")[0])
+			var adjustedpos = position+foodheightoffset
+			
 			var hours = seconds / 3600;
 			var rhours = Math.floor(hours);
 			var minutes = (hours - rhours) * 60;
@@ -424,12 +434,14 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			
 			$(`.foodwindow${i}`).css('textShadow',`-1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black`);
 			$(`.foodwindow${i}`).css('position', "relative");
+			$(`.foodwindow${i}`).css('bottom', `${adjustedpos}px`);
 			$(`.foodwindow${i}`).css('z-index', "999");
 
 			$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${WindowGlow},1px -1px 0 ${WindowGlow},-1px 1px 0 ${WindowGlow},1px 1px 0 ${WindowGlow}`);
 			
 			$(`.foodpercent${i}`).css('textShadow',`-1px -1px 0 ${NormGlow},1px -1px 0 ${NormGlow},-1px 1px 0 ${NormGlow},1px 1px 0 ${NormGlow}`);
 			$(`.foodpercent${i}`).css('position', "relative");
+			$(`.foodpercent${i}`).css('bottom', `${adjustedpos}px`);
 			$(`.foodpercent${i}`).css('z-index', "999");
 
 		}

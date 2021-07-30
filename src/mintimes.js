@@ -545,5 +545,16 @@ var mintimes = {
 "Spinosaurus": 1,
 "Pterodactyl": 1,
 "Mosasaurus": 1,
-"T-Rex": 1
+"T-Rex": 1,
+										// Alice
+"Card Gardener": 10,
+"The White Rabbit": 55,
+"Dinah": 55,
+"Bread and Butterfly": 55,
+"Rocking Horse Fly": 55,
+"Tweedledum": 55,
+"Tweedledee": 55,
+"The Dodo": 55,
+"The Lory": 55,
+"The Mouse": 55
 };
