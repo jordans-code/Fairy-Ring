@@ -1,6 +1,13 @@
 ## Versions
 
 <a name="latest"></a>
+
+### BETA 0.12.4:
+Bug Fix:
++ Added support for the new Alice food.
++ Added the new Alice creatures.
++ Rewrote how timings are written above food plates.
+
 ### BETA 0.12.3:
 Bug Fix:
 + Fixed the open all buttons which were broken with the latest update
