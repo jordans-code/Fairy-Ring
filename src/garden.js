@@ -393,6 +393,8 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 				foodheightoffset = 111
 			} else if (dict[z].name == "Birthday") {
 				foodheightoffset = 88
+			} else if (dict[z].name == "Grass") {
+				foodheightoffset = 55
 			}
 			if (dict[z].name == "Water") {
 				var position = 0
