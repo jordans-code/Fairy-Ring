@@ -394,7 +394,11 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			} else if (dict[z].name == "Birthday") {
 				foodheightoffset = 88
 			}
-			var position = parseInt($('.planttd').eq(z).children().eq(0).children().eq(0).children().eq(0).children('img[src*="byo_food"]').css('bottom').split("px")[0])
+			if (dict[z].name == "Water") {
+				var position = 0
+			} else {
+				var position = parseInt($('.planttd').eq(z).children().eq(0).children().eq(0).children().eq(0).children('img[src*="byo_food"]').css('bottom').split("px")[0])
+			}
 			var adjustedpos = position+foodheightoffset
 			
 			var hours = seconds / 3600;
@@ -419,16 +423,21 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			}
 			var Final = `<div class="foodpercent${i}"><center><font size="4px"; color="${NormColor}";>${percent}%</font></center></div>`;
 			if (dict[z]["name"] == "Water") { // Water (birdbath) has formatting issues, this makes it so text doenst clip inside it
-				$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
+				//$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
+				adjustedpos=90
 			}
+			
 			else if ($('.planttd').eq(z).children()[0].innerHTML.includes("byo_table/top")) {
 				if(settings.debug){console.log("Custom mini-plate detected")};
 				if (dict[z].name == "Birthday") {
-					$('.planttd').eq(z).prepend('<br><br><br><br><br>');
+					//$('.planttd').eq(z).prepend('<br><br><br><br><br>');
+					adjustedpos = 60
 				} else {
-					$('.planttd').eq(z).prepend('<br><br>');
+					adjustedpos = 25
+					//$('.planttd').eq(z).prepend('<br><br>');
 				}
 			}
+			
 			$('.planttd').eq(z).prepend(bottom);
 			$('.planttd').eq(z).prepend(Final);
 			
@@ -436,6 +445,7 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			$(`.foodwindow${i}`).css('position', "relative");
 			$(`.foodwindow${i}`).css('bottom', `${adjustedpos}px`);
 			$(`.foodwindow${i}`).css('z-index', "999");
+			$(`.foodwindow${i}`).css('white-space', "nowrap");
 
 			$(`#foodwindowZ${i}`).css('textShadow',`-1px -1px 0 ${WindowGlow},1px -1px 0 ${WindowGlow},-1px 1px 0 ${WindowGlow},1px 1px 0 ${WindowGlow}`);
 			

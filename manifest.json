@@ -3,7 +3,7 @@
  
   "name": "Fairy Ring",
   "author": "Danger Dev",
-  "version": "0.12.4",
+  "version": "0.12.5",
   "description": "A browser extension for fairylandgame.com",
   "browser_specific_settings": {
 	  "gecko": {

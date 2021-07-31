@@ -1,6 +1,11 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.5:
+Bug Fix:
++ Fixed birdbaths causing Fairy Ring to crash.
++ Fixed custom food plates not showing visit window above them.
++ Fixed an issue with text wrapping on the visit window.
 
 ### BETA 0.12.4:
 Bug Fix:
