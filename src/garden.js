@@ -58,10 +58,12 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				name == "Wood" || 
 				name == "Bricks" || 
 				name == "Comfits" ||
+				name == "Tarts" ||
 				escape(name) == "Hot%A0%A0Porridge" ||
 				escape(name) == "Cold%A0%A0Porridge") { // These use different spaces so are not split
 				Final[i]["string"] = csplit.slice(1);
-			} else if (name == "just") { // the only 3 word food
+			} else if (name == "Just" ||
+					   name == "Eat") { // the only 3 word food
 				Final[i]["string"] = csplit.slice(3);
 			} else { // all other food types are 2 words
 				Final[i]["string"] = csplit.slice(2); 
@@ -215,12 +217,47 @@ function getleftout(dict) { // Returns dict with the added time the food was lef
 	return Final;
 }
 
+function AliceRemover(thedict) {
+	console.log(thedict);
+	var test = thedict["string"]
+	var filteredlist = []
+	for (var z=0; z < test.length; z++) {
+		if (test[z] != "" &&
+			test[z] != "\n" &&
+			test[z] != "(Leftmost" &&
+			test[z] != "(Middle" &&
+			test[z] != "(Rightmost" &&
+			test[z] != "card" &&
+			test[z] != "too" &&
+			test[z] != "high)Arrived" &&
+			test[z] != "low)Arrived" &&
+			test[z] != "correct!)Arrived") {
+			filteredlist.push(test[z])
+		} else if (test[z] == "high)Arrived" || test[z] == "low)Arrived" || test[z] == "correct!)Arrived") {
+			filteredlist.push("Arrived")
+			
+		}
+	}
+
+	console.log(filteredlist);
+	thedict["string"] = filteredlist
+	return thedict
+}
+
 function getlastfeed(dict) { // Returns dict after adding values for what, if any, was the last to eat from food and when
 	var ActiveFood = dict['ActiveFood'];
 	var Final = dict;
 	for (var i = 0; i < ActiveFood.length; i++) {
 		var z = ActiveFood[i];
 		var current = Final[z];
+		console.log(current)
+		console.log("2")
+		console.log(current["string"][1]);
+		var current = AliceRemover(current)
+		console.log("3")
+		console.log(current)
+		console.log("4")
+		console.log(current["string"][1]);
 		if (current["string"][1] == "Attracted(Nothing,") { // if no feeds
 			Final[z]["lastfeed"] = -1;
 			continue;
@@ -231,10 +268,33 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 		function matchesarrived(element) {
 			return element.includes("Arrived");
 		}
-		var mindex = current["string"].findIndex(matchesarrived);
+		
+		var mindex = current["string"].findIndex(matchesarrived); // index that "arrived" is at
 		var seconds = 0;
 		var visitor = "";
-		
+		console.log("HERE")
+		console.log(current["string"]);
+		//     5 - 1
+		if (current["string"][1].includes("Diamonds]")) {
+			var prefix = "Diamonds]"
+		} else if (current["string"][1].includes("Attracted\n")){
+			var prefix = "Attracted\n"
+		} else {
+			var prefix = "Attracted"
+		}
+		if ((mindex - 1) == 4) { // 3 word, starting at index 2
+			visitor += current["string"][2] + " " + current["string"][3] + " " + current["string"][4]
+		} else if ((mindex - 1) == 3) { // 4 word, index 1-4
+				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2] + " "+ current["string"][3] + " "+ current["string"][4].split("Arrived")[0]
+		} else if ((mindex - 1) == 2) { // 3 word, index 1-3
+				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2] + " " + current["string"][3].split("Arrived")[0]
+		} else if ((mindex - 1) == 1) { // 2 word, index 1-2
+				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2].split("Arrived")[0]
+		} else if ((mindex - 1) == 0) { // 1 word, index 1
+			visitor += current["string"][1].split(prefix)[1].split("Arrived")[0]
+		}
+		visitor = visitor.trim()
+		/*
 		for (var p = 1; p < mindex; p++) { 
 			if (p == 1) {
 				if (mindex == 2) {
@@ -248,6 +308,7 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 				visitor += (current["string"][p] + " ");
 			}
 		}
+		*/
 		Final[z]["lastvisitor"] = visitor;
 		seconds += gettime(current["string"][mindex + 1], current["string"][mindex + 2]);
 		var notspotted = 0;

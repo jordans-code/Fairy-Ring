@@ -1,6 +1,12 @@
 ## Versions
 
 <a name="latest"></a>
+
+### BETA 0.12.6:
+Bug Fix:
++ Fixed a crash caused by the update to the new food plate formatting.
++ Fixed a dark theme issue where certain backwall posts were being highlighted as blue
+
 ### BETA 0.12.5:
 Bug Fix:
 + Fixed birdbaths causing Fairy Ring to crash.
