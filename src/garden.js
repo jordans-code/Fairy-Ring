@@ -303,7 +303,7 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 		var notspotted = 0;
 		var agoStayedindex = current["string"].indexOf("agoStayed", 1)
 		
-		if (agoStayedindex < 13) {
+		if (agoStayedindex < 13 && agoStayedindex > 0) {
 			notspotted += gettime(current["string"][agoStayedindex+1], current["string"][agoStayedindex+2])
 			if (current["string"][agoStayedindex+3].includes("but")) {
 			} else {
