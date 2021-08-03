@@ -218,7 +218,6 @@ function getleftout(dict) { // Returns dict with the added time the food was lef
 }
 
 function AliceRemover(thedict) {
-	console.log(thedict);
 	var test = thedict["string"]
 	var filteredlist = []
 	for (var z=0; z < test.length; z++) {
@@ -239,7 +238,6 @@ function AliceRemover(thedict) {
 		}
 	}
 
-	console.log(filteredlist);
 	thedict["string"] = filteredlist
 	return thedict
 }
@@ -250,14 +248,7 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 	for (var i = 0; i < ActiveFood.length; i++) {
 		var z = ActiveFood[i];
 		var current = Final[z];
-		console.log(current)
-		console.log("2")
-		console.log(current["string"][1]);
 		var current = AliceRemover(current)
-		console.log("3")
-		console.log(current)
-		console.log("4")
-		console.log(current["string"][1]);
 		if (current["string"][1] == "Attracted(Nothing,") { // if no feeds
 			Final[z]["lastfeed"] = -1;
 			continue;
@@ -272,9 +263,6 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 		var mindex = current["string"].findIndex(matchesarrived); // index that "arrived" is at
 		var seconds = 0;
 		var visitor = "";
-		console.log("HERE")
-		console.log(current["string"]);
-		//     5 - 1
 		if (current["string"][1].includes("Diamonds]")) {
 			var prefix = "Diamonds]"
 		} else if (current["string"][1].includes("Attracted\n")){
@@ -309,26 +297,23 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 			}
 		}
 		*/
+		
 		Final[z]["lastvisitor"] = visitor;
 		seconds += gettime(current["string"][mindex + 1], current["string"][mindex + 2]);
 		var notspotted = 0;
+		var agoStayedindex = current["string"].indexOf("agoStayed", 1)
+		
+		if (agoStayedindex < 13) {
+			notspotted += gettime(current["string"][agoStayedindex+1], current["string"][agoStayedindex+2])
+			if (current["string"][agoStayedindex+3].includes("but")) {
+			} else {
+				notspotted += gettime(current["string"][agoStayedindex+3], current["string"][agoStayedindex+4])
+			}
+		}
 		if (current["string"][mindex+3].includes("ago")) {
 			Final[z]["lastfeed"] = seconds;
-			if (current["string"][mindex+3].includes("Stayed")) { // If wildlife wasn't spotted this gets the exact time of the slot opening
-				notspotted += gettime(current["string"][mindex+5], current["string"][mindex+6]);
-				if (current["string"][mindex+9] == "but") {
-					notspotted += gettime(current["string"][mindex+7], current["string"][mindex+8]);
-				}
-			}
 		} else {
 			seconds += gettime(current["string"][mindex + 3], current["string"][mindex + 4]);
-			if (current["string"][mindex+5].includes("Stayed")) { // If wildlife wasn't spotted this gets the exact time of the slot opening
-				notspotted += gettime(current["string"][mindex+7], current["string"][mindex+8]);
-				if (current["string"][mindex+11] == "but") {
-					notspotted += gettime(current["string"][mindex+9], current["string"][mindex+10]);
-				}
-			}
-
 		}
 		Final[z]["notspotted"] = notspotted;
 		Final[z]["lastfeed"] = seconds;
