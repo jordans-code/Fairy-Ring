@@ -556,5 +556,8 @@ var mintimes = {
 "Tweedledee": 55,
 "The Dodo": 55,
 "The Lory": 55,
-"The Mouse": 55
+"The Mouse": 55,
+"The Mad Hatter": 55,
+"The March Hare": 55,
+"The Dormouse": 55
 };

@@ -474,6 +474,14 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 				//$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
 				adjustedpos=90
 			}
+			else if (dict[z]["name"] == "Afternoon") { // Afternoon tea has formatting issues, this makes it so text doenst clip inside it
+				//$('.planttd').eq(z).prepend("<br><br><br><br><br><br>");
+				if ($('.planttd').eq(z).children()[0].innerHTML.includes("byo_table/top")) {
+					adjustedpos=73
+				} else {
+				adjustedpos=168
+				}
+			}
 			
 			else if ($('.planttd').eq(z).children()[0].innerHTML.includes("byo_table/top")) {
 				if(settings.debug){console.log("Custom mini-plate detected")};
@@ -528,6 +536,7 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 	}
 	}
 }
+
 
 function checknewspot(oldspot) {
 	var spot = $('.standard_message.status').children().eq(0).children().eq(1).html();

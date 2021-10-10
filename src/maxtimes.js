@@ -557,6 +557,8 @@ var maxtimes = {
 "Tweedledee": 60,
 "The Dodo": 60,
 "The Lory": 60,
-"The Mouse": 60
-
+"The Mouse": 60,
+"The Mad Hatter": 60,
+"The March Hare": 60,
+"The Dormouse": 60
 };

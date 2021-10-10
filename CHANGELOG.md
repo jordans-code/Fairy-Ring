@@ -2,6 +2,11 @@
 
 <a name="latest"></a>
 
+### BETA 0.12.7:
+Bug Fix:
++ Added support for the new alice critters pt 2 release.
++ Fixed the new food and text clipping
+
 ### BETA 0.12.6:
 Bug Fix:
 + Fixed a crash caused by the update to the new food plate formatting.
