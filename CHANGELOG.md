@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.8:
+Bug Fix:
++ Added support for the new 4th table from the alice challenges so that the top right "total percentage chance" works with it.
++ Fixed a bug which was crashing fairy ring for gardens with "just right porridge" 
 
 ### BETA 0.12.7:
 Bug Fix:

@@ -62,8 +62,7 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				escape(name) == "Hot%A0%A0Porridge" ||
 				escape(name) == "Cold%A0%A0Porridge") { // These use different spaces so are not split
 				Final[i]["string"] = csplit.slice(1);
-			} else if (name == "Just" ||
-					   name == "Eat") { // the only 3 word food
+			} else if (name == "Eat") { // the only 3 word food
 				Final[i]["string"] = csplit.slice(3);
 			} else { // all other food types are 2 words
 				Final[i]["string"] = csplit.slice(2); 
@@ -518,6 +517,8 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]) * (1 - duepercentarr[2]));
 	} else if (duepercentarr.length == 4 ) { // birdbath
 		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]) * (1 - duepercentarr[2]) * (1 - duepercentarr[3]));
+	} else if (duepercentarr.length == 5 ) { // birdbath + tophat
+		var duepercent = 1 - ((1 - duepercentarr[0]) * (1 - duepercentarr[1]) * (1 - duepercentarr[2]) * (1 - duepercentarr[3]) * (1 - duepercentarr[4]));
 	} else {
 		var duepercent = duepercentarr[0];
 	}
