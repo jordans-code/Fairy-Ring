@@ -269,8 +269,11 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 		} else {
 			var prefix = "Attracted"
 		}
-		if ((mindex - 1) == 4) { // 3 word, starting at index 2
-			visitor += current["string"][2] + " " + current["string"][3] + " " + current["string"][4]
+		if ((mindex - 1) == 5) {
+				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2] + " "+ current["string"][3] + " "+ current["string"][4] + " " + current["string"][5] + " " + current["string"][6].split("Arrived")[0]
+		} else if ((mindex - 1) == 4) { // previously 3 word starting at 2
+				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2] + " "+ current["string"][3] + " "+ current["string"][4] + " "+ current["string"][5].split("Arrived")[0]
+			//visitor += current["string"][2] + " " + current["string"][3] + " " + current["string"][4]
 		} else if ((mindex - 1) == 3) { // 4 word, index 1-4
 				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2] + " "+ current["string"][3] + " "+ current["string"][4].split("Arrived")[0]
 		} else if ((mindex - 1) == 2) { // 3 word, index 1-3
@@ -279,6 +282,8 @@ function getlastfeed(dict) { // Returns dict after adding values for what, if an
 				visitor += current["string"][1].split(prefix)[1] + " " + current["string"][2].split("Arrived")[0]
 		} else if ((mindex - 1) == 0) { // 1 word, index 1
 			visitor += current["string"][1].split(prefix)[1].split("Arrived")[0]
+		} else {
+			console.log("Mindex error!" + mindex-1)
 		}
 		visitor = visitor.trim()
 		/*

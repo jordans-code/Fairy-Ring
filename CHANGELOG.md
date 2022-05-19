@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.9:
+Bug Fix:
++ Fixed an issue with certain critters showing up as "NaN" (5 and 6 word creatures)
+
 ### BETA 0.12.8:
 Bug Fix:
 + Added support for the new 4th table from the alice challenges so that the top right "total percentage chance" works with it.
