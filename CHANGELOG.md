@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.10:
+Bug Fix:
++ Fixed an issue with the new "Toad" creature causing crashes. 
+
 ### BETA 0.12.9:
 Bug Fix:
 + Fixed an issue with certain critters showing up as "NaN" (5 and 6 word creatures)
