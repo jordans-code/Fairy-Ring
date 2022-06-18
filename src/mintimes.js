@@ -190,6 +190,7 @@ var mintimes = {
 "Baby Unicorn": 2,
 "Golden Unicorn": 2,
 "Rainbow Unicorn": 2,
+"Toad": 5,
 "Macaw": 55,					//RainForest
 "Okapi": 55,
 "Tree Frog": 55,

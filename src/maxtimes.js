@@ -190,6 +190,7 @@ var maxtimes = {
 "Baby Unicorn": 4,
 "Golden Unicorn": 4,
 "Rainbow Unicorn": 4,
+"Toad": 20,
 "Macaw": 60,					//RainForest
 "Okapi": 60,
 "Tree Frog": 60,
