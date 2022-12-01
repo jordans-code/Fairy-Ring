@@ -1,6 +1,12 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.11:
+Bug Fix:
++ Fixed a crash caused by birthday cakes being changed to "10th birthday cake". Added a few years of future cakes as well for future proofing.
+
++ Changed urls to update my updated github name. 
+
 ### BETA 0.12.10:
 Bug Fix:
 + Fixed an issue with the new "Toad" creature causing crashes. 

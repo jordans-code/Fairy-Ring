@@ -62,7 +62,7 @@ function getname(settings, Working) { // Takes array of food and uses name for d
 				escape(name) == "Hot%A0%A0Porridge" ||
 				escape(name) == "Cold%A0%A0Porridge") { // These use different spaces so are not split
 				Final[i]["string"] = csplit.slice(1);
-			} else if (name == "Eat") { // the only 3 word food
+			} else if (name == "Eat" || name == "10th" || name == "11th" || name == "12th" || name == "13th") { // the only 3 word foods
 				Final[i]["string"] = csplit.slice(3);
 			} else { // all other food types are 2 words
 				Final[i]["string"] = csplit.slice(2); 
@@ -441,7 +441,7 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 			var foodheightoffset = 44
 			if (dict[z].name == "Treasure") {
 				foodheightoffset = 111
-			} else if (dict[z].name == "Birthday") {
+			} else if (dict[z].name == "Birthday" || dict[z].name == "10th" || dict[z].name == "11th" || dict[z].name == "12th" || dict[z].name == "13th" ) {
 				foodheightoffset = 88
 			} else if (dict[z].name == "Grass") {
 				foodheightoffset = 55
