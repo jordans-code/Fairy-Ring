@@ -473,6 +473,13 @@ var mintimes = {
 "Birthday Orangutan": 2,
 "Birthday Albino Raccoon": 60,
 "Birthday Dodo": 5,
+"Birthday Elephant": 55,
+"Birthday T-Rex": 1,
+"Birthday Tortoise": 10,
+"Birthday Froog": 10,
+"Birthday Fox": 55,
+"Birthday Baby Unicorn": 2,
+"Birthday Toad": 5,
 "Red Chameleon": 10,
 "Orange Chameleon": 5,
 "Yellow Chameleon": 5,
@@ -481,6 +488,7 @@ var mintimes = {
 "Indigo Chameleon": 1,
 "Violet Chameleon": 1,
 "Rainbow Chameleon": 1,
+
 														//candy
 "Red Candydevil": 55,
 "Orange Candydevil": 55,
