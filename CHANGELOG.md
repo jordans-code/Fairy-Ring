@@ -1,6 +1,13 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.13:
+Features: 
++ Added a toggle (off by default) to hide the watering can animation. This means that you can have normal animations on while hiding just this.
+
+Bug Fix:
++ Fixed a crash caused by the game renaming pond & garden creatures to "underwater" when they were spotted underwater.
+
 ### BETA 0.12.12:
 
 Bug Fix:

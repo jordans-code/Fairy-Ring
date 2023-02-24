@@ -7,6 +7,7 @@ var defaults = {
 	colorborder: true,
 	colorwindow: true,
 	waterbutton: true,
+	hidewateringcan: false,
 	autosnail: false,
 	snailchoice: "3",
 	automsg: false,

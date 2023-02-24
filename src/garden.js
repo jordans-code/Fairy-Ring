@@ -437,16 +437,16 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 		var bottom = "";
 		percent = Math.floor(percentdecimal * 1000)/10;
 		duepercentarr.push(dict[z]["math1"]);
-		console.log(dict[z].name.trim()[2] + dict[z].name.trim()[3])
 		if (settings.foodoverlay) {
 			var foodheightoffset = 44
 			if (dict[z].name == "Treasure") {
 				foodheightoffset = 111
 			} else if (dict[z].name == "Birthday" || dict[z].name.trim()[2] + dict[z].name.trim()[3] == "th" ) {
-				console.log("88")
 				foodheightoffset = 88
 			} else if (dict[z].name == "Grass") {
 				foodheightoffset = 55
+			} else if (dict[z].name == "Eat") {
+				foodheightoffset = 75
 			}
 			if (dict[z].name == "Water") {
 				var position = 0
@@ -494,7 +494,10 @@ function Write(dict, settings, prior) { // Formats gathered data and writes to w
 				if (dict[z].name == "Birthday" || dict[z].name.trim()[2] + dict[z].name.trim()[3] == "th") {
 					//$('.planttd').eq(z).prepend('<br><br><br><br><br>');
 					adjustedpos = 60
-				} else {
+				} else if (dict[z].name == "Eat") {
+					adjustedpos = 65
+				}
+				else {
 					adjustedpos = 25
 					//$('.planttd').eq(z).prepend('<br><br>');
 				}
@@ -753,6 +756,9 @@ function rmnotification(settings) { // removes notifications in top right when o
 	}
 } 
 
+function hidewateringcan() { // removes the div for the watering can animation
+	$('#watering')[0].remove()
+}
 function writemessage(settings, prior, spotlist, current) {
 	formatted = formatmessage(settings, prior, spotlist, current, false); // formatmessage.js
 	if (formatted != undefined) {
@@ -898,6 +904,9 @@ function garden(settings, prior, priordict, addbuttons) { // calls all functions
 		if (finishedloading != 0) {
 			if (!prior) {
 				buttonhandler(settings);
+				if (settings.hidewateringcan) {
+					hidewateringcan();
+				}
 			}
 			clearInterval(interval);
 			$("scriptvalue").remove();

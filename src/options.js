@@ -67,6 +67,7 @@ function save_options() {
   var autosnail = document.getElementById('autosnail').checked;
   var snailchoice = document.getElementById('snailchoice').value;
   var flid = document.getElementById('flid').value;
+  var hidewateringcan = document.getElementById('hidewateringcan').checked;
   // typer
   var automsg = document.getElementById('automsg').checked;
   var msg = document.getElementById('msg').value;
@@ -156,6 +157,7 @@ function save_options() {
 	autosnail: autosnail,
 	snailchoice: snailchoice,
 	flid: flid,
+	hidewateringcan: hidewateringcan,
 	
 	automsg: automsg,
 	msg: msg,
@@ -262,6 +264,7 @@ function restore_options() {
 	document.getElementById('autosnail').checked = items.autosnail;
 	document.getElementById('snailchoice').value = items.snailchoice;
 	document.getElementById('flid').value = items.flid;
+	document.getElementById('hidewateringcan').checked = items.hidewateringcan;
 	
 	document.getElementById('automsg').checked = items.automsg;
 	document.getElementById('msg').value = items.msg;
@@ -381,6 +384,7 @@ function restore_options() {
 	if (!items.automushroom) { $('#divautomushroom').css('background-color', color)}
 	if (!items.persistentsessions) { $('#divpersistentsessions').css('background-color', color)}
 	if (!items.darkmode) { $('#divdarkmode').css('background-color', color)}
+	if (!items.hidewateringcan) { $('#divhidewateringcan').css('background-color', color)}
 	getallsamples(items);
 	document.getElementById("sampletext").value = (formatmessage(items, {"msglowercase": items.msglowercase, "pd": items.samplepd}, [items.samplecritter1, items.samplecritter2, items.samplecritter3, items.samplecritter4], {"pd": false}, true));
   });
