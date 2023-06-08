@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.14:
+Bug Fix:
++ Fixed the (ownername) and (fairyname) features for the typer. 
+
 ### BETA 0.12.13:
 Features: 
 + Added a toggle (off by default) to hide the watering can animation. This means that you can have normal animations on while hiding just this.
