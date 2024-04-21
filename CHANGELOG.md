@@ -1,6 +1,19 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.13.0:
+Major Changes:
++ This update changed many things on the backend in order to migrate from Chrome manifest V2 to V3 which had a deadline of June 2024. 
+
+Backend changes:
+
++ Converted inline script for listening to Ajax calls to instead be injected as a file, OnLoadListener.js. This is how Fairy Ring knows when the page is done loading after you water a garden so that it can run again. This is a safer way of doing this and is enforced in Manifest V3 so is required.
++ Updated Jquery to 3.7.1.
++ 
+
+Bug Fix:
++ Added support the 4 new gold wildlife types to prevent the "NaN%" errors. 
+
 ### BETA 0.12.15:
 Bug Fix:
 + Added support the 4 new gold wildlife types to prevent the "NaN%" errors. 
