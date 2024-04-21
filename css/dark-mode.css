@@ -117,6 +117,27 @@ color:var(--grey4)!important;
 border: 1px solid var(--grey3)!important;
 }
 
+/* Wildlife Quick Search*/
+.select2-selection__rendered {
+	background-color:var(--grey2) !important;
+	color:var(--grey4) !important;
+	border: var(--grey4)!important;
+}
+.select2-dropdown.select2-dropdown--below {
+	background-color:var(--grey2) !important;
+	color:var(--grey4) !important;
+}
+.select2-search__field {
+	background-color:var(--grey1) !important;
+	color:var(--grey4) !important;
+}
+
+li[data-select2-id="570"] {
+    /* CSS styles here */
+		background-color:var(--grey2) !important;
+	color:var(--grey4) !important;
+}
+/*    */
 div.plantpopup[style] {
 	border: var(--yellow2)!important;
 	border-top-color: var(--yellow2)!important;
