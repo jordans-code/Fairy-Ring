@@ -18,7 +18,7 @@
   },
   "icons": { "16": "icons/mushroom16.png",
 			 "48": "icons/mushroom48.png",
-			 "128": "icons/mushroom128.png" },
+			 "128": "icons/mushroom128.png"},
   "options_ui": {
 	"page": "src/options.html",
 	"open_in_tab": false
@@ -41,6 +41,10 @@
     {
       "resources": ["src/OnLoadListener.js"],
       "matches": ["https://www.fairylandgame.com/*"]
+    },
+	{
+        "resources": ["icons/mushroom16notify.png", "icons/mushroom16.png"],
+        "matches": ["<all_urls>"]
     }
   ]
 }
