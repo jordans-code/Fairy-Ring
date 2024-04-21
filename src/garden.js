@@ -885,7 +885,6 @@ function getCurrentTime(){
 
 function injectScript(file, node) {
 	// For injecting OnLoadListener.js into the page.
-	console.log("Injecting Script");
     var th = document.getElementsByTagName(node)[0];
     var s = document.createElement('script');
     s.setAttribute('type', 'text/javascript');
