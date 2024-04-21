@@ -19,15 +19,18 @@ function apply_DarkModeSettings(tab) {
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
 	if (msg.action === "updateIcon") {
 		if (msg.value) {
-			chrome.browserAction.setIcon({
-				path: { "16": "icons/mushroom16notify.png"}
+			chrome.action.setIcon({
+				path: { "16": "/icons/mushroom16notify.png"}
+			}).catch(error => {
+				console.error("Error setting icon:", error);
 			});
-			} else {
-			chrome.browserAction.setIcon({
-				path: { "16": "icons/mushroom16.png"}
+		} else {
+			chrome.action.setIcon({
+				path: { "16": "/icons/mushroom16.png"}
+			}).catch(error => {
+				console.error("Error setting icon:", error);
 			});
-			}
+		}
 	}
-	
 });
 
