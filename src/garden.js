@@ -353,19 +353,16 @@ function getcolor(percent, settings, type) { // takes a percentage and matches i
 	for (i=1; i < 7; i++) {
 		if (i == 1 && percent <= (parseFloat(settings[`${percentvar}${i}`])/100)) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
 		} else if (percent < (parseFloat(settings[`${percentvar}${i}`])/100)) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
 		} else if (i == 6) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
