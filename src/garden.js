@@ -578,6 +578,8 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 	if (prior && newspot) { // use old water time if the garden was just watered and wildlife spotted
 		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
+	} else if (prior) {
+		var water = 0
 	} else {
 		var water = getwater();
 	}
