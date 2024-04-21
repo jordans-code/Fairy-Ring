@@ -577,6 +577,12 @@ var mintimes = {
 "The Mad Hatter": 55,
 "The March Hare": 55,
 "The Dormouse": 55,
+"The Knave of Hearts": 55,
+"The Queen Of Hearts": 55,
+"The King Of Hearts": 55,
+"The Cheshire Cat": 55,
+"The Mock Turtle": 55,
+"The Caterpillar": 55,
 										// Gold 
 "Gold Macaw": 55,
 "Gold Gibbon": 10,

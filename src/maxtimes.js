@@ -577,6 +577,12 @@ var maxtimes = {
 "The Mad Hatter": 60,
 "The March Hare": 60,
 "The Dormouse": 60,
+"The Knave of Hearts": 60,
+"The Queen Of Hearts": 60,
+"The King Of Hearts": 60,
+"The Cheshire Cat": 60,
+"The Mock Turtle": 60,
+"The Caterpillar": 60,
 										// Gold 
 "Gold Macaw": 60,
 "Gold Gibbon": 20,
