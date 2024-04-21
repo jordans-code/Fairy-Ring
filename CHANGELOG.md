@@ -1,8 +1,6 @@
 ## Versions
 
 <a name="latest"></a>
-<<<<<<< Updated upstream
-=======
 ### BETA 0.13.0:
 Major Changes:
 + This update changed many things on the backend in order to migrate from Chrome manifest V2 to V3 which had a deadline of June 2024. 
@@ -26,7 +24,7 @@ Backend changes:
 Other Changes:
 + Fixed the Dark Mode theme not applying to the wildlife quick search bar. 
 
->>>>>>> Stashed changes
+
 ### BETA 0.12.15:
 Bug Fix:
 + Added support the 4 new gold wildlife types to prevent the "NaN%" errors. 

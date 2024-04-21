@@ -37,13 +37,9 @@ function openurls() { // handles "open all" button on wildlife page
 
 function openurlspersist() { // handles "open all" button on wildlife page when persist option is checked, two functions because this one has to use a promise
 	getlinkspersist().then(function(links) {
-	console.log(links)
-	console.log(links.length);
 	for (i = 0; i < links.length; i++) {
-		console.log(links[i]);
 		window.open(links[i]);
 	}
-	console.log("done opening");
 	});
 }
 
@@ -56,11 +52,9 @@ async function getlinkspersist() {
 		chrome.storage.sync.get({flid: ""}, function(item) {
 		chrome.storage.local.get({persistentsessionslist: []}, function(wildlifeitem) {
 			finaljawn = wildlifeitem.persistentsessionslist
-			console.log(finaljawn)
 			for (i = 0; i < posts.length; i++) {
 				var linkz = posts[i].getElementsByTagName("a")[0].toString();
 				var linkid = linkz.split("=")[1];
-				console.log(linkid)
 				var flid = item.flid;
 				if (!finaljawn.includes(flid)) {
 					finaljawn.push(flid);
@@ -70,13 +64,10 @@ async function getlinkspersist() {
 			if (!(finaljawn.includes(linkid))) {
 				finaljawn.push(linkid);
 				links.push(linkz);
-				console.log(finaljawn);
 			}
 			updatetotals(finaljawn.length - 1);
 			}
 			chrome.storage.local.set({persistentsessionslist: finaljawn});
-		console.log("final link return")
-		console.log(links);
 		resolve(links);
 			}
 		)})} catch (ex) {
