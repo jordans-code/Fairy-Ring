@@ -353,19 +353,16 @@ function getcolor(percent, settings, type) { // takes a percentage and matches i
 	for (i=1; i < 7; i++) {
 		if (i == 1 && percent <= (parseFloat(settings[`${percentvar}${i}`])/100)) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
 		} else if (percent < (parseFloat(settings[`${percentvar}${i}`])/100)) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
 		} else if (i == 6) {
 			if (border && settings[`threshold${i}border`] == "inner") {
-				console.log("Inner");
 				return '#' + settings[`TextColorthreshold${i}c`];
 			}
 			return '#' + settings[`${colorvar}${i}c`];
@@ -578,6 +575,8 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 	if (prior && newspot) { // use old water time if the garden was just watered and wildlife spotted
 		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
+	} else if (prior) {
+		var water = 0
 	} else {
 		var water = getwater();
 	}
@@ -831,7 +830,8 @@ function addrefresh(settings) { // Adds listeners for the built in refresh butto
 }
 
 function getvalue() {
-	return $('scriptvalue').length;
+	// Checks to see if LoadCompleteCheckbox is present and returns it's bool value. 
+	return $('LoadCompleteCheckbox').length;
 }
 
 function addopenall() {
@@ -882,34 +882,45 @@ function getCurrentTime(){
 	return date.getTime()
 }
 
+function injectScript(file, node) {
+	// For injecting OnLoadListener.js into the page.
+    var th = document.getElementsByTagName(node)[0];
+    var s = document.createElement('script');
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('src', file);
+    th.appendChild(s);
+}
+
+
 function garden(settings, prior, priordict, addbuttons) { // calls all functions required when on a garden page
 	var startTime = getCurrentTime()
 	if (!prior) {
-		var script = document.createElement('script');
-		var scriptvalue = document.createElement('scriptvalue');
-		(document.head).appendChild(scriptvalue);
-		script.textContent = '$(document).bind("ajaxSend", function(){$("scriptvalue").remove();}).bind("ajaxComplete", function(){var scriptvalue = document.createElement("scriptvalue");scriptvalue.textContent = `true`;(document.head).appendChild(scriptvalue);});';
-		(document.head||document.documentElement).appendChild(script);
-		script.remove();
+		// Adds script to the page which adds listeners for AJAX requests. This is vital to knowing when this page is fully loaded. 
+		// This cannot run as a content script as it cannot be isolated, it's modifications must actually be readable here and able to read the page AJAX which doesn't work as a CS.
+		injectScript(chrome.runtime.getURL('src/OnLoadListener.js'), 'body');
+
 	}
 	var total = 0;
-	var interval = setInterval(function() { // 
+	var interval = setInterval(function() { 
+	// 200 MS while loop to wait for AJAX listeners from the page to return to indicate it's loaded and ready for processing. 
 		if (total > 200) {
 			clearInterval(interval);
 			console.log("Timed out");
 		} else {
 			total++;
 		}
-		var finishedloading = getvalue();
+		var finishedloading = getvalue()
 		if (finishedloading != 0) {
+			// Check to see if AJAX has completed and if the page is ready, otherwise continues loop
 			if (!prior) {
+				// Adds items for the first time the page is loaded as a one-off and never again. 
 				buttonhandler(settings);
 				if (settings.hidewateringcan) {
 					hidewateringcan();
 				}
 			}
 			clearInterval(interval);
-			$("scriptvalue").remove();
+			$("LoadCompleteCheckbox").remove(); // Removes the checkpoint checkbox as we are proceeding with the script. Most likely redundant but added out of caution. 
 			var Plantarray = fetcher();
 			var food = parser(Plantarray);
 			var namedfood = getname(settings, food);

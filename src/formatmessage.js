@@ -95,7 +95,7 @@ function formatcustomnames(settings) {
 	var data = settings.customcritterdata
 	var datadict = {}
 	var lastopen = -1
-	console.log(data)
+	if (settings.debug) {console.log(data);}
 	try {
 		for (i = 0; i < data.length; i++) {
 			if (lastopen == -1) {
@@ -111,7 +111,7 @@ function formatcustomnames(settings) {
 	} catch { 
 	datadict = false
 	}
-	console.log(datadict)
+	if (settings.debug) {console.log(datadict);}
 	return datadict
 }
 function formatmessage(settings, prior, spotlist, current, settingspage) {
@@ -126,7 +126,7 @@ function formatmessage(settings, prior, spotlist, current, settingspage) {
 		var countc = {};
 		var finallist = [];
 		if (settings.customcritternames) {
-			console.log(settings)
+			if (settings.debug) {console.log(settings);}
 			var formatedcustomnames = formatcustomnames(settings)
 			if (!formatedcustomnames) {
 				return "There is an error in your formatting in custom critter names! Please ensure that you have exactly one equals sign within each pair of parentheses"
