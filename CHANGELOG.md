@@ -1,6 +1,32 @@
 ## Versions
 
 <a name="latest"></a>
+<<<<<<< Updated upstream
+=======
+### BETA 0.13.0:
+Major Changes:
++ This update changed many things on the backend in order to migrate from Chrome manifest V2 to V3 which had a deadline of June 2024. 
+
+Permissions changes:
++ Note: Fairy Ring can still only work on fairylandgame.com and does not collect any data. All changes here were simply requirements to work with ManifestV3.
++ Added "scripting" as a permission due to this being a requirement to use insertCSS in ManifestV3, which we use to insert the dark theme. 
++ Converted Browser_action to "action" per ManifestV3. 
++ Converted background script background.js to be a service_worker. This is the script that tells Fairy Ring when to load (when it sees you are on fairylandgame.com). 
++ Added new web accessible resource script "onloadlistener.js" which can only be loaded on fairylandgame.com. This script converted the old inline script method of listening for garden refreshes and further details can be seen below.
+
+Backend changes:
++ Converted inline script for listening to Ajax calls to instead be injected as a file, OnLoadListener.js. This is how Fairy Ring knows when the page is done loading after you water a garden so that it can run again. This is a safer way of doing this and is enforced in Manifest V3 so is required.
++ Changed background.js (for applying dark mode) from the legacy tabs.insertCSS to use chrome.scripting.insertCSS for ManifestV3. This works the same functionally and is for applying the dark mode for users who turn it on. 
++ Changed the 'scriptvalue' element checkbox to be "LoadCompleteCheckbox" for clarity. This is used as a marker on the page to indicate that the AJAX listener has seen that it has completed it's loading so that fairy ring can run safely.
++ Added function "injectScript" which injects OnLoadListener (the AJAX listeners) as detailed above.
+- Removed inline script for this LoadCompleteCheckbox/AJAX listeners which has been replaced by OnLoadListener.js. This way was incompatible with Manifest V3 and the new way is safer. 
++ Updated Jquery to 3.7.1.
++ Updated icon update paths in background.js to be absolute paths and changed browserAction to action for manifestV3. 
+
+Other Changes:
++ Fixed the Dark Mode theme not applying to the wildlife quick search bar. 
+
+>>>>>>> Stashed changes
 ### BETA 0.12.15:
 Bug Fix:
 + Added support the 4 new gold wildlife types to prevent the "NaN%" errors. 
