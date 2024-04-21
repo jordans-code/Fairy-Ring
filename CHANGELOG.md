@@ -23,7 +23,7 @@ Backend changes:
 
 Other Changes:
 + Fixed the Dark Mode theme not applying to the wildlife quick search bar. 
-
++ Added support for the 4 new gold wildlife types, and for the last 2 categories of Alice that have been causing "NaN%" errors on plates. 
 
 ### BETA 0.12.15:
 Bug Fix:
