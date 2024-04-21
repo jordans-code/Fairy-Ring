@@ -576,5 +576,10 @@ var mintimes = {
 "The Mouse": 55,
 "The Mad Hatter": 55,
 "The March Hare": 55,
-"The Dormouse": 55
+"The Dormouse": 55,
+										// Gold 
+"Gold Macaw": 55,
+"Gold Gibbon": 10,
+"Gold Hare": 40,
+"Gold Fox": 55
 };

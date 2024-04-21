@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.12.15:
+Bug Fix:
++ Added support the 4 new gold wildlife types to prevent the "NaN%" errors. 
+
 ### BETA 0.12.14:
 Bug Fix:
 + Fixed the (ownername) and (fairyname) features for the typer. 
