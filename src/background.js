@@ -1,14 +1,16 @@
 chrome.tabs.onUpdated.addListener(function(tabId, info, tab) {
-	do_something(tab);
+	if (tab.url?.startsWith("https://www.fairylandgame.com/")) { 
+		apply_DarkModeSettings(tab);
+	}
 });
 
-function do_something(tab) {
+function apply_DarkModeSettings(tab) {
 	var tabUrl = tab.url;
 	chrome.storage.sync.get(function(items) {
 		if (items.darkmode) {
-			chrome.tabs.insertCSS(tab.id, {
-				runAt: "document_start",
-				file: "css/dark-mode.css"
+			chrome.scripting.insertCSS({
+				target: { tabId: tab.id },
+				files: ['css/dark-mode.css'],
 			});
 		}
 	});	
