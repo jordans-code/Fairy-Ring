@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.13.1:
+Bug Fix:
++ Fixed a bug where refreshing the garden by clicking the garden name assumed that you had just watered it (thus setting the plate % to 0).
+
 ### BETA 0.13.0:
 Major Changes:
 + This update changed many things on the backend in order to migrate from Chrome manifest V2 to V3 which had a deadline of June 2024. 

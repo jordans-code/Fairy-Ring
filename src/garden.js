@@ -576,7 +576,8 @@ function calc(settings, type, current, prior, priordict, newspot) { // Returns d
 		if (settings.debug) {console.log("Wildlife spotted, not refreshing water.");}
 		var water = priordict["lastwater"];
 	} else if (prior) {
-		var water = 0
+		// if refresh garden inline to the page without spotting something
+		var water = getwater();
 	} else {
 		var water = getwater();
 	}
