@@ -1,6 +1,11 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.13.2:
+Bug Fix:
++ Fixed a bug with the "open all" buttons on wildlife pages which caused gardens on the first page to not be tracked as already having been opened.
++ Fixed a bug where refreshing the garden by clicking the garden name assumed that you had just watered it (thus setting the plate % to 0).
+
 ### BETA 0.13.1:
 Bug Fix:
 + Fixed a bug where refreshing the garden by clicking the garden name assumed that you had just watered it (thus setting the plate % to 0).
