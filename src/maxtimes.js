@@ -587,5 +587,7 @@ var maxtimes = {
 "Gold Macaw": 60,
 "Gold Gibbon": 20,
 "Gold Hare": 50,
-"Gold Fox": 60
+"Gold Fox": 60,
+"Gold Badger": 20,
+"Gold Tortoise": 60
 };

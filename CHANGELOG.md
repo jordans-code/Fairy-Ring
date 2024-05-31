@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.13.3:
+Bug Fix:
++ Added support for Gold Tortoise and Gold Badgers. 
+
 ### BETA 0.13.2:
 Bug Fix:
 + Fixed a bug with the "open all" buttons on wildlife pages which caused gardens on the first page to not be tracked as already having been opened.
