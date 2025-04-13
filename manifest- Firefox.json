@@ -35,7 +35,8 @@
 	"js": ["src/jquery.js", "src/notification/notifications.js", "src/maxtimes.js", "src/mintimes.js", "src/defaults.js", "src/formatmessage.js", "src/garden.js", "src/homepage.js", "src/wildlifepage.js", "src/alchemy.js", "src/mushroomgame.js", "src/main.js"]
   }],
   "background": {
-	"service_worker": "src/background.js"
+	"service_worker": "src/background.js",
+    "scripts": ["src/background.js"]
 	},
   "web_accessible_resources": [
     {
