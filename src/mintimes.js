@@ -589,5 +589,16 @@ var mintimes = {
 "Gold Hare": 40,
 "Gold Fox": 55,
 "Gold Badger": 15,
-"Gold Tortoise": 55
+"Gold Tortoise": 55,
+"Gold Donkey": 30,
+"Gold Elephant": 55,
+"Gold Pheonix": 20,
+"Gold Unicorn": 3,
+"Gold Baby Unicorn": 2,
+"Gold Mallard": 55,
+"Gold Field Mouse": 55,
+"Gold Tiger": 10,
+"Gold Kangaroo": 15,
+"Gold Octopus": 15,
+"Gold Starfish": 2
 };

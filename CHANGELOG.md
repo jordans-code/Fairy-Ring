@@ -1,6 +1,10 @@
 ## Versions
 
 <a name="latest"></a>
+### BETA 0.13.4:
+Bug Fix:
++ Added support for various new Gold wildlife. 
+
 ### BETA 0.13.3:
 Bug Fix:
 + Added support for Gold Tortoise and Gold Badgers. 

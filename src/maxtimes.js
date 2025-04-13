@@ -589,5 +589,16 @@ var maxtimes = {
 "Gold Hare": 50,
 "Gold Fox": 60,
 "Gold Badger": 20,
-"Gold Tortoise": 60
+"Gold Tortoise": 60,
+"Gold Donkey": 60,
+"Gold Elephant": 60,
+"Gold Pheonix": 30,
+"Gold Unicorn": 8,
+"Gold Baby Unicorn": 4,
+"Gold Mallard": 60,
+"Gold Field Mouse": 60,
+"Gold Tiger": 15,
+"Gold Kangaroo": 45,
+"Gold Octopus": 30,
+"Gold Starfish": 5
 };
